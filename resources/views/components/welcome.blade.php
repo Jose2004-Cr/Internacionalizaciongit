@@ -371,348 +371,214 @@ function logout() {
             </div>
 
             <!-- Páginas de destino del sitio web -->
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+            <style>
+                .sidebar-modal {
+                    position: fixed;
+                    right: 0;
+                    top: 0;
+                    bottom: 0;
+                    width: 400px;
+                    background-color: white;
+                    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+                    z-index: 50;
+                    transform: translateX(100%);
+                    transition: transform 0.3s ease-in-out;
+                }
+                .sidebar-modal.active {
+                    transform: translateX(0);
+                }
+            </style>
+        </head>
+
+        <body class="bg-gray-100">
+
             <div class="mb-5">
                 <div class="p-4 bg-white rounded-lg shadow">
                     <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-semibold">Eventos Proximos</h4>
+                        <h4 class="text-xl font-semibold">Eventos Próximos</h4>
+                        <button id="addEventBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Agregar Evento</button>
                     </div>
                     <div class="overflow-x-auto">
-                        <table class="w-full text-left">
+                        <table id="eventsTable" class="w-full text-left">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="py-2">Página de destino</th>
-                                    <th class="py-2 text-right"></th>
-
-
+                                    <th class="py-2">Nombre Evento</th>
+                                    <th class="py-2">Color</th>
+                                    <th class="py-2">Modalidad</th>
+                                    <th class="py-2">Fecha</th>
+                                    <th class="py-2">Habilitado</th>
+                                    <th class="py-2">Estado</th>
+                                    <th class="py-2 text-right">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
-
-
-                                <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                    <table
-                                        class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                                        <thead
-                                            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                            <tr>
-                                                <th scope="col" class="p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-all-search" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-all-search"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Nombre Evento
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Color
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Modalidad
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Fecha
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Avilitado
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Estado
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-
-                                                </th>
-                                                <th scope="col" class="px-6 py-3">
-                                                    Editar
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-4 p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-table-search-1" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-table-search-1"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    Internacionalizacio
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    blue
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Virtual
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    2022-12-12
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Yes
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Activo
-                                                </td>
-                                                <td class="px-6 py-4">
-
-                                                </td>
-                                                <td class="flex items-center px-6 py-4">
-                                                    <a href="#"
-                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    <a href="#"
-                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                                </td>
-                                            </tr>
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-4 p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-table-search-2" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-table-search-2"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    Microsoft Activation
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    black
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Presencial
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    2024-05-12
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Yes
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Activo
-                                                </td>
-                                                <td class="px-6 py-4">
-
-                                                </td>
-                                                <td class="flex items-center px-6 py-4">
-                                                    <a href="#"
-                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    <a href="#"
-                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                                </td>
-                                            </tr>
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-4 p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-table-search-3" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-table-search-3"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    Magic Mouse
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    Black
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Presencial
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    2025-01-28
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    No
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Bloqueado
-                                                </td>
-                                                <td class="px-6 py-4">
-
-                                                </td>
-                                                <td class="flex items-center px-6 py-4">
-                                                    <a href="#"
-                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    <a href="#"
-                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                                </td>
-                                            </tr>
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-4 p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-table-search-3" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-table-search-3"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    Magic Mouse
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    Black
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Presencial
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    2025-01-28
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    No
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Bloqueado
-                                                </td>
-                                                <td class="px-6 py-4">
-
-                                                </td>
-                                                <td class="flex items-center px-6 py-4">
-                                                    <a href="#"
-                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    <a href="#"
-                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                                </td>
-                                            </tr>
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-4 p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-table-search-3" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-table-search-3"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    Magic Mouse
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    Black
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Presencial
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    2025-01-28
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    No
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Bloqueado
-                                                </td>
-                                                <td class="px-6 py-4">
-
-                                                </td>
-                                                <td class="flex items-center px-6 py-4">
-                                                    <a href="#"
-                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    <a href="#"
-                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                                </td>
-                                            </tr>
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-4 p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-table-search-3" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-table-search-3"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    Magic Mouse
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    Black
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Presencial
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    2025-01-28
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    No
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Bloqueado
-                                                </td>
-                                                <td class="px-6 py-4">
-
-                                                </td>
-                                                <td class="flex items-center px-6 py-4">
-                                                    <a href="#"
-                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    <a href="#"
-                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                                </td>
-                                            </tr>
-                                            <tr
-                                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <td class="w-4 p-4">
-                                                    <div class="flex items-center">
-                                                        <input id="checkbox-table-search-3" type="checkbox"
-                                                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                                        <label for="checkbox-table-search-3"
-                                                            class="sr-only">checkbox</label>
-                                                    </div>
-                                                </td>
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    Magic Mouse
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    Black
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Presencial
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    2025-01-28
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    No
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    Bloqueado
-                                                </td>
-                                                <td class="px-6 py-4">
-
-                                                </td>
-                                                <td class="flex items-center px-6 py-4">
-                                                    <a href="#"
-                                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                                    <a href="#"
-                                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Remove</a>
-                                                </td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-
+                            <tbody id="eventsTbody">
+                                <!-- Eventos serán insertados aquí -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
+
+            <!-- Modal para Agregar/Editar Evento -->
+            <div id="eventModal" class="sidebar-modal">
+                <div class="flex flex-col h-full">
+                    <div class="p-4 border-b flex justify-between items-center">
+                        <h3 class="text-lg font-semibold" id="modalTitle">Agregar Evento</h3>
+                        <button id="closeModalBtn" class="text-gray-600 hover:text-gray-900">&times;</button>
+                    </div>
+                    <div class="p-4 flex-grow overflow-auto">
+                        <form id="eventForm" class="space-y-4">
+                            <div>
+                                <label for="eventName" class="block text-gray-700">Nombre Evento</label>
+                                <input type="text" id="eventName" class="w-full px-3 py-2 border rounded" required>
+                            </div>
+                            <div>
+                                <label for="eventColor" class="block text-gray-700">Color</label>
+                                <input type="text" id="eventColor" class="w-full px-3 py-2 border rounded" required>
+                            </div>
+                            <div>
+                                <label for="eventMode" class="block text-gray-700">Modalidad</label>
+                                <input type="text" id="eventMode" class="w-full px-3 py-2 border rounded" required>
+                            </div>
+                            <div>
+                                <label for="eventDate" class="block text-gray-700">Fecha</label>
+                                <input type="date" id="eventDate" class="w-full px-3 py-2 border rounded" required>
+                            </div>
+                            <div>
+                                <label for="eventEnabled" class="block text-gray-700">Habilitado</label>
+                                <select id="eventEnabled" class="w-full px-3 py-2 border rounded" required>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="eventStatus" class="block text-gray-700">Estado</label>
+                                <select id="eventStatus" class="w-full px-3 py-2 border rounded" required>
+                                    <option value="Activo">Activo</option>
+                                    <option value="Bloqueado">Bloqueado</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="eventDescription" class="block text-gray-700">Descripción</label>
+                                <textarea id="eventDescription" class="w-full px-3 py-2 border rounded" rows="4"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="p-4 border-t">
+                        <div class="flex justify-end">
+                            <button id="cancelBtn" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancelar</button>
+                            <button id="saveBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const events = [
+                        { name: 'Internacionalización', color: 'blue', mode: 'Virtual', date: '2022-12-12', enabled: 'Yes', status: 'Activo', description: 'Evento sobre la internacionalización de la empresa.' },
+                        { name: 'Microsoft Activation', color: 'black', mode: 'Presencial', date: '2024-05-12', enabled: 'Yes', status: 'Activo', description: 'Activación de productos Microsoft.' },
+                        { name: 'Magic Mouse', color: 'Black', mode: 'Presencial', date: '2025-01-28', enabled: 'No', status: 'Bloqueado', description: 'Presentación del nuevo Magic Mouse.' },
+                    ];
+
+                    const eventsTbody = document.getElementById('eventsTbody');
+                    const eventModal = document.getElementById('eventModal');
+                    const eventForm = document.getElementById('eventForm');
+                    const modalTitle = document.getElementById('modalTitle');
+                    const addEventBtn = document.getElementById('addEventBtn');
+                    const closeModalBtn = document.getElementById('closeModalBtn');
+                    const cancelBtn = document.getElementById('cancelBtn');
+                    const saveBtn = document.getElementById('saveBtn');
+
+                    let editIndex = null;
+
+                    function renderEvents() {
+                        eventsTbody.innerHTML = '';
+                        events.forEach((event, index) => {
+                            const row = document.createElement('tr');
+                            row.classList.add('bg-white', 'border-b', 'hover:bg-gray-50');
+                            row.innerHTML = `
+                                <td class="px-6 py-4">${event.name}</td>
+                                <td class="px-6 py-4">${event.color}</td>
+                                <td class="px-6 py-4">${event.mode}</td>
+                                <td class="px-6 py-4">${event.date}</td>
+                                <td class="px-6 py-4">${event.enabled}</td>
+                                <td class="px-6 py-4">${event.status}</td>
+                                <td class="px-6 py-4 text-right">
+                                    <button class="editBtn text-blue-600 hover:underline" data-index="${index}">Edit</button>
+                                    <button class="removeBtn text-red-600 hover:underline ml-3" data-index="${index}">Remove</button>
+                                </td>
+                            `;
+                            eventsTbody.appendChild(row);
+                        });
+
+                        document.querySelectorAll('.editBtn').forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                editIndex = e.target.getAttribute('data-index');
+                                openModal(events[editIndex]);
+                            });
+                        });
+
+                        document.querySelectorAll('.removeBtn').forEach(button => {
+                            button.addEventListener('click', (e) => {
+                                const index = e.target.getAttribute('data-index');
+                                events.splice(index, 1);
+                                renderEvents();
+                            });
+                        });
+                    }
+
+                    function openModal(event = null) {
+                        if (event) {
+                            modalTitle.textContent = 'Editar Evento';
+                            eventForm.eventName.value = event.name;
+                            eventForm.eventColor.value = event.color;
+                            eventForm.eventMode.value = event.mode;
+                            eventForm.eventDate.value = event.date;
+                            eventForm.eventEnabled.value = event.enabled;
+                            eventForm.eventStatus.value = event.status;
+                            eventForm.eventDescription.value = event.description;
+                        } else {
+                            modalTitle.textContent = 'Agregar Evento';
+                            eventForm.reset();
+                        }
+                        eventModal.classList.add('active');
+                    }
+
+                    function closeModal() {
+                        eventModal.classList.remove('active');
+                        editIndex = null;
+                    }
+
+                    addEventBtn.addEventListener('click', () => openModal());
+                    closeModalBtn.addEventListener('click', () => closeModal());
+                    cancelBtn.addEventListener('click', () => closeModal());
+                    saveBtn.addEventListener('click', () => {
+                        const newEvent = {
+                            name: eventForm.eventName.value,
+                            color: eventForm.eventColor.value,
+                            mode: eventForm.eventMode.value,
+                            date: eventForm.eventDate.value,
+                            enabled: eventForm.eventEnabled.value,
+                            status: eventForm.eventStatus.value,
+                            description: eventForm.eventDescription.value,
+                        };
+
+                        if (editIndex !== null) {
+                            events[editIndex] = newEvent;
+                        } else {
+                            events.push(newEvent);
+                        }
+
+                        renderEvents();
+                        closeModal();
+                    });
+
+                    renderEvents();
+                });
+            </script>
+        </body>
         </main>
 
         <!-- AlpineJS for Interactivity -->
@@ -935,87 +801,112 @@ function logout() {
 {{-- aqui va el contenido del home --}}
 <div class="bg-white rounded-lg shadow p-21">
     <div id="home" style="display: none">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Agregando Feather Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.css" rel="stylesheet">
-    <!-- Agregando Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <!-- Estilos adicionales -->
-    <style>
-        /* Estilos para los iconos */
-        .icon-xxs {
-            width: 1rem;
-            height: 1rem;
-        }
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <style>
+            .icon-xxs {
+                width: 1rem;
+                height: 1rem;
+            }
 
-        .icon-xs {
-            width: 1.25rem;
-            height: 1.25rem;
-        }
+            .icon-xs {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
 
-        /* Estilos para el botón flotante */
-        .floating-button {
-            position: fixed;
-            bottom: 50px;
-            right: 50px;
-        }
+            .floating-button {
+                position: fixed;
+                bottom: 50px;
+                right: 50px;
+            }
 
-        /* Estilos para los eventos recientes */
-        .recent-events-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
+            .recent-events-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
 
-        .event-card {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: bold;
-        }
+            .event-card {
+                background-color: #1e3a8a;
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                font-weight: bold;
+            }
 
-        .event-card-placeholder {
-            border: 2px dashed #ccc;
-            color: #ccc;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-    </style>
+            .event-card-placeholder {
+                border: 2px dashed #ccc;
+                color: #ccc;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            #registerForm {
+                max-width: 800px;
+            }
+
+            .bg-opacity-75 {
+                background-color: rgba(255, 255, 255, 0.75);
+            }
+
+            .fullscreen-modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+
+            .modal-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                max-width: 90%;
+                max-height: 90%;
+                overflow-y: auto;
+                width: 100%;
+            }
+        </style>
+    </head>
 
     <body class="bg-gray-100">
-        <!-- Contenedor principal -->
         <main class="container p-4 mx-auto">
             <div class="p-8 bg-white rounded-lg shadow">
-                <!-- Sección de búsqueda y creación de eventos -->
                 <div id="home">
-                    <div class="flex items-center justify-between my-10">
-                        <!-- Formulario de búsqueda de eventos -->
-                        <form id="searchForm" class="flex items-center space-x-4">
-                            <label for="searchInput" class="mb-2 text-sm font-medium text-gray-900 sr-only">Buscar</label>
-                            <div class="relative">
-                                <input type="search" id="searchInput"
-                                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Buscar contenido..." required />
-                                <button type="submit"
-                                    class="absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-white">Buscar</button>
-                            </div>
-                        </form>
+                    <div class="flex flex-col items-center justify-between my-10 space-y-4 w-full max-w-xl mx-auto">
+                        <div class="flex w-full space-x-4 justify-center">
+                            <form id="searchForm" class="flex items-center space-x-4 w-full">
+                                <label for="searchInput" class="mb-2 text-sm font-medium text-gray-900 sr-only">Buscar</label>
+                                <div class="relative w-full">
+                                    <input type="search" id="searchInput"
+                                        class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                                        placeholder="Buscar contenido..." required />
+                                    <button type="submit"
+                                        class="absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-white">Buscar</button>
+                                </div>
+                            </form>
 
-                        <!-- Botón para crear evento -->
-                        <button id="createEventButton"
-                            class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Registrar
-                            eventos +</button>
+                            <button id="createEventButton"
+                                class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Registrar
+                                eventos +</button>
+                        </div>
 
-                        <!-- Botón de tipo de actividad -->
-                        <div class="relative">
+                        <div class="relative w-full max-w-xs">
                             <button id="activityTypeButton"
-                                class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Tipo
+                                class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Tipo
                                 de actividad ➤</button>
-                            <div id="activityTypeDropdown"
-                                class="absolute hidden w-64 py-2 mt-2 bg-white rounded-lg shadow-lg">
+                            <div id="activityTypeDropdown" class="absolute hidden w-full py-2 mt-2 bg-white rounded-lg shadow-lg">
                                 <p class="px-4 py-2 text-gray-700">Rol</p>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Docente</a>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Estudiante</a>
@@ -1026,33 +917,97 @@ function logout() {
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ruta</a>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ponencia</a>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Clase espejo</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Cátedra
-                                    abierta</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Cátedra abierta</a>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Congreso</a>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">COIL</a>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Convenio</a>
                                 <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Reunión</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
-                                    deportiva</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
-                                    multicultural</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Pasantía
-                                    investigativa</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Curso en
-                                    línea</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
-                                    bilingüe/multilingüe</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Proyecto de
-                                    aula</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Intercambio
-                                    semestral</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad deportiva</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad multicultural</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Pasantía investigativa</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Curso en línea</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad bilingüe/multilingüe</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Proyecto de aula</a>
+                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Intercambio semestral</a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Contenedor de eventos recientes -->
-                    <div class="p-4 bg-gray-100 rounded-lg">
-                        <h2 class="mb-4 text-lg font-semibold">Agregados recientes..</h2>
+                    <div id="registerForm" class="hidden fullscreen-modal">
+                        <div class="modal-content">
+                            <h2 class="mb-4 text-lg font-semibold">Registrar nuevo evento</h2>
+                            <form id="eventRegistrationForm">
+                                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                    <div class="mb-4">
+                                        <label for="eventName" class="block text-sm font-medium text-gray-700">Nombre del evento</label>
+                                        <input type="text" id="eventName" name="eventName"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="eventType" class="block text-sm font-medium text-gray-700">Tipo de evento</label>
+                                        <select id="eventType" name="eventType"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                            <option value="">Selecciona un tipo</option>
+                                            <option value="Ruta">Ruta</option>
+                                            <option value="Ponencia">Ponencia</option>
+                                            <option value="Clase espejo">Clase espejo</option>
+                                            <option value="Cátedra abierta">Cátedra abierta</option>
+                                            <option value="Congreso">Congreso</option>
+                                            <option value="COIL">COIL</option>
+                                            <option value="Convenio">Convenio</option>
+                                            <option value="Reunión">Reunión</option>
+                                            <option value="Actividad deportiva">Actividad deportiva</option>
+                                            <option value="Actividad multicultural">Actividad multicultural</option>
+                                            <option value="Pasantía investigativa">Pasantía investigativa</option>
+                                            <option value="Curso en línea">Curso en línea</option>
+                                            <option value="Actividad bilingüe/multilingüe">Actividad bilingüe/multilingüe</option>
+                                            <option value="Proyecto de aula">Proyecto de aula</option>
+                                            <option value="Intercambio semestral">Intercambio semestral</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="eventDate" class="block text-sm font-medium text-gray-700">Fecha del evento</label>
+                                        <input type="date" id="eventDate" name="eventDate"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="eventLocation" class="block text-sm font-medium text-gray-700">Ubicación</label>
+                                        <input type="text" id="eventLocation" name="eventLocation"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="eventDuration" class="block text-sm font-medium text-gray-700">Duración</label>
+                                        <input type="text" id="eventDuration" name="eventDuration"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="eventParticipants" class="block text-sm font-medium text-gray-700">Participantes</label>
+                                        <input type="text" id="eventParticipants" name="eventParticipants"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="eventDocument" class="block text-sm font-medium text-gray-700">Subir documentos</label>
+                                        <input type="file" id="eventDocument" name="eventDocument"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="eventDescription" class="block text-sm font-medium text-gray-700">Descripción</label>
+                                    <textarea id="eventDescription" name="eventDescription" rows="4"
+                                        class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                                </div>
+                                <div class="flex justify-end space-x-4">
+                                    <button type="button" id="cancelEventButton"
+                                        class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
+                                    <button type="submit"
+                                        class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="p-4 mt-8 bg-gray-100 rounded-lg">
+                        <h2 class="mb-4 text-lg font-semibold">Agregados recientes</h2>
                         <div id="recentEventsContainer" class="recent-events-grid">
                             <div class="event-card">Ejemplo 1</div>
                             <div class="event-card">Ejemplo 2</div>
@@ -1062,33 +1017,26 @@ function logout() {
                         </div>
                     </div>
 
-                    <!-- Tabla de eventos -->
                     <div class="mt-8 overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Nombre
                                     </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Curso
                                     </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Estado
                                     </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Rol
                                     </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Email
                                     </th>
-                                    <th scope="col"
-                                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                         Teléfono
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
@@ -1102,182 +1050,77 @@ function logout() {
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Curso 1</td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Estado 1</td>
                                     <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Rol 1</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">email1@example.com</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">1234567890</td>
-                                    <td
-                                        class="flex items-center justify-around px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <a href="#" class="text-blue-600 hover:text-blue-900">Editar</a>
-                                        <a href="#" class="text-red-600 hover:text-red-900">Eliminar</a>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">email@example.com</td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">123-456-7890</td>
+                                    <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
                                     </td>
                                 </tr>
-                                <!-- Más filas de eventos -->
+                                <!-- Añadir más filas aquí -->
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-
-            <!-- Botón flotante para crear evento -->
-            <button id="floatingCreateEventButton"
-                class="hidden px-6 py-3 font-medium text-white bg-blue-700 rounded-full floating-button hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">+</button>
         </main>
 
-        <!-- Modal para crear evento -->
-        <div id="createEventModal"
-            class="fixed inset-0 flex items-center justify-center hidden bg-gray-600 bg-opacity-50">
-            <div class="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg">
-                <h2 class="mb-4 text-xl font-semibold">Crear Evento</h2>
-                <form id="createEventForm">
-                    <div class="mb-4">
-                        <label for="eventName" class="block text-sm font-medium text-gray-700">Nombre del Evento</label>
-                        <input type="text" id="eventName"
-                            class="block w-full p-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                            required />
-                    </div>
-                    <div class="mb-4">
-                        <label for="eventColor" class="block text-sm font-medium text-gray-700">Color del Evento</label>
-                        <div id="colorPicker" class="flex space-x-2"> <button type="button"
-                                class="w-10 h-10 bg-red-500 rounded-full focus:ring-4 focus:outline-none focus:ring-red-300"
-                                data-color="#ef4444"></button> <button type="button"
-                                class="w-10 h-10 bg-green-500 rounded-full focus:ring-4 focus:outline-none focus:ring-green-300"
-                                data-color="#10b981"></button> <button type="button"
-                                class="w-10 h-10 bg-blue-500 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300"
-                                data-color="#3b82f6"></button> <button type="button"
-                                class="w-10 h-10 bg-yellow-500 rounded-full focus:ring-4 focus:outline-none focus:ring-yellow-300"
-                                data-color="#f59e0b"></button> <button type="button"
-                                class="w-10 h-10 bg-purple-500 rounded-full focus:ring-4 focus:outline-none focus:ring-purple-300"
-                                data-color="#8b5cf6"></button> <button type="button"
-                                class="w-10 h-10 bg-orange-500 rounded-full focus:ring-4 focus:outline-none focus:ring-orange-300"
-                                data-color="#f97316"></button> <button type="button"
-                                class="w-10 h-10 bg-pink-500 rounded-full focus:ring-4 focus:outline-none focus:ring-pink-300"
-                                data-color="#ec4899"></button> <button type="button"
-                                class="w-10 h-10 bg-teal-500 rounded-full focus:ring-4 focus:outline-none focus:ring-teal-300"
-                                data-color="#14b8a6"></button> </div>
-                        <input type="hidden" id="eventColor" name="eventColor" required>
-                    </div>
-                    <div class="flex justify-end space-x-4">
-                        <button type="button" id="cancelCreateEventButton"
-                            class="text-gray-700 hover:text-gray-900">Cancelar</button>
-                        <button type="submit"
-                            class="px-4 py-2 font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">Crear</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <button id="createEventFloatingButton"
+            class="floating-button w-12 h-12 text-white bg-blue-700 rounded-full shadow-lg hover:bg-blue-800">
+            <svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+        </button>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const createEventButton = document.getElementById('createEventButton');
-                const createEventModal = document.getElementById('createEventModal');
-                const cancelCreateEventButton = document.getElementById('cancelCreateEventButton');
-                const createEventForm = document.getElementById('createEventForm');
-                const recentEventsContainer = document.getElementById('recentEventsContainer');
-                const eventsTableBody = document.getElementById('eventsTableBody');
-                const floatingCreateEventButton = document.getElementById('floatingCreateEventButton');
+            document.addEventListener("DOMContentLoaded", function () {
                 const activityTypeButton = document.getElementById('activityTypeButton');
                 const activityTypeDropdown = document.getElementById('activityTypeDropdown');
-                const colorPickerButtons = document.querySelectorAll('#colorPicker button');
-                const eventColorInput = document.getElementById('eventColor');
+                const createEventButton = document.getElementById('createEventButton');
+                const createEventFloatingButton = document.getElementById('createEventFloatingButton');
+                const registerForm = document.getElementById('registerForm');
+                const eventRegistrationForm = document.getElementById('eventRegistrationForm');
+                const cancelEventButton = document.getElementById('cancelEventButton');
+                const recentEventsContainer = document.getElementById('recentEventsContainer');
 
-                // Mostrar modal para crear evento
-                createEventButton.addEventListener('click', function() {
-                    createEventModal.classList.remove('hidden');
-                });
-
-                // Ocultar modal para crear evento
-                cancelCreateEventButton.addEventListener('click', function() {
-                    createEventModal.classList.add('hidden');
-                });
-
-                // Manejar selección de color
-                colorPickerButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        colorPickerButtons.forEach(btn => btn.classList.remove('ring-4',
-                            'ring-offset-2'));
-                        button.classList.add('ring-4', 'ring-offset-2');
-                        eventColorInput.value = button.getAttribute('data-color');
-                    });
-                });
-
-                // Manejar la creación de un nuevo evento
-                createEventForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const eventName = document.getElementById('eventName').value;
-                    const eventColor = eventColorInput.value;
-
-                    // Aquí puedes agregar la lógica para guardar el evento en la base de datos
-
-                    // Agregar el evento a la lista de eventos recientes
-                    const eventCard = document.createElement('div');
-                    eventCard.className = 'event-card';
-                    eventCard.textContent = eventName;
-                    eventCard.style.backgroundColor = eventColor;
-                    recentEventsContainer.appendChild(eventCard);
-
-                    // Agregar el evento a la tabla de eventos
-                    const eventRow = document.createElement('tr');
-                    eventRow.innerHTML = `
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">${eventName}</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Curso</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Estado</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Rol</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Email</td>
-                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Teléfono</td>
-                    <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                        <a href="#" class="text-blue-600 hover:text-blue-900">Editar</a>
-                        <a href="#" class="ml-2 text-red-600 hover:text-red-900">Eliminar</a>
-                    </td>
-                `;
-                    eventsTableBody.appendChild(eventRow);
-
-                    // Limpiar formulario y cerrar modal
-                    createEventForm.reset();
-                    createEventModal.classList.add('hidden');
-                });
-
-                // Función para cargar eventos recientes
-                function cargarEventosRecientes() {
-                    // Aquí puedes implementar la lógica para cargar eventos recientes desde la base de datos
-                    console.log('Cargando eventos recientes...');
-                }
-
-                // Función para cargar todos los eventos
-                function cargarTodosLosEventos() {
-                    // Aquí puedes implementar la lógica para cargar todos los eventos desde la base de datos
-                    console.log('Cargando todos los eventos...');
-                }
-
-                // Llamando a las funciones de carga de eventos al cargar la página
-                cargarEventosRecientes();
-                cargarTodosLosEventos();
-
-                // Función para editar un evento
-                function editarEvento(eventoId) {
-                    // Aquí puedes implementar la lógica para editar un evento específico
-                    console.log('Editando evento con ID:', eventoId);
-                }
-
-                // Función para eliminar un evento
-                function eliminarEvento(eventoId) {
-                    // Aquí puedes implementar la lógica para eliminar un evento específico
-                    console.log('Eliminando evento con ID:', eventoId);
-                }
-
-                // Función para mostrar detalles de un evento
-                function verDetallesEvento(eventoId) {
-                    // Aquí puedes implementar la lógica para mostrar detalles de un evento específico
-                    console.log('Mostrando detalles del evento con ID:', eventoId);
-                }
-
-                // Mostrar/Ocultar el desplegable de tipo de actividad
-                activityTypeButton.addEventListener('click', function() {
+                activityTypeButton.addEventListener('click', function () {
                     activityTypeDropdown.classList.toggle('hidden');
                 });
 
-                // Ocultar el desplegable de tipo de actividad al hacer clic fuera
-                document.addEventListener('click', function(event) {
-                    if (!activityTypeButton.contains(event.target) && !activityTypeDropdown.contains(event
-                            .target)) {
+                createEventButton.addEventListener('click', function () {
+                    registerForm.classList.remove('hidden');
+                });
+
+                createEventFloatingButton.addEventListener('click', function () {
+                    registerForm.classList.remove('hidden');
+                });
+
+                cancelEventButton.addEventListener('click', function () {
+                    registerForm.classList.add('hidden');
+                });
+
+                eventRegistrationForm.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    const eventName = document.getElementById('eventName').value;
+                    const eventType = document.getElementById('eventType').value;
+                    const eventDate = document.getElementById('eventDate').value;
+                    const eventLocation = document.getElementById('eventLocation').value;
+                    const eventDuration = document.getElementById('eventDuration').value;
+                    const eventParticipants = document.getElementById('eventParticipants').value;
+                    const eventDescription = document.getElementById('eventDescription').value;
+
+                    const eventCard = document.createElement('div');
+                    eventCard.classList.add('event-card');
+                    eventCard.textContent = `${eventName} - ${eventType} - ${eventDate}`;
+
+                    recentEventsContainer.insertBefore(eventCard, recentEventsContainer.firstChild);
+
+                    registerForm.classList.add('hidden');
+                    eventRegistrationForm.reset();
+                });
+
+                document.addEventListener('click', function (event) {
+                    if (!activityTypeButton.contains(event.target) && !activityTypeDropdown.contains(event.target)) {
                         activityTypeDropdown.classList.add('hidden');
                     }
                 });
