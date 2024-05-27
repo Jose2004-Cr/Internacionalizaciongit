@@ -2,97 +2,153 @@
 
 <!-- drawer init and toggle -->
 
-<div id="drawer-body-scrolling"
-    class="rounded-r-lg fixed top-0 left-0 z-0 w-5 h-screen p-10 overflow-y-auto transition-transform bg-[#C82333] dark:bg-gray-800 hover:w-5">
-    <h5 id="drawer-body-scrolling-label" class="text-base font-semibold text-gray-100 uppercase dark:text-gray-100">
-        ℍ𝕖𝕣𝕞𝕖𝕤</h5>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    #drawer-body-scrolling {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        width: 3%;
+        height: 100vh;
+        padding: 10px;
+        overflow-y: auto;
+        transition: width 0.3s ease, background-color 0.3s ease;
+        background-color: #C82333;
+    }
+    #drawer-body-scrolling:hover {
+        width: 8%;
+    }
+    #drawer-body-scrolling-label {
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        font-weight: bold;
+        font-size: 0.8rem;
+    }
+    .drawer-content {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 40px);
+        justify-content: space-between;
+    }
+    .drawer-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .drawer-content li {
+        margin-bottom: 20px;
+    }
+    .drawer-content a {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .drawer-content a:hover {
+        background-color: #a61e2b;
+        transform: scale(0.9);
+    }
+    .drawer-content img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        transition: transform 0.3s ease;
+    }
+    .drawer-content a:hover img {
+        transform: scale(0.8);
+    }
+    .logout {
+        margin-top: auto;
+    }
+    @media (max-width: 100px) {
+        #drawer-body-scrolling {
+            width: 6%;
+        }
+        #drawer-body-scrolling:hover {
+            width: 15%;
+        }
+    }
+    @media (max-width: 200px) {
+        #drawer-body-scrolling {
+            width: 8%;
+        }
+        #drawer-body-scrolling:hover {
+            width: 20%;
+        }
+    }
+</style>
+</head>
+<body>
 
-
-    <div class="py-20 overflow-y-auto">
-        <ul class="flex flex-col space-y-1">
-
-            <!-- estadistica inicio -->
-
-            <li>
-                <a href="#" onclick="estadisticas()" id="showContent"
-                    class="flex items-center w-full p-4 mb-20 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
-                    aria-controls="contentinicio" data-collapse-toggle="contentinicio">
-                    <img src="/Imagenes/tabladasb.png"
-                        class="w-5 h-5 text-gray-100 transition duration-75 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true">
-                    <span class="flex-1 ms-1 whitespace-nowrap expand-text">𝔼𝕤𝕥𝕒𝕕𝕚𝕤𝕥𝕚𝕔𝕒</span>
-
-                </a>
-            </li>
-
-            <!-- casa -->
-            <li>
-                <a href="#" onclick="home()" id="showContent"
-                    class="flex items-center w-full p-4 mb-20 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                    <img src="/Imagenes/casadasb.png"
-                        class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true">
-                    <span class="flex-1 ms-1 whitespace-nowrap expand-text"> ℍ𝕠𝕞𝕖 </span>
-
-                </a>
-            </li>
-
-            {{-- calendario --}}
-            <li>
-                <a href="#" onclick="calendario()"
-                    class="flex items-center w-full p-4 mb-20 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
-                    <img src="/Imagenes/calendariobasb.png"
-                        class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true">
-                    <span class="flex-1 ms-1 whitespace-nowrap expand-text"> ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣𝕚𝕠 </span>
-                </a>
-            </li>
-
-        </ul>
-        <br>
-        <ul class="font-medium spacei-y-20">
-            {{-- Salir --}}
-            <br>
-            <li>
-                <a href="#" class="flex items-center p-4 text-gray-900 rounded-lg dark:hover:bg-gray-700 group"
-                    onclick="logout()">
-                    <img src="/Imagenes/salirbasb.png"
-                        class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-100 group-hover:text-gray-900 dark:group-hover:text-white"
-                        aria-hidden="true">
-                    <span class="flex-1 ms-1 whitespace-nowrap expand-text">𝕊𝕚𝕘𝕟 𝕠𝕗𝕗</span>
-                </a>
-            </li>
-
-            <script>
-                function logout() {
-                    // Enviar solicitud de cierre de sesión al servidor
-                    fetch('/logout', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            }
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                // Redirigir al usuario a la página de inicio
-                                window.location.href = '/';
-                            } else {
-                                // Mostrar un mensaje de error
-                                alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-                            }
-                        })
-                        .catch(error => {
-                            // Mostrar un mensaje de error
-                            alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-                            console.error(error);
-                        });
-                }
-            </script>
-
-        </ul>
-    </div>
+<div id="drawer-body-scrolling">
+<h5 id="drawer-body-scrolling-label">ℍ𝕖𝕣𝕞𝕖𝕤</h5>
+<div class="drawer-content">
+    <ul>
+        <li>
+            <a href="#" onclick="estadisticas()" id="showContent">
+                <img src="/Imagenes/tabladasb.png" aria-hidden="true">
+                <span class="expand-text">𝔼𝕤𝕥𝕒𝕕𝕚𝕤𝕥𝕚𝕔𝕒</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="home()" id="showContent">
+                <img src="/Imagenes/casadasb.png" aria-hidden="true">
+                <span class="expand-text">ℍ𝕠𝕞𝕖</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" onclick="calendario()">
+                <img src="/Imagenes/calendariobasb.png" aria-hidden="true">
+                <span class="expand-text">ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣𝕚𝕠</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="logout">
+        <li>
+            <a href="#" onclick="logout()">
+                <img src="/Imagenes/salirbasb.png" aria-hidden="true">
+                <span class="expand-text">𝕊𝕚𝕘𝕟 𝕠𝕗𝕗</span>
+            </a>
+        </li>
+    </ul>
 </div>
+</div>
+
+<script>
+function logout() {
+    fetch('/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = '/';
+            } else {
+                alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
+            }
+        })
+        .catch(error => {
+            alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
+            console.error(error);
+        });
+}
+</script>
+
+</body>
 
 <BR></BR>
 {{-- aqui va el contenido de la estadistica --}}
@@ -1235,307 +1291,306 @@
 <div class="bg-white rounded-lg shadow p-21">
     <div id="calendario" style="display: none">
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
-    <style>
-        [x-cloak] { display: none; }
-        .notification {
-            position: fixed;
-            bottom: 16px;
-            right: 16px;
-            background-color: #4caf50;
-            color: white;
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(100%);
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-        }
-        .notification.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .text-overflow {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .event-detail {
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-    </style>
-</head>
-<body class="font-sans antialiased bg-gray-100">
+        <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+        <style>
+            [x-cloak] { display: none; }
+            .notification {
+                position: fixed;
+                bottom: 16px;
+                right: 16px;
+                background-color: #4caf50;
+                color: white;
+                padding: 16px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                opacity: 0;
+                transform: translateY(100%);
+                transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            }
+            .notification.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .event-detail {
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+        </style>
+        <title>Calendario de Eventos</title>
+    </head>
+    <body class="font-sans antialiased bg-gray-100">
 
-<div x-data="calendarApp()" x-init="initializeCalendar()" x-cloak>
-    <div class="container px-5 py-10 mx-auto">
-        <div class="mb-5 text-3xl font-bold text-center text-gray-900">Calendario de Eventos</div>
+    <div x-data="calendarApp()" x-init="initializeCalendar()" x-cloak>
+        <div class="container px-5 py-10 mx-auto">
+            <div class="mb-5 text-3xl font-bold text-center text-gray-900">Calendario de Eventos</div>
 
-        <div class="bg-white rounded-lg shadow">
-            <div class="flex items-center justify-between px-6 py-4 text-white bg-blue-500">
-                <div>
-                    <span x-text="MONTH_NAMES[month]" class="text-xl font-bold"></span>
-                    <span x-text="year" class="ml-1 text-xl"></span>
-                </div>
-                <div class="flex items-center">
-                    <button @click="changeMonth(-1)" :disabled="month == 0" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                        </svg>
-                    </button>
-                    <button @click="changeMonth(1)" :disabled="month == 11" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-7 gap-1 px-4 py-2 text-center">
-                <template x-for="day in DAYS" :key="day">
-                    <div class="font-bold text-gray-800" x-text="day"></div>
-                </template>
-            </div>
-
-            <div class="grid grid-cols-7 gap-1 p-4 border-t border-gray-200">
-                <template x-for="blank in blankDays">
-                    <div class="py-2"></div>
-                </template>
-                <template x-for="date in noOfDays" :key="date">
-                    <div class="py-2">
-                        <div @click="openEventModal(date)" class="w-8 h-8 mx-auto text-center cursor-pointer" :class="{'bg-blue-500 text-white': isToday(date), 'hover:bg-blue-200': !isToday(date)}">
-                            <span x-text="date"></span>
-                        </div>
-                        <template x-for="event in events.filter(e => new Date(e.date).toDateString() === new Date(year, month, date).toDateString())">
-                            <div class="p-1 mt-1 text-sm text-blue-800 truncate bg-blue-100 rounded cursor-pointer" @click="viewEvent(event)">
-                                <span x-text="event.title"></span>
-                            </div>
-                        </template>
+            <div class="bg-white rounded-lg shadow">
+                <div class="flex items-center justify-between px-6 py-4 text-white bg-blue-500">
+                    <div>
+                        <span x-text="MONTH_NAMES[month]" class="text-xl font-bold"></span>
+                        <span x-text="year" class="ml-1 text-xl"></span>
                     </div>
-                </template>
+                    <div class="flex items-center">
+                        <button @click="changeMonth(-1)" :disabled="month == 0" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        <button @click="changeMonth(1)" :disabled="month == 11" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-7 gap-1 px-4 py-2 text-center">
+                    <template x-for="day in DAYS" :key="day">
+                        <div class="font-bold text-gray-800" x-text="day"></div>
+                    </template>
+                </div>
+
+                <div class="grid grid-cols-7 gap-1 p-4 border-t border-gray-200">
+                    <template x-for="blank in blankDays">
+                        <div class="py-2"></div>
+                    </template>
+                    <template x-for="date in noOfDays" :key="date">
+                        <div class="py-2">
+                            <div @click="openEventModal(date)" class="w-8 h-8 mx-auto text-center cursor-pointer" :class="{'bg-blue-500 text-white': isToday(date), 'hover:bg-blue-200': !isToday(date)}">
+                                <span x-text="date"></span>
+                            </div>
+                            <template x-for="event in events.filter(e => new Date(e.date).toDateString() === new Date(year, month, date).toDateString())">
+                                <div class="p-1 mt-1 text-sm text-blue-800 truncate bg-blue-100 rounded cursor-pointer" @click="viewEvent(event)">
+                                    <span x-text="event.title"></span>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Modal -->
-    <div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-        <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-            <h2 class="mb-4 text-2xl font-bold" x-text="editMode ? 'Editar Evento' : 'Agregar Evento'"></h2>
-            <form @submit.prevent="saveEvent">
+        <!-- Modal -->
+        <div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+            <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+                <h2 class="mb-4 text-2xl font-bold" x-text="editMode ? 'Editar Evento' : 'Agregar Evento'"></h2>
+                <form @submit.prevent="saveEvent">
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Título</label>
+                        <input type="text" x-model="eventTitle" class="w-full px-3 py-2 border rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Fecha y Hora</label>
+                        <input type="datetime-local" x-model="eventDateTime" class="w-full px-3 py-2 border rounded-lg" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Categoría</label>
+                        <select x-model="eventCategory" class="w-full px-3 py-2 border rounded-lg">
+                            <option value="blue">Evento Azul</option>
+                            <option value="red">Evento Rojo</option>
+                            <option value="yellow">Evento Amarillo</option>
+                            <option value="green">Evento Verde</option>
+                            <option value="purple">Evento Púrpura</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-1 text-gray-700">Descripción</label>
+                        <textarea x-model="eventDescription" class="w-full px-3 py-2 border rounded-lg" maxlength="200" rows="4" required></textarea>
+                        <small x-text="200 - eventDescription.length + ' palabras restantes'"></small>
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="button" @click="closeModal" class="px-4 py-2 mr-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
+                        <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Event Detail Modal -->
+        <div x-show="showEventDetail" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+            <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+                <h2 class="mb-4 text-2xl font-bold">Detalle del Evento</h2>
                 <div class="mb-4">
-                    <label class="block mb-1 text-gray-700">Título</label>
-                    <input type="text" x-model="eventTitle" class="w-full px-3 py-2 border rounded-lg" required>
+                    <strong>Título:</strong>
+                    <p x-text="viewingEvent.title"></p>
                 </div>
                 <div class="mb-4">
-                    <label class="block mb-1 text-gray-700">Fecha y Hora</label>
-                    <input type="datetime-local" x-model="eventDateTime" class="w-full px-3 py-2 border rounded-lg" required>
+                    <strong>Fecha y Hora:</strong>
+                    <p x-text="new Date(viewingEvent.date).toLocaleString()"></p>
                 </div>
                 <div class="mb-4">
-                    <label class="block mb-1 text-gray-700">Categoría</label>
-                    <select x-model="eventCategory" class="w-full px-3 py-2 border rounded-lg">
-                        <option value="blue">Evento Azul</option>
-                        <option value="red">Evento Rojo</option>
-                        <option value="yellow">Evento Amarillo</option>
-                        <option value="green">Evento Verde</option>
-                        <option value="purple">Evento Púrpura</option>
-                    </select>
+                    <strong>Categoría:</strong>
+                    <p x-text="viewingEvent.category"></p>
                 </div>
                 <div class="mb-4">
-                    <label class="block mb-1 text-gray-700">Descripción</label>
-                    <textarea x-model="eventDescription" class="w-full px-3 py-2 border rounded-lg" maxlength="200" rows="4" required></textarea>
-                    <small x-text="200 - eventDescription.length + ' palabras restantes'"></small>
+                    <strong>Descripción:</strong>
+                    <p class="event-detail" x-text="viewingEvent.description"></p>
                 </div>
                 <div class="flex justify-end">
-                    <button type="button" @click="closeModal" class="px-4 py-2 mr-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
-                    <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Guardar</button>
+                    <button @click="editEvent(viewingEvent)" class="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600">Editar</button>
+                    <button @click="deleteEvent(viewingEvent)" class="px-4 py-2 ml-2 text-white bg-red-500 rounded-lg hover:bg-red-600">Borrar</button>
+                    <button type="button" @click="closeEventDetail" class="px-4 py-2 ml-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cerrar</button>
                 </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Event Detail Modal -->
-    <div x-show="showEventDetail" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-        <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-            <h2 class="mb-4 text-2xl font-bold">Detalle del Evento</h2>
-            <div class="mb-4">
-                <strong>Título:</strong>
-                <p x-text="viewingEvent.title"></p>
-            </div>
-            <div class="mb-4">
-                <strong>Fecha y Hora:</strong>
-                <p x-text="new Date(viewingEvent.date).toLocaleString()"></p>
-            </div>
-            <div class="mb-4">
-                <strong>Categoría:</strong>
-                <p x-text="viewingEvent.category"></p>
-            </div>
-            <div class="mb-4">
-                <strong>Descripción:</strong>
-                <p class="event-detail" x-text="viewingEvent.description"></p>
-            </div>
-            <div class="flex justify-end">
-                <button type="button" @click="closeEventDetail" class="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cerrar</button>
             </div>
         </div>
+
+        <!-- Notification -->
+        <div x-show="showNotification" class="notification" x-text="notificationMessage"></div>
     </div>
 
-    <!-- Notification -->
-    <div x-show="showNotification" class="notification" x-text="notificationMessage"></div>
-</div>
+    <script>
+        const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 
-<script>
-    const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+        function calendarApp() {
+            return {
+                month: null,
+                year: null,
+                days: DAYS,
+                events: JSON.parse(localStorage.getItem('events') || '[]'),
+                eventTitle: '',
+                eventDateTime: '',
+                eventCategory: 'blue',
+                eventDescription: '',
+                showModal: false,
+                showEventDetail: false,
+                editMode: false,
+                currentEventIndex: null,
+                showNotification: false,
+                notificationMessage: '',
+                viewingEvent: {},
 
-    function calendarApp() {
-        return {
-            month: null,
-            year: null,
-            days: DAYS,
-            events: JSON.parse(localStorage.getItem('events') || '[]'),
-            eventTitle: '',
-            eventDateTime: '',
-            eventCategory: 'blue',
-            eventDescription: '',
-            showModal: false,
-            showEventDetail: false,
-            editMode: false,
-            currentEventIndex: null,
-            showNotification: false,
-            notificationMessage: '',
-            viewingEvent: {},
+                initializeCalendar() {
+                    const today = new Date();
+                    this.month = today.getMonth();
+                    this.year = today.getFullYear();
+                    this.calculateDays();
+                    this.checkEvents();
+                    setInterval(this.checkNotifications.bind(this), 60000); // Check notifications every minute
+                },
 
-            initializeCalendar() {
-                const today = new Date();
-                this.month = today.getMonth();
-                this.year = today.getFullYear();
-                this.calculateDays();
-                this.checkEvents();
-                setInterval(this.checkNotifications.bind(this), 60000); // Check notifications every minute
-            },
+                calculateDays() {
+                    const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+                    const dayOfWeek = new Date(this.year, this.month, 1).getDay();
+                    this.blankDays = Array(dayOfWeek === 0 ? 6 : dayOfWeek - 1).fill(null);
+                    this.noOfDays = Array.from({ length: daysInMonth }, (v, i) => i + 1);
+                },
 
-            calculateDays() {
-                const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-                const dayOfWeek = new Date(this.year, this.month, 1).getDay();
-                const blankDaysArray = Array.from({length: (dayOfWeek === 0 ? 6 : dayOfWeek - 1)}, (v, i) => i);
-                const daysArray = Array.from({length: daysInMonth}, (v, i) => i + 1);
-                this.blankDays = blankDaysArray;
-                this.noOfDays = daysArray;
-            },
+                changeMonth(value) {
+                    this.month += value;
+                    if (this.month > 11) {
+                        this.month = 0;
+                        this.year++;
+                    } else if (this.month < 0) {
+                        this.month = 11;
+                        this.year--;
+                    }
+                    this.calculateDays();
+                    this.checkEvents();
+                },
 
-            changeMonth(value) {
-                this.month += value;
-                if (this.month > 11) {
-                    this.month = 0;
-                    this.year++;
-                } else if (this.month < 0) {
-                    this.month = 11;
-                    this.year--;
-                }
-                this.calculateDays();
-                this.checkEvents();
-            },
+                isToday(date) {
+                    const today = new Date();
+                    const d = new Date(this.year, this.month, date);
+                    return today.toDateString() === d.toDateString();
+                },
 
-            isToday(date) {
-                const today = new Date();
-                const d = new Date(this.year, this.month, date);
-                return today.toDateString() === d.toDateString();
-            },
+                openEventModal(date) {
+                    this.showModal = true;
+                    this.editMode = false;
+                    this.eventDateTime = new Date(this.year, this.month, date).toISOString().slice(0, 16);
+                    this.eventTitle = '';
+                    this.eventCategory = 'blue';
+                    this.eventDescription = '';
+                },
 
-            openEventModal(date) {
-                this.showModal = true;
-                this.editMode = false;
-                this.eventDateTime = new Date(this.year, this.month, date).toISOString().slice(0, 16);
-                this.eventTitle = '';
-                this.eventCategory = 'blue';
-                this.eventDescription = '';
-            },
+                closeModal() {
+                    this.showModal = false;
+                    this.editMode = false;
+                },
 
-            closeModal() {
-                this.showModal = false;
-                this.editMode = false;
-            },
+                saveEvent() {
+                    if (this.editMode) {
+                        this.events[this.currentEventIndex] = {
+                            title: this.eventTitle,
+                            date: this.eventDateTime,
+                            category: this.eventCategory,
+                            description: this.eventDescription
+                        };
+                    } else {
+                        this.events.push({
+                            title: this.eventTitle,
+                            date: this.eventDateTime,
+                            category: this.eventCategory,
+                            description: this.eventDescription
+                        });
+                    }
+                    localStorage.setItem('events', JSON.stringify(this.events));
+                    this.closeModal();
+                    this.checkEvents();
+                },
 
-            saveEvent() {
-                if (this.editMode) {
-                    this.events[this.currentEventIndex] = {
-                        title: this.eventTitle,
-                        date: this.eventDateTime,
-                        category: this.eventCategory,
-                        description: this.eventDescription
-                    };
-                } else {
-                    this.events.push({
-                        title: this.eventTitle,
-                        date: this.eventDateTime,
-                        category: this.eventCategory,
-                        description: this.eventDescription
+                viewEvent(event) {
+                    this.showEventDetail = true;
+                    this.viewingEvent = event;
+                },
+
+                closeEventDetail() {
+                    this.showEventDetail = false;
+                },
+
+                editEvent(event) {
+                    this.showModal = true;
+                    this.editMode = true;
+                    this.currentEventIndex = this.events.indexOf(event);
+                    this.eventTitle = event.title;
+                    this.eventDateTime = event.date;
+                    this.eventCategory = event.category;
+                    this.eventDescription = event.description;
+                },
+
+                deleteEvent(event) {
+                    const index = this.events.indexOf(event);
+                    if (index > -1) {
+                        this.events.splice(index, 1);
+                        localStorage.setItem('events', JSON.stringify(this.events));
+                    }
+                    this.closeEventDetail();
+                    this.checkEvents();
+                },
+
+                checkEvents() {
+                    const now = new Date();
+                    this.events.forEach(event => {
+                        const eventDate = new Date(event.date);
+                        if (eventDate.toDateString() === now.toDateString()) {
+                            this.showNotification = true;
+                            this.notificationMessage = `Recordatorio: ¡Hoy es el evento "${event.title}"!`;
+                            setTimeout(() => {
+                                this.showNotification = false;
+                            }, 5000);
+                        }
+                    });
+                },
+
+                checkNotifications() {
+                    const now = new Date();
+                    this.events.forEach(event => {
+                        const eventDate = new Date(event.date);
+                        const timeDifference = eventDate - now;
+                        if (timeDifference <= 60000 && timeDifference > 0) { // Notify one minute before event
+                            this.showNotification = true;
+                            this.notificationMessage = `¡El evento "${event.title}" está a punto de comenzar!`;
+                            setTimeout(() => {
+                                this.showNotification = false;
+                            }, 5000);
+                        }
                     });
                 }
-                localStorage.setItem('events', JSON.stringify(this.events));
-                this.closeModal();
-                this.checkEvents();
-            },
-
-            viewEvent(event) {
-                this.showEventDetail = true;
-                this.viewingEvent = event;
-            },
-
-            closeEventDetail() {
-                this.showEventDetail = false;
-            },
-
-            editEvent(event) {
-                this.showModal = true;
-                this.editMode = true;
-                this.currentEventIndex = this.events.indexOf(event);
-                this.eventTitle = event.title;
-                this.eventDateTime = event.date;
-                this.eventCategory = event.category;
-                this.eventDescription = event.description;
-            },
-
-            deleteEvent() {
-                this.events.splice(this.currentEventIndex, 1);
-                localStorage.setItem('events', JSON.stringify(this.events));
-                this.closeModal();
-                this.checkEvents();
-            },
-
-            checkEvents() {
-                const now = new Date();
-                this.events.forEach(event => {
-                    const eventDate = new Date(event.date);
-                    if (eventDate.toDateString() === now.toDateString()) {
-                        this.showNotification = true;
-                        this.notificationMessage = `Recordatorio: ¡Hoy es el evento "${event.title}"!`;
-                        setTimeout(() => {
-                            this.showNotification = false;
-                        }, 5000);
-                    }
-                });
-            },
-
-            checkNotifications() {
-                const now = new Date();
-                this.events.forEach(event => {
-                    const eventDate = new Date(event.date);
-                    const timeDifference = eventDate - now;
-                    if (timeDifference <= 60000 && timeDifference > 0) { // Notify one minute before event
-                        this.showNotification = true;
-                        this.notificationMessage = `¡El evento "${event.title}" está a punto de comenzar!`;
-                        setTimeout(() => {
-                            this.showNotification = false;
-                        }, 5000);
-                    }
-                });
             }
         }
-    }
-</script>
-</body>
+    </script>
+    </body>
     </div>
 </div>
 
