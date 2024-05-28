@@ -1,154 +1,85 @@
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 <!-- drawer init and toggle -->
-
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
+    .sidebar {
+      width: 4rem; /* Establece el ancho inicial del sidebar */
+      transition: width 0.3s ease-in-out; /* Agrega una transición suave al cambiar el ancho */
     }
-    #drawer-body-scrolling {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 0;
-        width: 3%;
-        height: 100vh;
-        padding: 10px;
-        overflow-y: auto;
-        transition: width 0.3s ease, background-color 0.3s ease;
-        background-color: #C82333;
-    }
-    #drawer-body-scrolling:hover {
-        width: 8%;
-    }
-    #drawer-body-scrolling-label {
-        text-align: center;
-        color: #fff;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        font-weight: bold;
-        font-size: 0.8rem;
-    }
-    .drawer-content {
-        display: flex;
-        flex-direction: column;
-        height: calc(100% - 40px);
-        justify-content: space-between;
-    }
-    .drawer-content ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    .drawer-content li {
-        margin-bottom: 20px;
-    }
-    .drawer-content a {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 5px;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .drawer-content a:hover {
-        background-color: #a61e2b;
-        transform: scale(0.9);
-    }
-    .drawer-content img {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        transition: transform 0.3s ease;
-    }
-    .drawer-content a:hover img {
-        transform: scale(0.8);
-    }
-    .logout {
-        margin-top: auto;
-    }
-    @media (max-width: 100px) {
-        #drawer-body-scrolling {
-            width: 6%;
-        }
-        #drawer-body-scrolling:hover {
-            width: 15%;
-        }
-    }
-    @media (max-width: 200px) {
-        #drawer-body-scrolling {
-            width: 8%;
-        }
-        #drawer-body-scrolling:hover {
-            width: 20%;
-        }
-    }
-</style>
-</head>
-<body>
 
-<div id="drawer-body-scrolling">
-<h5 id="drawer-body-scrolling-label">ℍ𝕖𝕣𝕞𝕖𝕤</h5>
-<div class="drawer-content">
-    <ul>
-        <li>
-            <a href="#" onclick="estadisticas()" id="showContent">
-                <img src="/Imagenes/tabladasb.png" aria-hidden="true">
-                <span class="expand-text">𝔼𝕤𝕥𝕒𝕕𝕚𝕤𝕥𝕚𝕔𝕒</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="home()" id="showContent">
-                <img src="/Imagenes/casadasb.png" aria-hidden="true">
-                <span class="expand-text">ℍ𝕠𝕞𝕖</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" onclick="calendario()">
-                <img src="/Imagenes/calendariobasb.png" aria-hidden="true">
-                <span class="expand-text">ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣𝕚𝕠</span>
-            </a>
-        </li>
-    </ul>
-    <ul class="logout">
-        <li>
-            <a href="#" onclick="logout()">
-                <img src="/Imagenes/salirbasb.png" aria-hidden="true">
-                <span class="expand-text">𝕊𝕚𝕘𝕟 𝕠𝕗𝕗</span>
-            </a>
-        </li>
-    </ul>
-</div>
-</div>
+    .sidebar:hover {
+      width: 12rem; /* Establece el ancho al pasar el cursor sobre el sidebar */
+    }
 
-<script>
-function logout() {
-    fetch('/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = '/';
-            } else {
-                alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-            }
-        })
-        .catch(error => {
-            alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-            console.error(error);
-        });
-}
-</script>
+    .expand-text {
+      opacity: 0; /* Oculta inicialmente el texto del sidebar */
+      transition: opacity 0.3s ease-in-out; /* Agrega una transición suave para mostrar/ocultar el texto */
+    }
 
-</body>
+    .sidebar:hover .expand-text {
+      opacity: 1; /* Muestra el texto al pasar el cursor sobre el sidebar */
+    }
+  </style>
+
+  <body class="bg-gray-100">
+    <div class="fixed top-0 left-0 z-0 h-screen p-2 overflow-y-auto transition-all duration-300 ease-in-out bg-red-700 sidebar">
+      <h5 class="mb-2 text-xs font-bold text-center text-white uppercase">Hermes</h5>
+      <div class="drawer-content flex flex-col h-[calc(100%-40px)] justify-between">
+        <ul>
+          <li class="mb-5">
+                      <a href="#" onclick="estadisticas()" id="showContent" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
+                          <img src="/images/tabladasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
+                          <span class="expand-text">𝔼𝕤𝕥𝕒𝕕𝕚𝕤𝕥𝕚𝕔𝕒</span>
+                      </a>
+                  </li>
+                  <li class="mb-5">
+                      <a href="#" onclick="home()" id="showContent" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
+                          <img src="\images\casadasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
+                          <span class="expand-text">ℍ𝕠𝕞𝕖</span>
+                      </a>
+                  </li>
+                  <li class="mb-5">
+                      <a href="#" onclick="calendario()" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
+                          <img src="\images\calendariobasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
+                          <span class="expand-text">ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣𝕚𝕠</span>
+                      </a>
+                  </li>
+              </ul>
+              <ul class="mt-auto logout">
+                  <li class="mb-5">
+                      <a href="#" onclick="logout()" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
+                          <img src="\images\salirbasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
+                          <span class="expand-text">𝕊𝕚𝕘𝕟 𝕠𝕗𝕗</span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+
+      <script>
+      function logout() {
+          fetch('/logout', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                  }
+              })
+              .then(response => {
+                  if (response.ok) {
+                      window.location.href = '/';
+                  } else {
+                      alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
+                  }
+              })
+              .catch(error => {
+                  alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
+                  console.error(error);
+              });
+      }
+      </script>
+
+      </body>
 
 <BR></BR>
 {{-- aqui va el contenido de la estadistica --}}
@@ -397,7 +328,7 @@ function logout() {
                 <div class="p-4 bg-white rounded-lg shadow">
                     <div class="flex items-center justify-between mb-4">
                         <h4 class="text-xl font-semibold">Eventos Próximos</h4>
-                        <button id="addEventBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Agregar Evento</button>
+                        <button id="addEventBtn" class="px-4 py-2 text-white bg-blue-500 rounded">Agregar Evento</button>
                     </div>
                     <div class="overflow-x-auto">
                         <table id="eventsTable" class="w-full text-left">
@@ -423,11 +354,11 @@ function logout() {
             <!-- Modal para Agregar/Editar Evento -->
             <div id="eventModal" class="sidebar-modal">
                 <div class="flex flex-col h-full">
-                    <div class="p-4 border-b flex justify-between items-center">
+                    <div class="flex items-center justify-between p-4 border-b">
                         <h3 class="text-lg font-semibold" id="modalTitle">Agregar Evento</h3>
                         <button id="closeModalBtn" class="text-gray-600 hover:text-gray-900">&times;</button>
                     </div>
-                    <div class="p-4 flex-grow overflow-auto">
+                    <div class="flex-grow p-4 overflow-auto">
                         <form id="eventForm" class="space-y-4">
                             <div>
                                 <label for="eventName" class="block text-gray-700">Nombre Evento</label>
@@ -467,8 +398,8 @@ function logout() {
                     </div>
                     <div class="p-4 border-t">
                         <div class="flex justify-end">
-                            <button id="cancelBtn" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancelar</button>
-                            <button id="saveBtn" class="bg-blue-500 text-white px-4 py-2 rounded">Guardar</button>
+                            <button id="cancelBtn" class="px-4 py-2 mr-2 text-white bg-gray-500 rounded">Cancelar</button>
+                            <button id="saveBtn" class="px-4 py-2 text-white bg-blue-500 rounded">Guardar</button>
                         </div>
                     </div>
                 </div>
@@ -506,8 +437,8 @@ function logout() {
                                 <td class="px-6 py-4">${event.enabled}</td>
                                 <td class="px-6 py-4">${event.status}</td>
                                 <td class="px-6 py-4 text-right">
-                                    <button class="editBtn text-blue-600 hover:underline" data-index="${index}">Edit</button>
-                                    <button class="removeBtn text-red-600 hover:underline ml-3" data-index="${index}">Remove</button>
+                                    <button class="text-blue-600 editBtn hover:underline" data-index="${index}">Edit</button>
+                                    <button class="ml-3 text-red-600 removeBtn hover:underline" data-index="${index}">Remove</button>
                                 </td>
                             `;
                             eventsTbody.appendChild(row);
@@ -884,9 +815,9 @@ function logout() {
         <main class="container p-4 mx-auto">
             <div class="p-8 bg-white rounded-lg shadow">
                 <div id="home">
-                    <div class="flex flex-col items-center justify-between my-10 space-y-4 w-full max-w-xl mx-auto">
-                        <div class="flex w-full space-x-4 justify-center">
-                            <form id="searchForm" class="flex items-center space-x-4 w-full">
+                    <div class="flex flex-col items-center justify-between w-full max-w-xl mx-auto my-10 space-y-4">
+                        <div class="flex justify-center w-full space-x-4">
+                            <form id="searchForm" class="flex items-center w-full space-x-4">
                                 <label for="searchInput" class="mb-2 text-sm font-medium text-gray-900 sr-only">Buscar</label>
                                 <div class="relative w-full">
                                     <input type="search" id="searchInput"
@@ -1065,7 +996,7 @@ function logout() {
         </main>
 
         <button id="createEventFloatingButton"
-            class="floating-button w-12 h-12 text-white bg-blue-700 rounded-full shadow-lg hover:bg-blue-800">
+            class="w-12 h-12 text-white bg-blue-700 rounded-full shadow-lg floating-button hover:bg-blue-800">
             <svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
