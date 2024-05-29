@@ -3,83 +3,198 @@
 <!-- drawer init and toggle -->
 <style>
     .sidebar {
-      width: 4rem; /* Establece el ancho inicial del sidebar */
-      transition: width 0.3s ease-in-out; /* Agrega una transición suave al cambiar el ancho */
+        width: 4rem;
+        /* Establece el ancho inicial del sidebar */
+        transition: width 0.3s ease-in-out;
+        /* Agrega una transición suave al cambiar el ancho */
     }
 
     .sidebar:hover {
-      width: 12rem; /* Establece el ancho al pasar el cursor sobre el sidebar */
+        width: 11rem;
+        /* Establece el ancho al pasar el cursor sobre el sidebar */
     }
 
     .expand-text {
-      opacity: 0; /* Oculta inicialmente el texto del sidebar */
-      transition: opacity 0.3s ease-in-out; /* Agrega una transición suave para mostrar/ocultar el texto */
+        opacity: 0;
+        /* Oculta inicialmente el texto del sidebar */
+        transition: opacity 0.5s ease-in-out;
+        /* Agrega una transición suave para mostrar/ocultar el texto */
     }
 
     .sidebar:hover .expand-text {
-      opacity: 1; /* Muestra el texto al pasar el cursor sobre el sidebar */
+        opacity: 1;
+        /* Muestra el texto al pasar el cursor sobre el sidebar */
     }
-  </style>
+</style>
 
-  <body class="bg-gray-100">
-    <div class="fixed top-0 left-0 z-0 h-screen p-2 overflow-y-auto transition-all duration-300 ease-in-out bg-red-700 sidebar">
-      <h5 class="mb-2 text-xs font-bold text-center text-white uppercase">Hermes</h5>
-      <div class="drawer-content flex flex-col h-[calc(100%-40px)] justify-between">
+<body class="bg-gray-100">
+    <div
+        class="fixed top-0 left-0 z-0 h-screen p-2 overflow-y-auto transition-all duration-300 ease-in-out bg-red-700 sidebar">
+        <h5 class="mb-2 text-xs font-bold text-center text-white uppercase">Hermes</h5>
+        <div class="drawer-content flex flex-col h-[calc(100%-40px)] justify-between">
+            <ul>
+                <li class="mb-5">
+                    <a href="#" onclick="estadisticas()" id="showContent"
+                        class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
+                        <img src="/images/icoestadisticas.png" aria-hidden="true"
+                            class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
+                        <span class="expand-text">𝔼𝕤𝕥𝕒𝕕𝕚𝕤𝕥𝕚𝕔𝕒</span>
+                    </a>
+                </li>
+                <li class="mb-5">
+                    <a href="#" onclick="home()" id="showContent"
+                        class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
+                        <img src="/images/envioalmundoentero.png" aria-hidden="true"
+                            class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
+                        <span class="expand-text">ℍ𝕠𝕞𝕖</span>
+                    </a>
+                </li>
+                <li class="mb-5">
+                    <a href="#" onclick="calendario()"
+                        class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
+                        <img src="\images\icocalendario.png" aria-hidden="true"
+                            class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
+                        <span class="expand-text">ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣𝕚𝕠</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+
+</body>
+{{-- <style>
+    .sidebar {
+        width: 4rem;
+        transition: width 0.3s ease-in-out;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-color: #b22222;
+    }
+
+    .sidebar:hover {
+        width: 12rem;
+    }
+
+    .expand-text,
+    ul {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .sidebar:hover .expand-text,
+    .sidebar:hover ul {
+        opacity: 1;
+    }
+
+    .sidebar-header {
+        font-size: 3rem;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        transition: opacity 0.5s ease-in-out, font-size 0.5s ease-in-out;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        opacity: 1;
+    }
+
+    .sidebar:hover .sidebar-header {
+        font-size: 1.5rem;
+        writing-mode: horizontal-tb;
+        transform: translate(-50%, 0) rotate(0);
+        top: 1rem;
+        opacity: 0;
+    }
+
+    .drawer-content {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 40px);
+        justify-content: space-between;
+        padding: 1rem 0;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    li {
+        margin-bottom: 1.5rem;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.25rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    a:hover {
+        background-color: rgba(15, 41, 62, 0.65);
+        transform: scale(0.95);
+    }
+
+    img {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-right: 1rem;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    img:hover {
+        transform: scale(0.8);
+    }
+</style>
+</head>
+<body class="bg-gray-100">
+<div class="fixed top-0 left-0 z-0 h-screen transition-all duration-300 ease-in-out sidebar">
+    <h5 class="font-bold text-white uppercase sidebar-header">Hermes</h5>
+    <div class="drawer-content">
         <ul>
-          <li class="mb-5">
-                      <a href="#" onclick="estadisticas()" id="showContent" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
-                          <img src="/images/tabladasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
-                          <span class="expand-text">𝔼𝕤𝕥𝕒𝕕𝕚𝕤𝕥𝕚𝕔𝕒</span>
-                      </a>
-                  </li>
-                  <li class="mb-5">
-                      <a href="#" onclick="home()" id="showContent" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
-                          <img src="\images\casadasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
-                          <span class="expand-text">ℍ𝕠𝕞𝕖</span>
-                      </a>
-                  </li>
-                  <li class="mb-5">
-                      <a href="#" onclick="calendario()" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
-                          <img src="\images\calendariobasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
-                          <span class="expand-text">ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣𝕚𝕠</span>
-                      </a>
-                  </li>
-              </ul>
-              <ul class="mt-auto logout">
-                  <li class="mb-5">
-                      <a href="#" onclick="logout()" class="flex items-center p-2 text-white transition-all duration-300 ease-in-out rounded-sm hover:bg-red-800 hover:scale-90">
-                          <img src="\images\salirbasb.png" aria-hidden="true" class="w-6 h-6 mr-2 transition-transform duration-300 ease-in-out transform hover:scale-80">
-                          <span class="expand-text">𝕊𝕚𝕘𝕟 𝕠𝕗𝕗</span>
-                      </a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-
-      <script>
-      function logout() {
-          fetch('/logout', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                      'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                  }
-              })
-              .then(response => {
-                  if (response.ok) {
-                      window.location.href = '/';
-                  } else {
-                      alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-                  }
-              })
-              .catch(error => {
-                  alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-                  console.error(error);
-              });
-      }
-      </script>
-
-      </body>
+            <li>
+                <a href="#" onclick="estadisticas()" id="showContent" class="transition-all duration-300 ease-in-out">
+                    <img src="/images/icoestadisticas.png" aria-hidden="true" class="transition-transform duration-300 ease-in-out transform hover:scale-80">
+                    <span class="expand-text">𝔼𝕤𝕥𝕒𝕕𝕚𝕤𝕥𝕚𝕔𝕒</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="home()" id="showContent" class="transition-all duration-300 ease-in-out">
+                    <img src="/images/envioalmundoentero.png" aria-hidden="true" class="transition-transform duration-300 ease-in-out transform hover:scale-80">
+                    <span class="expand-text">ℍ𝕠𝕞𝕖</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" onclick="calendario()" class="transition-all duration-300 ease-in-out">
+                    <img src="\images\icocalendario.png" aria-hidden="true" class="transition-transform duration-300 ease-in-out transform hover:scale-80">
+                    <span class="expand-text">ℂ𝕒𝕝𝕖𝕟𝕕𝕒𝕣𝕚𝕠</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body> --}}
 
 <BR></BR>
 {{-- aqui va el contenido de la estadistica --}}
@@ -316,120 +431,151 @@
                     transform: translateX(100%);
                     transition: transform 0.3s ease-in-out;
                 }
+
                 .sidebar-modal.active {
                     transform: translateX(0);
                 }
             </style>
-        </head>
+            </head>
 
-        <body class="bg-gray-100">
+            <body class="bg-gray-100">
 
-            <div class="mb-5">
-                <div class="p-4 bg-white rounded-lg shadow">
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-semibold">Eventos Próximos</h4>
-                        <button id="addEventBtn" class="px-4 py-2 text-white bg-blue-500 rounded">Agregar Evento</button>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table id="eventsTable" class="w-full text-left">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="py-2">Nombre Evento</th>
-                                    <th class="py-2">Color</th>
-                                    <th class="py-2">Modalidad</th>
-                                    <th class="py-2">Fecha</th>
-                                    <th class="py-2">Habilitado</th>
-                                    <th class="py-2">Estado</th>
-                                    <th class="py-2 text-right">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="eventsTbody">
-                                <!-- Eventos serán insertados aquí -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal para Agregar/Editar Evento -->
-            <div id="eventModal" class="sidebar-modal">
-                <div class="flex flex-col h-full">
-                    <div class="flex items-center justify-between p-4 border-b">
-                        <h3 class="text-lg font-semibold" id="modalTitle">Agregar Evento</h3>
-                        <button id="closeModalBtn" class="text-gray-600 hover:text-gray-900">&times;</button>
-                    </div>
-                    <div class="flex-grow p-4 overflow-auto">
-                        <form id="eventForm" class="space-y-4">
-                            <div>
-                                <label for="eventName" class="block text-gray-700">Nombre Evento</label>
-                                <input type="text" id="eventName" class="w-full px-3 py-2 border rounded" required>
-                            </div>
-                            <div>
-                                <label for="eventColor" class="block text-gray-700">Color</label>
-                                <input type="text" id="eventColor" class="w-full px-3 py-2 border rounded" required>
-                            </div>
-                            <div>
-                                <label for="eventMode" class="block text-gray-700">Modalidad</label>
-                                <input type="text" id="eventMode" class="w-full px-3 py-2 border rounded" required>
-                            </div>
-                            <div>
-                                <label for="eventDate" class="block text-gray-700">Fecha</label>
-                                <input type="date" id="eventDate" class="w-full px-3 py-2 border rounded" required>
-                            </div>
-                            <div>
-                                <label for="eventEnabled" class="block text-gray-700">Habilitado</label>
-                                <select id="eventEnabled" class="w-full px-3 py-2 border rounded" required>
-                                    <option value="Yes">Yes</option>
-                                    <option value="No">No</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="eventStatus" class="block text-gray-700">Estado</label>
-                                <select id="eventStatus" class="w-full px-3 py-2 border rounded" required>
-                                    <option value="Activo">Activo</option>
-                                    <option value="Bloqueado">Bloqueado</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label for="eventDescription" class="block text-gray-700">Descripción</label>
-                                <textarea id="eventDescription" class="w-full px-3 py-2 border rounded" rows="4"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="p-4 border-t">
-                        <div class="flex justify-end">
-                            <button id="cancelBtn" class="px-4 py-2 mr-2 text-white bg-gray-500 rounded">Cancelar</button>
-                            <button id="saveBtn" class="px-4 py-2 text-white bg-blue-500 rounded">Guardar</button>
+                <div class="mb-5">
+                    <div class="p-4 bg-white rounded-lg shadow">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="text-xl font-semibold">Eventos Próximos</h4>
+                            <button id="addEventBtn" class="px-4 py-2 text-white bg-blue-500 rounded">Agregar
+                                Evento</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table id="eventsTable" class="w-full text-left">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="py-2">Nombre Evento</th>
+                                        <th class="py-2">Color</th>
+                                        <th class="py-2">Modalidad</th>
+                                        <th class="py-2">Fecha</th>
+                                        <th class="py-2">Habilitado</th>
+                                        <th class="py-2">Estado</th>
+                                        <th class="py-2 text-right">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="eventsTbody">
+                                    <!-- Eventos serán insertados aquí -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                    const events = [
-                        { name: 'Internacionalización', color: 'blue', mode: 'Virtual', date: '2022-12-12', enabled: 'Yes', status: 'Activo', description: 'Evento sobre la internacionalización de la empresa.' },
-                        { name: 'Microsoft Activation', color: 'black', mode: 'Presencial', date: '2024-05-12', enabled: 'Yes', status: 'Activo', description: 'Activación de productos Microsoft.' },
-                        { name: 'Magic Mouse', color: 'Black', mode: 'Presencial', date: '2025-01-28', enabled: 'No', status: 'Bloqueado', description: 'Presentación del nuevo Magic Mouse.' },
-                    ];
+                <!-- Modal para Agregar/Editar Evento -->
+                <div id="eventModal" class="sidebar-modal">
+                    <div class="flex flex-col h-full">
+                        <div class="flex items-center justify-between p-4 border-b">
+                            <h3 class="text-lg font-semibold" id="modalTitle">Agregar Evento</h3>
+                            <button id="closeModalBtn" class="text-gray-600 hover:text-gray-900">&times;</button>
+                        </div>
+                        <div class="flex-grow p-4 overflow-auto">
+                            <form id="eventForm" class="space-y-4">
+                                <div>
+                                    <label for="eventName" class="block text-gray-700">Nombre Evento</label>
+                                    <input type="text" id="eventName" class="w-full px-3 py-2 border rounded"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="eventColor" class="block text-gray-700">Color</label>
+                                    <input type="text" id="eventColor" class="w-full px-3 py-2 border rounded"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="eventMode" class="block text-gray-700">Modalidad</label>
+                                    <input type="text" id="eventMode" class="w-full px-3 py-2 border rounded"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="eventDate" class="block text-gray-700">Fecha</label>
+                                    <input type="date" id="eventDate" class="w-full px-3 py-2 border rounded"
+                                        required>
+                                </div>
+                                <div>
+                                    <label for="eventEnabled" class="block text-gray-700">Habilitado</label>
+                                    <select id="eventEnabled" class="w-full px-3 py-2 border rounded" required>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="eventStatus" class="block text-gray-700">Estado</label>
+                                    <select id="eventStatus" class="w-full px-3 py-2 border rounded" required>
+                                        <option value="Activo">Activo</option>
+                                        <option value="Bloqueado">Bloqueado</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="eventDescription" class="block text-gray-700">Descripción</label>
+                                    <textarea id="eventDescription" class="w-full px-3 py-2 border rounded" rows="4"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="p-4 border-t">
+                            <div class="flex justify-end">
+                                <button id="cancelBtn"
+                                    class="px-4 py-2 mr-2 text-white bg-gray-500 rounded">Cancelar</button>
+                                <button id="saveBtn"
+                                    class="px-4 py-2 text-white bg-blue-500 rounded">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                    const eventsTbody = document.getElementById('eventsTbody');
-                    const eventModal = document.getElementById('eventModal');
-                    const eventForm = document.getElementById('eventForm');
-                    const modalTitle = document.getElementById('modalTitle');
-                    const addEventBtn = document.getElementById('addEventBtn');
-                    const closeModalBtn = document.getElementById('closeModalBtn');
-                    const cancelBtn = document.getElementById('cancelBtn');
-                    const saveBtn = document.getElementById('saveBtn');
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const events = [{
+                                name: 'Internacionalización',
+                                color: 'blue',
+                                mode: 'Virtual',
+                                date: '2022-12-12',
+                                enabled: 'Yes',
+                                status: 'Activo',
+                                description: 'Evento sobre la internacionalización de la empresa.'
+                            },
+                            {
+                                name: 'Microsoft Activation',
+                                color: 'black',
+                                mode: 'Presencial',
+                                date: '2024-05-12',
+                                enabled: 'Yes',
+                                status: 'Activo',
+                                description: 'Activación de productos Microsoft.'
+                            },
+                            {
+                                name: 'Magic Mouse',
+                                color: 'Black',
+                                mode: 'Presencial',
+                                date: '2025-01-28',
+                                enabled: 'No',
+                                status: 'Bloqueado',
+                                description: 'Presentación del nuevo Magic Mouse.'
+                            },
+                        ];
 
-                    let editIndex = null;
+                        const eventsTbody = document.getElementById('eventsTbody');
+                        const eventModal = document.getElementById('eventModal');
+                        const eventForm = document.getElementById('eventForm');
+                        const modalTitle = document.getElementById('modalTitle');
+                        const addEventBtn = document.getElementById('addEventBtn');
+                        const closeModalBtn = document.getElementById('closeModalBtn');
+                        const cancelBtn = document.getElementById('cancelBtn');
+                        const saveBtn = document.getElementById('saveBtn');
 
-                    function renderEvents() {
-                        eventsTbody.innerHTML = '';
-                        events.forEach((event, index) => {
-                            const row = document.createElement('tr');
-                            row.classList.add('bg-white', 'border-b', 'hover:bg-gray-50');
-                            row.innerHTML = `
+                        let editIndex = null;
+
+                        function renderEvents() {
+                            eventsTbody.innerHTML = '';
+                            events.forEach((event, index) => {
+                                const row = document.createElement('tr');
+                                row.classList.add('bg-white', 'border-b', 'hover:bg-gray-50');
+                                row.innerHTML = `
                                 <td class="px-6 py-4">${event.name}</td>
                                 <td class="px-6 py-4">${event.color}</td>
                                 <td class="px-6 py-4">${event.mode}</td>
@@ -441,75 +587,75 @@
                                     <button class="ml-3 text-red-600 removeBtn hover:underline" data-index="${index}">Remove</button>
                                 </td>
                             `;
-                            eventsTbody.appendChild(row);
-                        });
-
-                        document.querySelectorAll('.editBtn').forEach(button => {
-                            button.addEventListener('click', (e) => {
-                                editIndex = e.target.getAttribute('data-index');
-                                openModal(events[editIndex]);
+                                eventsTbody.appendChild(row);
                             });
-                        });
 
-                        document.querySelectorAll('.removeBtn').forEach(button => {
-                            button.addEventListener('click', (e) => {
-                                const index = e.target.getAttribute('data-index');
-                                events.splice(index, 1);
-                                renderEvents();
+                            document.querySelectorAll('.editBtn').forEach(button => {
+                                button.addEventListener('click', (e) => {
+                                    editIndex = e.target.getAttribute('data-index');
+                                    openModal(events[editIndex]);
+                                });
                             });
+
+                            document.querySelectorAll('.removeBtn').forEach(button => {
+                                button.addEventListener('click', (e) => {
+                                    const index = e.target.getAttribute('data-index');
+                                    events.splice(index, 1);
+                                    renderEvents();
+                                });
+                            });
+                        }
+
+                        function openModal(event = null) {
+                            if (event) {
+                                modalTitle.textContent = 'Editar Evento';
+                                eventForm.eventName.value = event.name;
+                                eventForm.eventColor.value = event.color;
+                                eventForm.eventMode.value = event.mode;
+                                eventForm.eventDate.value = event.date;
+                                eventForm.eventEnabled.value = event.enabled;
+                                eventForm.eventStatus.value = event.status;
+                                eventForm.eventDescription.value = event.description;
+                            } else {
+                                modalTitle.textContent = 'Agregar Evento';
+                                eventForm.reset();
+                            }
+                            eventModal.classList.add('active');
+                        }
+
+                        function closeModal() {
+                            eventModal.classList.remove('active');
+                            editIndex = null;
+                        }
+
+                        addEventBtn.addEventListener('click', () => openModal());
+                        closeModalBtn.addEventListener('click', () => closeModal());
+                        cancelBtn.addEventListener('click', () => closeModal());
+                        saveBtn.addEventListener('click', () => {
+                            const newEvent = {
+                                name: eventForm.eventName.value,
+                                color: eventForm.eventColor.value,
+                                mode: eventForm.eventMode.value,
+                                date: eventForm.eventDate.value,
+                                enabled: eventForm.eventEnabled.value,
+                                status: eventForm.eventStatus.value,
+                                description: eventForm.eventDescription.value,
+                            };
+
+                            if (editIndex !== null) {
+                                events[editIndex] = newEvent;
+                            } else {
+                                events.push(newEvent);
+                            }
+
+                            renderEvents();
+                            closeModal();
                         });
-                    }
-
-                    function openModal(event = null) {
-                        if (event) {
-                            modalTitle.textContent = 'Editar Evento';
-                            eventForm.eventName.value = event.name;
-                            eventForm.eventColor.value = event.color;
-                            eventForm.eventMode.value = event.mode;
-                            eventForm.eventDate.value = event.date;
-                            eventForm.eventEnabled.value = event.enabled;
-                            eventForm.eventStatus.value = event.status;
-                            eventForm.eventDescription.value = event.description;
-                        } else {
-                            modalTitle.textContent = 'Agregar Evento';
-                            eventForm.reset();
-                        }
-                        eventModal.classList.add('active');
-                    }
-
-                    function closeModal() {
-                        eventModal.classList.remove('active');
-                        editIndex = null;
-                    }
-
-                    addEventBtn.addEventListener('click', () => openModal());
-                    closeModalBtn.addEventListener('click', () => closeModal());
-                    cancelBtn.addEventListener('click', () => closeModal());
-                    saveBtn.addEventListener('click', () => {
-                        const newEvent = {
-                            name: eventForm.eventName.value,
-                            color: eventForm.eventColor.value,
-                            mode: eventForm.eventMode.value,
-                            date: eventForm.eventDate.value,
-                            enabled: eventForm.eventEnabled.value,
-                            status: eventForm.eventStatus.value,
-                            description: eventForm.eventDescription.value,
-                        };
-
-                        if (editIndex !== null) {
-                            events[editIndex] = newEvent;
-                        } else {
-                            events.push(newEvent);
-                        }
 
                         renderEvents();
-                        closeModal();
                     });
-
-                    renderEvents();
-                });
-            </script>
-        </body>
+                </script>
+            </body>
         </main>
 
         <!-- AlpineJS for Interactivity -->
@@ -809,793 +955,875 @@
                 width: 100%;
             }
         </style>
-    </head>
+        </head>
 
-    <body class="bg-gray-100">
-        <main class="container p-4 mx-auto">
-            <div class="p-8 bg-white rounded-lg shadow">
-                <div id="home">
-                    <div class="flex flex-col items-center justify-between w-full max-w-xl mx-auto my-10 space-y-4">
-                        <div class="flex justify-center w-full space-x-4">
-                            <form id="searchForm" class="flex items-center w-full space-x-4">
-                                <label for="searchInput" class="mb-2 text-sm font-medium text-gray-900 sr-only">Buscar</label>
-                                <div class="relative w-full">
-                                    <input type="search" id="searchInput"
-                                        class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="Buscar contenido..." required />
-                                    <button type="submit"
-                                        class="absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-white">Buscar</button>
+        <body class="bg-gray-100">
+            <main class="container p-4 mx-auto">
+                <div class="p-8 bg-white rounded-lg shadow">
+                    <div id="home">
+                        <div
+                            class="flex flex-col items-center justify-between w-full max-w-xl mx-auto my-10 space-y-4">
+                            <div class="flex justify-center w-full space-x-4">
+                                <form id="searchForm" class="flex items-center w-full space-x-4">
+                                    <label for="searchInput"
+                                        class="mb-2 text-sm font-medium text-gray-900 sr-only">Buscar</label>
+                                    <div class="relative w-full">
+                                        <input type="search" id="searchInput"
+                                            class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500"
+                                            placeholder="Buscar contenido..." required />
+                                        <button type="submit"
+                                            class="absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-white">Buscar</button>
+                                    </div>
+                                </form>
+
+                                <button id="createEventButton"
+                                    class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Registrar
+                                    eventos +</button>
+                            </div>
+
+                            <div class="relative w-full max-w-xs">
+                                <button id="activityTypeButton"
+                                    class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Tipo
+                                    de actividad ➤</button>
+                                <div id="activityTypeDropdown"
+                                    class="absolute hidden w-full py-2 mt-2 bg-white rounded-lg shadow-lg">
+                                    <p class="px-4 py-2 text-gray-700">Rol</p>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Docente</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Estudiante</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Empresario</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Otro</a>
+                                    <hr>
+                                    <p class="px-4 py-2 text-gray-700">Actividad que se realiza</p>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ruta</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ponencia</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Clase
+                                        espejo</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Cátedra
+                                        abierta</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Congreso</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">COIL</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Convenio</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Reunión</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad deportiva</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
+                                        multicultural</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Pasantía
+                                        investigativa</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Curso en
+                                        línea</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
+                                        bilingüe/multilingüe</a>
+                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Proyecto
+                                        de aula</a>
+                                    <a href="#"
+                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Intercambio
+                                        semestral</a>
                                 </div>
-                            </form>
-
-                            <button id="createEventButton"
-                                class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Registrar
-                                eventos +</button>
+                            </div>
                         </div>
 
-                        <div class="relative w-full max-w-xs">
-                            <button id="activityTypeButton"
-                                class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Tipo
-                                de actividad ➤</button>
-                            <div id="activityTypeDropdown" class="absolute hidden w-full py-2 mt-2 bg-white rounded-lg shadow-lg">
-                                <p class="px-4 py-2 text-gray-700">Rol</p>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Docente</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Estudiante</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Empresario</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Otro</a>
-                                <hr>
-                                <p class="px-4 py-2 text-gray-700">Actividad que se realiza</p>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ruta</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ponencia</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Clase espejo</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Cátedra abierta</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Congreso</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">COIL</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Convenio</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Reunión</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad deportiva</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad multicultural</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Pasantía investigativa</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Curso en línea</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad bilingüe/multilingüe</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Proyecto de aula</a>
-                                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Intercambio semestral</a>
+                        <div id="registerForm" class="hidden fullscreen-modal">
+                            <div class="modal-content">
+                                <h2 class="mb-4 text-lg font-semibold">Registrar nuevo evento</h2>
+                                <form id="eventRegistrationForm">
+                                    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                                        <div class="mb-4">
+                                            <label for="eventName"
+                                                class="block text-sm font-medium text-gray-700">Nombre del
+                                                evento</label>
+                                            <input type="text" id="eventName" name="eventName"
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="eventType"
+                                                class="block text-sm font-medium text-gray-700">Tipo de evento</label>
+                                            <select id="eventType" name="eventType"
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
+                                                <option value="">Selecciona un tipo</option>
+                                                <option value="Ruta">Ruta</option>
+                                                <option value="Ponencia">Ponencia</option>
+                                                <option value="Clase espejo">Clase espejo</option>
+                                                <option value="Cátedra abierta">Cátedra abierta</option>
+                                                <option value="Congreso">Congreso</option>
+                                                <option value="COIL">COIL</option>
+                                                <option value="Convenio">Convenio</option>
+                                                <option value="Reunión">Reunión</option>
+                                                <option value="Actividad deportiva">Actividad deportiva</option>
+                                                <option value="Actividad multicultural">Actividad multicultural
+                                                </option>
+                                                <option value="Pasantía investigativa">Pasantía investigativa</option>
+                                                <option value="Curso en línea">Curso en línea</option>
+                                                <option value="Actividad bilingüe/multilingüe">Actividad
+                                                    bilingüe/multilingüe</option>
+                                                <option value="Proyecto de aula">Proyecto de aula</option>
+                                                <option value="Intercambio semestral">Intercambio semestral</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="eventDate"
+                                                class="block text-sm font-medium text-gray-700">Fecha del
+                                                evento</label>
+                                            <input type="date" id="eventDate" name="eventDate"
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="eventLocation"
+                                                class="block text-sm font-medium text-gray-700">Ubicación</label>
+                                            <input type="text" id="eventLocation" name="eventLocation"
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="eventDuration"
+                                                class="block text-sm font-medium text-gray-700">Duración</label>
+                                            <input type="text" id="eventDuration" name="eventDuration"
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="eventParticipants"
+                                                class="block text-sm font-medium text-gray-700">Participantes</label>
+                                            <input type="text" id="eventParticipants" name="eventParticipants"
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
+                                        </div>
+                                        <div class="mb-4">
+                                            <label for="eventDocument"
+                                                class="block text-sm font-medium text-gray-700">Subir
+                                                documentos</label>
+                                            <input type="file" id="eventDocument" name="eventDocument"
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="eventDescription"
+                                            class="block text-sm font-medium text-gray-700">Descripción</label>
+                                        <textarea id="eventDescription" name="eventDescription" rows="4"
+                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                                    </div>
+                                    <div class="flex justify-end space-x-4">
+                                        <button type="button" id="cancelEventButton"
+                                            class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
+                                        <button type="submit"
+                                            class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="p-4 mt-8 bg-gray-100 rounded-lg">
+                            <h2 class="mb-4 text-lg font-semibold">Agregados recientes</h2>
+                            <div id="recentEventsContainer" class="recent-events-grid">
+                                <div class="event-card">Ejemplo 1</div>
+                                <div class="event-card">Ejemplo 2</div>
+                                <div class="event-card">Ejemplo 3</div>
+                                <div class="event-card">Ejemplo 4</div>
+                                <div class="event-card-placeholder">En espera...</div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Nombre
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Curso
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Estado
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Rol
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Email
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Teléfono
+                                        </th>
+                                        <th scope="col" class="relative px-6 py-3">
+                                            <span class="sr-only">Editar</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="eventsTableBody" class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Evento 1</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Curso 1</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Estado 1</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Rol 1</td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">email@example.com
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">123-456-7890</td>
+                                        <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                        </td>
+                                    </tr>
+                                    <!-- Añadir más filas aquí -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <button id="createEventFloatingButton"
+                class="w-12 h-12 text-white bg-blue-700 rounded-full shadow-lg floating-button hover:bg-blue-800">
+                <svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+            </button>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const activityTypeButton = document.getElementById('activityTypeButton');
+                    const activityTypeDropdown = document.getElementById('activityTypeDropdown');
+                    const createEventButton = document.getElementById('createEventButton');
+                    const createEventFloatingButton = document.getElementById('createEventFloatingButton');
+                    const registerForm = document.getElementById('registerForm');
+                    const eventRegistrationForm = document.getElementById('eventRegistrationForm');
+                    const cancelEventButton = document.getElementById('cancelEventButton');
+                    const recentEventsContainer = document.getElementById('recentEventsContainer');
+
+                    activityTypeButton.addEventListener('click', function() {
+                        activityTypeDropdown.classList.toggle('hidden');
+                    });
+
+                    createEventButton.addEventListener('click', function() {
+                        registerForm.classList.remove('hidden');
+                    });
+
+                    createEventFloatingButton.addEventListener('click', function() {
+                        registerForm.classList.remove('hidden');
+                    });
+
+                    cancelEventButton.addEventListener('click', function() {
+                        registerForm.classList.add('hidden');
+                    });
+
+                    eventRegistrationForm.addEventListener('submit', function(event) {
+                        event.preventDefault();
+
+                        const eventName = document.getElementById('eventName').value;
+                        const eventType = document.getElementById('eventType').value;
+                        const eventDate = document.getElementById('eventDate').value;
+                        const eventLocation = document.getElementById('eventLocation').value;
+                        const eventDuration = document.getElementById('eventDuration').value;
+                        const eventParticipants = document.getElementById('eventParticipants').value;
+                        const eventDescription = document.getElementById('eventDescription').value;
+
+                        const eventCard = document.createElement('div');
+                        eventCard.classList.add('event-card');
+                        eventCard.textContent = `${eventName} - ${eventType} - ${eventDate}`;
+
+                        recentEventsContainer.insertBefore(eventCard, recentEventsContainer.firstChild);
+
+                        registerForm.classList.add('hidden');
+                        eventRegistrationForm.reset();
+                    });
+
+                    document.addEventListener('click', function(event) {
+                        if (!activityTypeButton.contains(event.target) && !activityTypeDropdown.contains(event
+                                .target)) {
+                            activityTypeDropdown.classList.add('hidden');
+                        }
+                    });
+                });
+            </script>
+        </body>
+
+    </div>
+
+    {{-- aqui va el contenido del calendario --}}
+    <div class="bg-white rounded-lg shadow p-21">
+        <div id="calendario" style="display: none">
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+            <style>
+                [x-cloak] {
+                    display: none;
+                }
+
+                .notification {
+                    position: fixed;
+                    bottom: 16px;
+                    right: 16px;
+                    background-color: #4caf50;
+                    color: white;
+                    padding: 16px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    opacity: 0;
+                    transform: translateY(100%);
+                    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+                }
+
+                .notification.show {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                .event-detail {
+                    white-space: pre-wrap;
+                    word-wrap: break-word;
+                }
+            </style>
+            <title>Calendario de Eventos</title>
+            </head>
+
+            <body class="font-sans antialiased bg-gray-100">
+
+                <div x-data="calendarApp()" x-init="initializeCalendar()" x-cloak>
+                    <div class="container px-5 py-10 mx-auto">
+                        <div class="mb-5 text-3xl font-bold text-center text-gray-900">Calendario de Eventos</div>
+
+                        <div class="bg-white rounded-lg shadow">
+                            <div class="flex items-center justify-between px-6 py-4 text-white bg-blue-500">
+                                <div>
+                                    <span x-text="MONTH_NAMES[month]" class="text-xl font-bold"></span>
+                                    <span x-text="year" class="ml-1 text-xl"></span>
+                                </div>
+                                <div class="flex items-center">
+                                    <button @click="changeMonth(-1)" :disabled="month == 0"
+                                        class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 19l-7-7 7-7" />
+                                        </svg>
+                                    </button>
+                                    <button @click="changeMonth(1)" :disabled="month == 11"
+                                        class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-7 gap-1 px-4 py-2 text-center">
+                                <template x-for="day in DAYS" :key="day">
+                                    <div class="font-bold text-gray-800" x-text="day"></div>
+                                </template>
+                            </div>
+
+                            <div class="grid grid-cols-7 gap-1 p-4 border-t border-gray-200">
+                                <template x-for="blank in blankDays">
+                                    <div class="py-2"></div>
+                                </template>
+                                <template x-for="date in noOfDays" :key="date">
+                                    <div class="py-2">
+                                        <div @click="openEventModal(date)"
+                                            class="w-8 h-8 mx-auto text-center cursor-pointer"
+                                            :class="{ 'bg-blue-500 text-white': isToday(date), 'hover:bg-blue-200': !isToday(
+                                                    date) }">
+                                            <span x-text="date"></span>
+                                        </div>
+                                        <template
+                                            x-for="event in events.filter(e => new Date(e.date).toDateString() === new Date(year, month, date).toDateString())">
+                                            <div class="p-1 mt-1 text-sm text-blue-800 truncate bg-blue-100 rounded cursor-pointer"
+                                                @click="viewEvent(event)">
+                                                <span x-text="event.title"></span>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </template>
                             </div>
                         </div>
                     </div>
 
-                    <div id="registerForm" class="hidden fullscreen-modal">
-                        <div class="modal-content">
-                            <h2 class="mb-4 text-lg font-semibold">Registrar nuevo evento</h2>
-                            <form id="eventRegistrationForm">
-                                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-                                    <div class="mb-4">
-                                        <label for="eventName" class="block text-sm font-medium text-gray-700">Nombre del evento</label>
-                                        <input type="text" id="eventName" name="eventName"
-                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="eventType" class="block text-sm font-medium text-gray-700">Tipo de evento</label>
-                                        <select id="eventType" name="eventType"
-                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                            <option value="">Selecciona un tipo</option>
-                                            <option value="Ruta">Ruta</option>
-                                            <option value="Ponencia">Ponencia</option>
-                                            <option value="Clase espejo">Clase espejo</option>
-                                            <option value="Cátedra abierta">Cátedra abierta</option>
-                                            <option value="Congreso">Congreso</option>
-                                            <option value="COIL">COIL</option>
-                                            <option value="Convenio">Convenio</option>
-                                            <option value="Reunión">Reunión</option>
-                                            <option value="Actividad deportiva">Actividad deportiva</option>
-                                            <option value="Actividad multicultural">Actividad multicultural</option>
-                                            <option value="Pasantía investigativa">Pasantía investigativa</option>
-                                            <option value="Curso en línea">Curso en línea</option>
-                                            <option value="Actividad bilingüe/multilingüe">Actividad bilingüe/multilingüe</option>
-                                            <option value="Proyecto de aula">Proyecto de aula</option>
-                                            <option value="Intercambio semestral">Intercambio semestral</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="eventDate" class="block text-sm font-medium text-gray-700">Fecha del evento</label>
-                                        <input type="date" id="eventDate" name="eventDate"
-                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="eventLocation" class="block text-sm font-medium text-gray-700">Ubicación</label>
-                                        <input type="text" id="eventLocation" name="eventLocation"
-                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="eventDuration" class="block text-sm font-medium text-gray-700">Duración</label>
-                                        <input type="text" id="eventDuration" name="eventDuration"
-                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="eventParticipants" class="block text-sm font-medium text-gray-700">Participantes</label>
-                                        <input type="text" id="eventParticipants" name="eventParticipants"
-                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
-                                    </div>
-                                    <div class="mb-4">
-                                        <label for="eventDocument" class="block text-sm font-medium text-gray-700">Subir documentos</label>
-                                        <input type="file" id="eventDocument" name="eventDocument"
-                                            class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                    </div>
+                    <!-- Modal -->
+                    <div x-show="showModal"
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                        <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+                            <h2 class="mb-4 text-2xl font-bold"
+                                x-text="editMode ? 'Editar Evento' : 'Agregar Evento'"></h2>
+                            <form @submit.prevent="saveEvent">
+                                <div class="mb-4">
+                                    <label class="block mb-1 text-gray-700">Título</label>
+                                    <input type="text" x-model="eventTitle"
+                                        class="w-full px-3 py-2 border rounded-lg" required>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="eventDescription" class="block text-sm font-medium text-gray-700">Descripción</label>
-                                    <textarea id="eventDescription" name="eventDescription" rows="4"
-                                        class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
+                                    <label class="block mb-1 text-gray-700">Fecha y Hora</label>
+                                    <input type="datetime-local" x-model="eventDateTime"
+                                        class="w-full px-3 py-2 border rounded-lg" required>
                                 </div>
-                                <div class="flex justify-end space-x-4">
-                                    <button type="button" id="cancelEventButton"
-                                        class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
+                                <div class="mb-4">
+                                    <label class="block mb-1 text-gray-700">Categoría</label>
+                                    <select x-model="eventCategory" class="w-full px-3 py-2 border rounded-lg">
+                                        <option value="blue">Evento Azul</option>
+                                        <option value="red">Evento Rojo</option>
+                                        <option value="yellow">Evento Amarillo</option>
+                                        <option value="green">Evento Verde</option>
+                                        <option value="purple">Evento Púrpura</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block mb-1 text-gray-700">Descripción</label>
+                                    <textarea x-model="eventDescription" class="w-full px-3 py-2 border rounded-lg" maxlength="200" rows="4"
+                                        required></textarea>
+                                    <small x-text="200 - eventDescription.length + ' palabras restantes'"></small>
+                                </div>
+                                <div class="flex justify-end">
+                                    <button type="button" @click="closeModal"
+                                        class="px-4 py-2 mr-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
                                     <button type="submit"
-                                        class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Guardar</button>
+                                        class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Guardar</button>
                                 </div>
                             </form>
                         </div>
                     </div>
 
-                    <div class="p-4 mt-8 bg-gray-100 rounded-lg">
-                        <h2 class="mb-4 text-lg font-semibold">Agregados recientes</h2>
-                        <div id="recentEventsContainer" class="recent-events-grid">
-                            <div class="event-card">Ejemplo 1</div>
-                            <div class="event-card">Ejemplo 2</div>
-                            <div class="event-card">Ejemplo 3</div>
-                            <div class="event-card">Ejemplo 4</div>
-                            <div class="event-card-placeholder">En espera...</div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Nombre
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Curso
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Estado
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Rol
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Email
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Teléfono
-                                    </th>
-                                    <th scope="col" class="relative px-6 py-3">
-                                        <span class="sr-only">Editar</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="eventsTableBody" class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Evento 1</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Curso 1</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Estado 1</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">Rol 1</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">email@example.com</td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">123-456-7890</td>
-                                    <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Editar</a>
-                                    </td>
-                                </tr>
-                                <!-- Añadir más filas aquí -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <button id="createEventFloatingButton"
-            class="w-12 h-12 text-white bg-blue-700 rounded-full shadow-lg floating-button hover:bg-blue-800">
-            <svg class="icon-xs" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-            </svg>
-        </button>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const activityTypeButton = document.getElementById('activityTypeButton');
-                const activityTypeDropdown = document.getElementById('activityTypeDropdown');
-                const createEventButton = document.getElementById('createEventButton');
-                const createEventFloatingButton = document.getElementById('createEventFloatingButton');
-                const registerForm = document.getElementById('registerForm');
-                const eventRegistrationForm = document.getElementById('eventRegistrationForm');
-                const cancelEventButton = document.getElementById('cancelEventButton');
-                const recentEventsContainer = document.getElementById('recentEventsContainer');
-
-                activityTypeButton.addEventListener('click', function () {
-                    activityTypeDropdown.classList.toggle('hidden');
-                });
-
-                createEventButton.addEventListener('click', function () {
-                    registerForm.classList.remove('hidden');
-                });
-
-                createEventFloatingButton.addEventListener('click', function () {
-                    registerForm.classList.remove('hidden');
-                });
-
-                cancelEventButton.addEventListener('click', function () {
-                    registerForm.classList.add('hidden');
-                });
-
-                eventRegistrationForm.addEventListener('submit', function (event) {
-                    event.preventDefault();
-
-                    const eventName = document.getElementById('eventName').value;
-                    const eventType = document.getElementById('eventType').value;
-                    const eventDate = document.getElementById('eventDate').value;
-                    const eventLocation = document.getElementById('eventLocation').value;
-                    const eventDuration = document.getElementById('eventDuration').value;
-                    const eventParticipants = document.getElementById('eventParticipants').value;
-                    const eventDescription = document.getElementById('eventDescription').value;
-
-                    const eventCard = document.createElement('div');
-                    eventCard.classList.add('event-card');
-                    eventCard.textContent = `${eventName} - ${eventType} - ${eventDate}`;
-
-                    recentEventsContainer.insertBefore(eventCard, recentEventsContainer.firstChild);
-
-                    registerForm.classList.add('hidden');
-                    eventRegistrationForm.reset();
-                });
-
-                document.addEventListener('click', function (event) {
-                    if (!activityTypeButton.contains(event.target) && !activityTypeDropdown.contains(event.target)) {
-                        activityTypeDropdown.classList.add('hidden');
-                    }
-                });
-            });
-        </script>
-    </body>
-
-</div>
-
-{{-- aqui va el contenido del calendario --}}
-<div class="bg-white rounded-lg shadow p-21">
-    <div id="calendario" style="display: none">
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
-        <style>
-            [x-cloak] { display: none; }
-            .notification {
-                position: fixed;
-                bottom: 16px;
-                right: 16px;
-                background-color: #4caf50;
-                color: white;
-                padding: 16px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                opacity: 0;
-                transform: translateY(100%);
-                transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-            }
-            .notification.show {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            .event-detail {
-                white-space: pre-wrap;
-                word-wrap: break-word;
-            }
-        </style>
-        <title>Calendario de Eventos</title>
-    </head>
-    <body class="font-sans antialiased bg-gray-100">
-
-    <div x-data="calendarApp()" x-init="initializeCalendar()" x-cloak>
-        <div class="container px-5 py-10 mx-auto">
-            <div class="mb-5 text-3xl font-bold text-center text-gray-900">Calendario de Eventos</div>
-
-            <div class="bg-white rounded-lg shadow">
-                <div class="flex items-center justify-between px-6 py-4 text-white bg-blue-500">
-                    <div>
-                        <span x-text="MONTH_NAMES[month]" class="text-xl font-bold"></span>
-                        <span x-text="year" class="ml-1 text-xl"></span>
-                    </div>
-                    <div class="flex items-center">
-                        <button @click="changeMonth(-1)" :disabled="month == 0" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                            </svg>
-                        </button>
-                        <button @click="changeMonth(1)" :disabled="month == 11" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-7 gap-1 px-4 py-2 text-center">
-                    <template x-for="day in DAYS" :key="day">
-                        <div class="font-bold text-gray-800" x-text="day"></div>
-                    </template>
-                </div>
-
-                <div class="grid grid-cols-7 gap-1 p-4 border-t border-gray-200">
-                    <template x-for="blank in blankDays">
-                        <div class="py-2"></div>
-                    </template>
-                    <template x-for="date in noOfDays" :key="date">
-                        <div class="py-2">
-                            <div @click="openEventModal(date)" class="w-8 h-8 mx-auto text-center cursor-pointer" :class="{'bg-blue-500 text-white': isToday(date), 'hover:bg-blue-200': !isToday(date)}">
-                                <span x-text="date"></span>
+                    <!-- Event Detail Modal -->
+                    <div x-show="showEventDetail"
+                        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                        <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+                            <h2 class="mb-4 text-2xl font-bold">Detalle del Evento</h2>
+                            <div class="mb-4">
+                                <strong>Título:</strong>
+                                <p x-text="viewingEvent.title"></p>
                             </div>
-                            <template x-for="event in events.filter(e => new Date(e.date).toDateString() === new Date(year, month, date).toDateString())">
-                                <div class="p-1 mt-1 text-sm text-blue-800 truncate bg-blue-100 rounded cursor-pointer" @click="viewEvent(event)">
-                                    <span x-text="event.title"></span>
-                                </div>
-                            </template>
+                            <div class="mb-4">
+                                <strong>Fecha y Hora:</strong>
+                                <p x-text="new Date(viewingEvent.date).toLocaleString()"></p>
+                            </div>
+                            <div class="mb-4">
+                                <strong>Categoría:</strong>
+                                <p x-text="viewingEvent.category"></p>
+                            </div>
+                            <div class="mb-4">
+                                <strong>Descripción:</strong>
+                                <p class="event-detail" x-text="viewingEvent.description"></p>
+                            </div>
+                            <div class="flex justify-end">
+                                <button @click="editEvent(viewingEvent)"
+                                    class="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600">Editar</button>
+                                <button @click="deleteEvent(viewingEvent)"
+                                    class="px-4 py-2 ml-2 text-white bg-red-500 rounded-lg hover:bg-red-600">Borrar</button>
+                                <button type="button" @click="closeEventDetail"
+                                    class="px-4 py-2 ml-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cerrar</button>
+                            </div>
                         </div>
-                    </template>
-                </div>
-            </div>
-        </div>
+                    </div>
 
-        <!-- Modal -->
-        <div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-            <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                <h2 class="mb-4 text-2xl font-bold" x-text="editMode ? 'Editar Evento' : 'Agregar Evento'"></h2>
-                <form @submit.prevent="saveEvent">
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Título</label>
-                        <input type="text" x-model="eventTitle" class="w-full px-3 py-2 border rounded-lg" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Fecha y Hora</label>
-                        <input type="datetime-local" x-model="eventDateTime" class="w-full px-3 py-2 border rounded-lg" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Categoría</label>
-                        <select x-model="eventCategory" class="w-full px-3 py-2 border rounded-lg">
-                            <option value="blue">Evento Azul</option>
-                            <option value="red">Evento Rojo</option>
-                            <option value="yellow">Evento Amarillo</option>
-                            <option value="green">Evento Verde</option>
-                            <option value="purple">Evento Púrpura</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Descripción</label>
-                        <textarea x-model="eventDescription" class="w-full px-3 py-2 border rounded-lg" maxlength="200" rows="4" required></textarea>
-                        <small x-text="200 - eventDescription.length + ' palabras restantes'"></small>
-                    </div>
-                    <div class="flex justify-end">
-                        <button type="button" @click="closeModal" class="px-4 py-2 mr-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
-                        <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+                    <!-- Notification -->
+                    <div x-show="showNotification" class="notification" x-text="notificationMessage"></div>
+                </div>
 
-        <!-- Event Detail Modal -->
-        <div x-show="showEventDetail" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-            <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                <h2 class="mb-4 text-2xl font-bold">Detalle del Evento</h2>
-                <div class="mb-4">
-                    <strong>Título:</strong>
-                    <p x-text="viewingEvent.title"></p>
-                </div>
-                <div class="mb-4">
-                    <strong>Fecha y Hora:</strong>
-                    <p x-text="new Date(viewingEvent.date).toLocaleString()"></p>
-                </div>
-                <div class="mb-4">
-                    <strong>Categoría:</strong>
-                    <p x-text="viewingEvent.category"></p>
-                </div>
-                <div class="mb-4">
-                    <strong>Descripción:</strong>
-                    <p class="event-detail" x-text="viewingEvent.description"></p>
-                </div>
-                <div class="flex justify-end">
-                    <button @click="editEvent(viewingEvent)" class="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600">Editar</button>
-                    <button @click="deleteEvent(viewingEvent)" class="px-4 py-2 ml-2 text-white bg-red-500 rounded-lg hover:bg-red-600">Borrar</button>
-                    <button type="button" @click="closeEventDetail" class="px-4 py-2 ml-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cerrar</button>
-                </div>
-            </div>
-        </div>
+                <script>
+                    const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
+                        'Octubre', 'Noviembre', 'Diciembre'
+                    ];
+                    const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 
-        <!-- Notification -->
-        <div x-show="showNotification" class="notification" x-text="notificationMessage"></div>
+                    function calendarApp() {
+                        return {
+                            month: null,
+                            year: null,
+                            days: DAYS,
+                            events: JSON.parse(localStorage.getItem('events') || '[]'),
+                            eventTitle: '',
+                            eventDateTime: '',
+                            eventCategory: 'blue',
+                            eventDescription: '',
+                            showModal: false,
+                            showEventDetail: false,
+                            editMode: false,
+                            currentEventIndex: null,
+                            showNotification: false,
+                            notificationMessage: '',
+                            viewingEvent: {},
+
+                            initializeCalendar() {
+                                const today = new Date();
+                                this.month = today.getMonth();
+                                this.year = today.getFullYear();
+                                this.calculateDays();
+                                this.checkEvents();
+                                setInterval(this.checkNotifications.bind(this), 60000); // Check notifications every minute
+                            },
+
+                            calculateDays() {
+                                const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+                                const dayOfWeek = new Date(this.year, this.month, 1).getDay();
+                                this.blankDays = Array(dayOfWeek === 0 ? 6 : dayOfWeek - 1).fill(null);
+                                this.noOfDays = Array.from({
+                                    length: daysInMonth
+                                }, (v, i) => i + 1);
+                            },
+
+                            changeMonth(value) {
+                                this.month += value;
+                                if (this.month > 11) {
+                                    this.month = 0;
+                                    this.year++;
+                                } else if (this.month < 0) {
+                                    this.month = 11;
+                                    this.year--;
+                                }
+                                this.calculateDays();
+                                this.checkEvents();
+                            },
+
+                            isToday(date) {
+                                const today = new Date();
+                                const d = new Date(this.year, this.month, date);
+                                return today.toDateString() === d.toDateString();
+                            },
+
+                            openEventModal(date) {
+                                this.showModal = true;
+                                this.editMode = false;
+                                this.eventDateTime = new Date(this.year, this.month, date).toISOString().slice(0, 16);
+                                this.eventTitle = '';
+                                this.eventCategory = 'blue';
+                                this.eventDescription = '';
+                            },
+
+                            closeModal() {
+                                this.showModal = false;
+                                this.editMode = false;
+                            },
+
+                            saveEvent() {
+                                if (this.editMode) {
+                                    this.events[this.currentEventIndex] = {
+                                        title: this.eventTitle,
+                                        date: this.eventDateTime,
+                                        category: this.eventCategory,
+                                        description: this.eventDescription
+                                    };
+                                } else {
+                                    this.events.push({
+                                        title: this.eventTitle,
+                                        date: this.eventDateTime,
+                                        category: this.eventCategory,
+                                        description: this.eventDescription
+                                    });
+                                }
+                                localStorage.setItem('events', JSON.stringify(this.events));
+                                this.closeModal();
+                                this.checkEvents();
+                            },
+
+                            viewEvent(event) {
+                                this.showEventDetail = true;
+                                this.viewingEvent = event;
+                            },
+
+                            closeEventDetail() {
+                                this.showEventDetail = false;
+                            },
+
+                            editEvent(event) {
+                                this.showModal = true;
+                                this.editMode = true;
+                                this.currentEventIndex = this.events.indexOf(event);
+                                this.eventTitle = event.title;
+                                this.eventDateTime = event.date;
+                                this.eventCategory = event.category;
+                                this.eventDescription = event.description;
+                            },
+
+                            deleteEvent(event) {
+                                const index = this.events.indexOf(event);
+                                if (index > -1) {
+                                    this.events.splice(index, 1);
+                                    localStorage.setItem('events', JSON.stringify(this.events));
+                                }
+                                this.closeEventDetail();
+                                this.checkEvents();
+                            },
+
+                            checkEvents() {
+                                const now = new Date();
+                                this.events.forEach(event => {
+                                    const eventDate = new Date(event.date);
+                                    if (eventDate.toDateString() === now.toDateString()) {
+                                        this.showNotification = true;
+                                        this.notificationMessage = `Recordatorio: ¡Hoy es el evento "${event.title}"!`;
+                                        setTimeout(() => {
+                                            this.showNotification = false;
+                                        }, 5000);
+                                    }
+                                });
+                            },
+
+                            checkNotifications() {
+                                const now = new Date();
+                                this.events.forEach(event => {
+                                    const eventDate = new Date(event.date);
+                                    const timeDifference = eventDate - now;
+                                    if (timeDifference <= 60000 && timeDifference > 0) { // Notify one minute before event
+                                        this.showNotification = true;
+                                        this.notificationMessage = `¡El evento "${event.title}" está a punto de comenzar!`;
+                                        setTimeout(() => {
+                                            this.showNotification = false;
+                                        }, 5000);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                </script>
+            </body>
+        </div>
     </div>
 
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
+    {{-- aqui va el contenido de la tabla de barras --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-        const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+        // Datos para el gráfico de barras
+        const data = {
+            labels: ['Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Obtubre',
+                'Novienbre'
+            ],
+            datasets: [{
+                label: 'Eventos',
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+                data: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950,
+                    1000
+                ]
+            }]
+        };
 
-        function calendarApp() {
-            return {
-                month: null,
-                year: null,
-                days: DAYS,
-                events: JSON.parse(localStorage.getItem('events') || '[]'),
-                eventTitle: '',
-                eventDateTime: '',
-                eventCategory: 'blue',
-                eventDescription: '',
-                showModal: false,
-                showEventDetail: false,
-                editMode: false,
-                currentEventIndex: null,
-                showNotification: false,
-                notificationMessage: '',
-                viewingEvent: {},
-
-                initializeCalendar() {
-                    const today = new Date();
-                    this.month = today.getMonth();
-                    this.year = today.getFullYear();
-                    this.calculateDays();
-                    this.checkEvents();
-                    setInterval(this.checkNotifications.bind(this), 60000); // Check notifications every minute
-                },
-
-                calculateDays() {
-                    const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-                    const dayOfWeek = new Date(this.year, this.month, 1).getDay();
-                    this.blankDays = Array(dayOfWeek === 0 ? 6 : dayOfWeek - 1).fill(null);
-                    this.noOfDays = Array.from({ length: daysInMonth }, (v, i) => i + 1);
-                },
-
-                changeMonth(value) {
-                    this.month += value;
-                    if (this.month > 11) {
-                        this.month = 0;
-                        this.year++;
-                    } else if (this.month < 0) {
-                        this.month = 11;
-                        this.year--;
+        // Configuración del gráfico
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
-                    this.calculateDays();
-                    this.checkEvents();
-                },
-
-                isToday(date) {
-                    const today = new Date();
-                    const d = new Date(this.year, this.month, date);
-                    return today.toDateString() === d.toDateString();
-                },
-
-                openEventModal(date) {
-                    this.showModal = true;
-                    this.editMode = false;
-                    this.eventDateTime = new Date(this.year, this.month, date).toISOString().slice(0, 16);
-                    this.eventTitle = '';
-                    this.eventCategory = 'blue';
-                    this.eventDescription = '';
-                },
-
-                closeModal() {
-                    this.showModal = false;
-                    this.editMode = false;
-                },
-
-                saveEvent() {
-                    if (this.editMode) {
-                        this.events[this.currentEventIndex] = {
-                            title: this.eventTitle,
-                            date: this.eventDateTime,
-                            category: this.eventCategory,
-                            description: this.eventDescription
-                        };
-                    } else {
-                        this.events.push({
-                            title: this.eventTitle,
-                            date: this.eventDateTime,
-                            category: this.eventCategory,
-                            description: this.eventDescription
-                        });
-                    }
-                    localStorage.setItem('events', JSON.stringify(this.events));
-                    this.closeModal();
-                    this.checkEvents();
-                },
-
-                viewEvent(event) {
-                    this.showEventDetail = true;
-                    this.viewingEvent = event;
-                },
-
-                closeEventDetail() {
-                    this.showEventDetail = false;
-                },
-
-                editEvent(event) {
-                    this.showModal = true;
-                    this.editMode = true;
-                    this.currentEventIndex = this.events.indexOf(event);
-                    this.eventTitle = event.title;
-                    this.eventDateTime = event.date;
-                    this.eventCategory = event.category;
-                    this.eventDescription = event.description;
-                },
-
-                deleteEvent(event) {
-                    const index = this.events.indexOf(event);
-                    if (index > -1) {
-                        this.events.splice(index, 1);
-                        localStorage.setItem('events', JSON.stringify(this.events));
-                    }
-                    this.closeEventDetail();
-                    this.checkEvents();
-                },
-
-                checkEvents() {
-                    const now = new Date();
-                    this.events.forEach(event => {
-                        const eventDate = new Date(event.date);
-                        if (eventDate.toDateString() === now.toDateString()) {
-                            this.showNotification = true;
-                            this.notificationMessage = `Recordatorio: ¡Hoy es el evento "${event.title}"!`;
-                            setTimeout(() => {
-                                this.showNotification = false;
-                            }, 5000);
-                        }
-                    });
-                },
-
-                checkNotifications() {
-                    const now = new Date();
-                    this.events.forEach(event => {
-                        const eventDate = new Date(event.date);
-                        const timeDifference = eventDate - now;
-                        if (timeDifference <= 60000 && timeDifference > 0) { // Notify one minute before event
-                            this.showNotification = true;
-                            this.notificationMessage = `¡El evento "${event.title}" está a punto de comenzar!`;
-                            setTimeout(() => {
-                                this.showNotification = false;
-                            }, 5000);
-                        }
-                    });
                 }
             }
+        };
+
+        // Inicializar el gráfico
+        var myChart = new Chart(
+            document.getElementById('column-chart').querySelector('canvas'),
+            config
+        );
+    </script>
+    {{-- AQUI VA EL CONTENIDO DEL DIAGRAMA DE PASTEL --}}
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        let a = document.getElementById('calendario');
+        let b = document.getElementById('estadisticas');
+        let c = document.getElementById('home');
+
+        function estadistica() {
+            b.style.display = b.style.display === 'none' ? 'block' : 'none';
+            a.style.display = 'none';
+            c.style.display = 'none';
+        }
+
+        function calendario() {
+            a.style.display = "block";
+            b.style.display = 'none';
+            c.style.display = 'none';
+        }
+
+        function home() {
+            a.style.display = "none";
+            b.style.display = 'none';
+            c.style.display = 'block';
         }
     </script>
-    </body>
-    </div>
-</div>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
-{{-- aqui va el contenido de la tabla de barras --}}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Datos para el gráfico de barras
-    const data = {
-        labels: ['Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Obtubre',
-            'Novienbre'
-        ],
-        datasets: [{
-            label: 'Eventos',
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-            data: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950,
-                1000
-            ]
-        }]
-    };
+    <style>
+        #drawer-body-scrolling {
+            width: 160px;
+            /* Ancho inicial */
+            transition: width 0.3s;
+            /* Transición suave */
+        }
 
-    // Configuración del gráfico
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+        #drawer-body-scrolling.expanded {
+            width: 332px;
+            /* Ancho expandido */
+        }
+
+        /* Ocultamos el texto mientras el panel está contraído */
+        #drawer-body-scrolling:not(.expanded) .expand-text {
+            display: none;
+        }
+
+
+
+        #contentinicio {
+            position: absolute;
+            right: 900px;
+            /* Ajusta este valor según sea necesario */
+            top: 100px;
+            /* Ajusta este valor según sea necesario */
+            background-color: white;
+            /* Solo para claridad */
+            padding: 0px;
+            /* Solo para claridad */
+            border: 1px solid #ffffff;
+            /* Solo para claridad */
+            z-index: 999;
+            /* Asegura que el contenido esté encima de otros elementos */
+        }
+
+        #contentDiv {
+            position: absolute;
+            right: 950px;
+            /* Ajusta este valor según sea necesario */
+            top: 100px;
+            /* Ajusta este valor según sea necesario */
+            background-color: white;
+            /* Solo para claridad */
+            padding: 0px;
+            /* Solo para claridad */
+            border: 1px solid #ffffff;
+            /* Solo para claridad */
+            z-index: 999;
+            /* Asegura que el contenido esté encima de otros elementos */
+        }
+
+        #contentDivu {
+            position: absolute;
+            right: 650px;
+            /* Ajusta este valor según sea necesario */
+            top: 100px;
+            /* Ajusta este valor según sea necesario */
+            background-color: white;
+            /* Solo para claridad */
+            padding: 0px;
+            /* Solo para claridad */
+            border: 1px solid #fffefe;
+            /* Solo para claridad */
+            z-index: 999;
+            /* Asegura que el contenido esté encima de otros elementos */
+        }
+
+        #contentDivl {
+            position: absolute;
+            right: 350px;
+            /* Ajusta este valor según sea necesario */
+            top: 100px;
+            /* Ajusta este valor según sea necesario */
+            background-color: white;
+            /* Solo para claridad */
+            padding: 0px;
+            /* Solo para claridad */
+            border: 1px solid #fffefe;
+            /* Solo para claridad */
+            z-index: 999;
+            /* Asegura que el contenido esté encima de otros elementos */
+        }
+
+        #contentD {
+            position: absolute;
+            right: 600px;
+            /* Ajusta este valor según sea necesario */
+            top: 300px;
+            /* Ajusta este valor según sea necesario */
+            background-color: white;
+            /* Solo para claridad */
+            padding: 0px;
+            /* Solo para claridad */
+            border: 1px solid #fffefe;
+            /* Solo para claridad */
+            z-index: 999;
+            /* Asegura que el contenido esté encima de otros elementos */
+        }
+
+        #container {
+            clear: left;
+            max-width: 1000px;
+            padding-top: 200px;
+            background-color: ghostwhite;
+            z-index: 999;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        #pastel {
+            position: fixed;
+            right: 450px;
+            /* Cambiado a 20px para moverlo más a la derecha */
+            top: 150px;
+            background-color: white;
+            padding: 0px;
+            border: 1px solid #fffefe;
+            z-index: 999;
+        }
+
+
+
+        body {
+            background-image: url('{{ asset('Imagenes/background.png') }}');
+            background-size: cover;
+            /* per adattare l'immagine allo schermo */
+            background-repeat: no-repeat;
+            /* per evitare che l'immagine si ripeta */
+        }
+    </style>
+    <style>
+        .fixed-element {
+            position: fixed;
+            right: calc(50vw - 600px);
+            /* Ajusta el valor según tu preferencia */
+            top: 155px;
+            /* Ajusta el valor según tu preferencia */
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Función para expandir el panel
+            function expandDrawer() {
+                document.getElementById('drawer-body-scrolling').classList.add('expanded');
             }
-        }
-    };
 
-    // Inicializar el gráfico
-    var myChart = new Chart(
-        document.getElementById('column-chart').querySelector('canvas'),
-        config
-    );
-</script>
-{{-- AQUI VA EL CONTENIDO DEL DIAGRAMA DE PASTEL --}}
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-<script>
-    let a = document.getElementById('calendario');
-    let b = document.getElementById('estadisticas');
-    let c = document.getElementById('home');
+            // Función para contraer el panel
+            function collapseDrawer() {
+                document.getElementById('drawer-body-scrolling').classList.remove('expanded');
+            }
 
-    function estadistica() {
-        b.style.display = b.style.display === 'none' ? 'block' : 'none';
-        a.style.display = 'none';
-        c.style.display = 'none';
-    }
+            // Detectar cuando el cursor se mueve sobre el panel
+            document.getElementById('drawer-body-scrolling').addEventListener('mouseenter', expandDrawer);
 
-    function calendario() {
-        a.style.display = "block";
-        b.style.display = 'none';
-        c.style.display = 'none';
-    }
-
-    function home() {
-        a.style.display = "none";
-        b.style.display = 'none';
-        c.style.display = 'block';
-    }
-</script>
-
-
-<style>
-    #drawer-body-scrolling {
-        width: 160px;
-        /* Ancho inicial */
-        transition: width 0.3s;
-        /* Transición suave */
-    }
-
-    #drawer-body-scrolling.expanded {
-        width: 332px;
-        /* Ancho expandido */
-    }
-
-    /* Ocultamos el texto mientras el panel está contraído */
-    #drawer-body-scrolling:not(.expanded) .expand-text {
-        display: none;
-    }
-
-
-
-    #contentinicio {
-        position: absolute;
-        right: 900px;
-        /* Ajusta este valor según sea necesario */
-        top: 100px;
-        /* Ajusta este valor según sea necesario */
-        background-color: white;
-        /* Solo para claridad */
-        padding: 0px;
-        /* Solo para claridad */
-        border: 1px solid #ffffff;
-        /* Solo para claridad */
-        z-index: 999;
-        /* Asegura que el contenido esté encima de otros elementos */
-    }
-
-    #contentDiv {
-        position: absolute;
-        right: 950px;
-        /* Ajusta este valor según sea necesario */
-        top: 100px;
-        /* Ajusta este valor según sea necesario */
-        background-color: white;
-        /* Solo para claridad */
-        padding: 0px;
-        /* Solo para claridad */
-        border: 1px solid #ffffff;
-        /* Solo para claridad */
-        z-index: 999;
-        /* Asegura que el contenido esté encima de otros elementos */
-    }
-
-    #contentDivu {
-        position: absolute;
-        right: 650px;
-        /* Ajusta este valor según sea necesario */
-        top: 100px;
-        /* Ajusta este valor según sea necesario */
-        background-color: white;
-        /* Solo para claridad */
-        padding: 0px;
-        /* Solo para claridad */
-        border: 1px solid #fffefe;
-        /* Solo para claridad */
-        z-index: 999;
-        /* Asegura que el contenido esté encima de otros elementos */
-    }
-
-    #contentDivl {
-        position: absolute;
-        right: 350px;
-        /* Ajusta este valor según sea necesario */
-        top: 100px;
-        /* Ajusta este valor según sea necesario */
-        background-color: white;
-        /* Solo para claridad */
-        padding: 0px;
-        /* Solo para claridad */
-        border: 1px solid #fffefe;
-        /* Solo para claridad */
-        z-index: 999;
-        /* Asegura que el contenido esté encima de otros elementos */
-    }
-
-    #contentD {
-        position: absolute;
-        right: 600px;
-        /* Ajusta este valor según sea necesario */
-        top: 300px;
-        /* Ajusta este valor según sea necesario */
-        background-color: white;
-        /* Solo para claridad */
-        padding: 0px;
-        /* Solo para claridad */
-        border: 1px solid #fffefe;
-        /* Solo para claridad */
-        z-index: 999;
-        /* Asegura que el contenido esté encima de otros elementos */
-    }
-
-    #container {
-        clear: left;
-        max-width: 1000px;
-        padding-top: 200px;
-        background-color: ghostwhite;
-        z-index: 999;
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-    }
-
-    #pastel {
-        position: fixed;
-        right: 450px;
-        /* Cambiado a 20px para moverlo más a la derecha */
-        top: 150px;
-        background-color: white;
-        padding: 0px;
-        border: 1px solid #fffefe;
-        z-index: 999;
-    }
-
-
-
-    body {
-        background-image: url('{{ asset('Imagenes/background.png') }}');
-        background-size: cover;
-        /* per adattare l'immagine allo schermo */
-        background-repeat: no-repeat;
-        /* per evitare che l'immagine si ripeta */
-    }
-</style>
-<style>
-    .fixed-element {
-        position: fixed;
-        right: calc(50vw - 600px);
-        /* Ajusta el valor según tu preferencia */
-        top: 155px;
-        /* Ajusta el valor según tu preferencia */
-    }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Función para expandir el panel
-        function expandDrawer() {
-            document.getElementById('drawer-body-scrolling').classList.add('expanded');
-        }
-
-        // Función para contraer el panel
-        function collapseDrawer() {
-            document.getElementById('drawer-body-scrolling').classList.remove('expanded');
-        }
-
-        // Detectar cuando el cursor se mueve sobre el panel
-        document.getElementById('drawer-body-scrolling').addEventListener('mouseenter', expandDrawer);
-
-        // Detectar cuando el cursor sale del panel
-        document.getElementById('drawer-body-scrolling').addEventListener('mouseleave', collapseDrawer);
-    });
-</script>
+            // Detectar cuando el cursor sale del panel
+            document.getElementById('drawer-body-scrolling').addEventListener('mouseleave', collapseDrawer);
+        });
+    </script>
