@@ -46,12 +46,12 @@
 
                         <div class="flex items-center gap-2 px-6 py-4 md:pr-8 border-r-2 h-1 border-blue-700" style="border-right: 1px solid border;">
                             <label for="virtual" class="ml-2 text-gray-700">Virtual</label>
-                            <input type="checkbox" id="virtual" name="virtual" class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
+                            <input type="checkbox" id="virtual" name="virtual" value="modalidad" class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
                         </div>
 
                         <div class="flex items-center gap-2 px-6 py-4">
                             <label for="presencial" class="ml-2 text-gray-700">Presencial</label>
-                            <input type="checkbox" id="presencial" name="presencial" class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
+                            <input type="checkbox" id="presencial" name="presencial" value="modalidad" class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
                         </div>
                     </div>
                     <br>
