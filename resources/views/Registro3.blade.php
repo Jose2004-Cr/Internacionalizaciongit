@@ -82,6 +82,7 @@
                                 <option value="opcion3">Opción 3</option>
                                 <option value="opcion4">Opción 4</option>
                                 <option value="opcion5">Opción 5</option>
+                                <option value="opcion6">Opción 6</option>
                             </select>
                         </div>
                         <br><br><br><br><br><br><br><br><br><br><br><br>

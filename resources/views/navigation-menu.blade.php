@@ -18,13 +18,9 @@
                 <a href="#"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Editar Perfil</a>
                 <div class="border-t border-gray-100"></div>
-                <form method="POST" action="/logout" class="block px-4 py-2">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button type="submit" class="w-full text-left text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Cerrar Sesión</button>
-                </form>
+                <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Sign Out</a>
             </div>
-
-
         </div>
 
         <!-- Notification Dropdown -->
