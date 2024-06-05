@@ -99,8 +99,12 @@
                             Ingresa tus datos
                         </h1>
                     </div>
+                    <br>
+                    <br>
                     <div class="w-full pr-30">
-                        <form id="formulario" class="my-12">
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+
                             <div class="flex items-center w-full relative">
                                 <select id="nacionalidad" class="w-full pr-10 p-5 border border-gray-300 rounded mb-4 text-white bg-blue-800" onchange="mostrarCampos()">
                                     <option value="colombiano">Soy colombiano</option>
@@ -113,10 +117,11 @@
                                     <span class="tooltip">Soy colombiano: Cedula de<br> ciudadania - Tarjeta de identidad.<br><br> Soy extranjero: Cedula de extranjeria-<br>Pasaporte - Visa.</span>
                                 </div>
                             </div>
-                            <input class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4 mt-6" type="text" id="documento" name="documento" required placeholder="Numero del documento" oninput="validarCampos()" />
+
+                            <input class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4 mt-6" type="text" id="documento" name="email" required placeholder="Numero del documento" oninput="validarCampos()" />
 
                             <div id="campo-contrasena-colombiano" class="hidden">
-                                <input type="password" id="contrasena-colombiano" name="contrasena" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
+                                <input type="password" id="contrasena-colombiano" name="password" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
                             </div>
 
                             <div id="campo-contrasena-extranjero" class="hidden">
@@ -201,3 +206,4 @@
 </body>
 
 </html>
+
