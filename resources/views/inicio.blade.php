@@ -202,6 +202,17 @@
                 document.getElementById("campo-contrasena-extranjero").classList.add("hidden");
             }
         }
+
+        function redirigirUsuario(event) {
+            event.preventDefault();
+            const email = document.getElementById('documento').value.trim();
+
+            if (email === 'carlos@gmail.com') {
+                window.location.href = '/dashboard';
+            } else {
+                window.location.href = '/welcomeinicial';
+            }
+        }
     </script>
 </body>
 

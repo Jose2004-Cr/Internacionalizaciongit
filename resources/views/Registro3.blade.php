@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -96,7 +96,7 @@
     </div>
 
     <script>
-         document.getElementById('retroceder-boton').addEventListener('click', function(event) {
+        document.getElementById('retroceder-boton').addEventListener('click', function(event) {
         event.preventDefault();
         var campos = document.querySelector('.campos');
 
