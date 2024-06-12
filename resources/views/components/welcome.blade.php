@@ -15,8 +15,9 @@
 
     .expand-text {
         opacity: 0;
-        /* Oculta inicialmente el texto del sidebar */
-        transition: opacity 0.3s ease-in-out;
+        color: #ffffff
+            /* Oculta inicialmente el texto del sidebar */
+            transition: opacity 0.2s ease-in-out;
         /* Agrega una transición suave para mostrar/ocultar el texto */
     }
 
@@ -118,52 +119,30 @@
 
     <body class="bg-gray-100">
         <main class="container p-4 mx-auto">
-            <!-- Desempeño de los últimos 30 días -->
-            {{-- <div class="mb-5">
-                <div class="p-4 bg-white rounded-lg shadow">
-                    <small class="flex items-center">
-                        <span class="mr-1 mdi mdi-lightbulb-outline"></span> ¿Cómo se desempeñó durante los últimos 30 días?
-                    </small>
-                </div>
-            </div> --}}
-
             <!-- Resumen Financiero -->
             <div class="grid grid-cols-1 gap-4 mb-5 md:grid-cols-2 lg:grid-cols-4">
-                <div class="p-4 bg-blue-200 rounded-lg shadow">
-                    <h4 class="text-lg font-semibold">Ingreso Local</h4>
-                    <p class="text-2xl font-bold">15,300</p>
-                    <p class="text-green-600"><i data-feather="arrow-up" class="icon-xxs"></i> 5% Mas en el ultimo mes
-                    </p>
+                <div class="p-4 rounded-lg shadow gradient-bg-1">
+                    <h4 class="text-lg font-semibold">Definir</h4>
+                    <p class="text-2xl font-bold">0,000</p>
+                    <p class="text-green-400"><i data-feather="arrow-up" class="icon-xxs"></i> Definir</p>
                 </div>
-                <div class="p-4 bg-red-300 rounded-lg shadow">
-                    <h4 class="text-lg font-semibold">Video Eventos</h4>
-                    <p class="text-2xl font-bold">5,500</p>
-                    <p class="text-red-600"><i data-feather="arrow-down" class="icon-xxs"></i> 3% desde el último mes
-                    </p>
-                </div>
-                <div class="p-4 bg-blue-200 rounded-lg shadow">
-                    <h4 class="text-lg font-semibold">Poblacion Institucional</h4>
-                    <p class="text-2xl font-bold">22,800</p>
-                    <p class="text-green-600"><i data-feather="arrow-up" class="icon-xxs"></i> 8% desde el último mes
-                    </p>
-                </div>
-                <div class="p-4 bg-blue-200 rounded-lg shadow">
-                    <h4 class="text-lg font-semibold">Nuevos Usuarios</h4>
-                    <p class="text-2xl font-bold">1,540</p>
-                    <p class="text-green-600"><i data-feather="arrow-up" class="icon-xxs"></i> 10% desde el último mes
-                    </p>
+
+                <div class="p-4 rounded-lg shadow gradient-bg-2">
+                    <h4 class="text-lg font-semibold">Definir</h4>
+                    <p class="text-2xl font-bold">0,000</p>
+                    <p class="text-green-400"><i data-feather="arrow-up" class="icon-xxs"></i> Definir</p>
                 </div>
             </div>
-            <!-- Gráficos de líneas de ingresos y gastos -->
-            <div class="grid grid-cols-1 gap-4 mb-5 md:grid-cols-2">
-                <div class="p-4 bg-white rounded-lg shadow">
+
+            <div class="barra-barra">
+                <div class="p-2 rounded-lg shadow gradient-bg-3">
                     <h4 class="mb-4 text-xl font-semibold"></h4>
-                    <div id="chart-revenue" class="h-80">
+                    <div id="chart-revenue" class="px-10 h-70">
                         <div>
                             <div class="flex justify-between mb-3">
                                 <div class="flex items-center">
                                     <div class="flex items-center justify-center">
-                                        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">
+                                        <h5 class="text-xl font-bold leading-none text-white dark:text-white pe-1">
                                             DIAGRAMA
                                             DE
                                             BARRAS
@@ -178,7 +157,35 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <style>
+                .gradient-bg-1 {
+                    background: linear-gradient(135deg, #60A5FA, #041d64);
+                    /* Gradiente diagonal de azul claro a oscuro */
+                    color: white;
+                }
+
+                .gradient-bg-2 {
+                    background: linear-gradient(135deg, #60A5FA, #041d64);
+                    /* Gradiente diagonal de azul claro a oscuro */
+                    color: white;
+                }
+
+                .gradient-bg-3 {
+                    background: linear-gradient(135deg, #60A5FA, #041d64);
+                    /* Gradiente diagonal de azul claro a oscuro */
+                    color: white;
+                }
+
+                .barra-barra {
+                    margin-top: 20px;
+                }
+            </style>
+        </main>
+
+            <!-- Gráficos de líneas de ingresos y gastos -->
+            {{-- <div class="grid grid-cols-1 gap-4 mb-5 md:grid-cols-2">
                 <div class="p-4 bg-white rounded-lg shadow">
                     <div id="chart-expenses" class="relative h-80">
                         <div class="flex justify-between mb-3">
@@ -280,7 +287,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 
             <!-- Usuarios por país y mapa interactivo -->
             <div class="mb-5">
@@ -877,39 +884,58 @@
                             <!-- Botón de tipo de actividad -->
                             <div class="relative w-full max-w-xs">
                                 <button id="activityTypeButton"
-                                class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Tipo
-                                <div id="activityTypeDropdown" class="absolute hidden w-full py-2 mt-2 bg-white rounded-lg shadow-lg">
-                                    <p class="px-4 py-2 text-gray-700">Rol</p>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Docente</a>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Estudiante</a>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Empresario</a>
-                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Otro</a>
-                                    <hr>
-                                    <p class="px-4 py-2 text-gray-700">Actividad que se realiza</p>
-                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ruta</a>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ponencia</a>
-                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Clase
-                                        espejo</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Cátedra abierta</a>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Congreso</a>
-                                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">COIL</a>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Convenio</a>
-                                    <a href="#"
-                                        class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Reunión</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad deportiva</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad multicultural</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Pasantía investigativa</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Curso en línea</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad bilingüe/multilingüe</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Proyecto de aula</a>
-                                        <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Intercambio semestral</a>
-                                </div>
+                                    class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">Tipo
+                                    <div id="activityTypeDropdown"
+                                        class="absolute hidden w-full py-2 mt-2 bg-white rounded-lg shadow-lg">
+                                        <p class="px-4 py-2 text-gray-700">Rol</p>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Docente</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Estudiante</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Empresario</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Otro</a>
+                                        <hr>
+                                        <p class="px-4 py-2 text-gray-700">Actividad que se realiza</p>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ruta</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Ponencia</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Clase
+                                            espejo</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Cátedra abierta</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Congreso</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">COIL</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Convenio</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Reunión</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
+                                            deportiva</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
+                                            multicultural</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Pasantía
+                                            investigativa</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Curso en línea</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Actividad
+                                            bilingüe/multilingüe</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Proyecto de
+                                            aula</a>
+                                        <a href="#"
+                                            class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Intercambio
+                                            semestral</a>
+                                    </div>
                             </div>
                         </div>
 
@@ -920,14 +946,19 @@
                                 <form id="eventRegistrationForm">
                                     <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
                                         <div class="mb-4">
-                                            <label for="eventName" class="block text-sm font-medium text-gray-700">Nombre del evento</label>
+                                            <label for="eventName"
+                                                class="block text-sm font-medium text-gray-700">Nombre del
+                                                evento</label>
                                             <input type="text" id="eventName" name="eventName"
-                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
                                         </div>
                                         <div class="mb-4">
-                                            <label for="eventType" class="block text-sm font-medium text-gray-700">Tipo de evento</label>
+                                            <label for="eventType"
+                                                class="block text-sm font-medium text-gray-700">Tipo de evento</label>
                                             <select id="eventType" name="eventType"
-                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
                                                 <option value="">Selecciona un tipo</option>
                                                 <option value="Ruta">Ruta</option>
                                                 <option value="Ponencia">Ponencia</option>
@@ -938,42 +969,56 @@
                                                 <option value="Convenio">Convenio</option>
                                                 <option value="Reunión">Reunión</option>
                                                 <option value="Actividad deportiva">Actividad deportiva</option>
-                                                <option value="Actividad multicultural">Actividad multicultural</option>
+                                                <option value="Actividad multicultural">Actividad multicultural
+                                                </option>
                                                 <option value="Pasantía investigativa">Pasantía investigativa</option>
                                                 <option value="Curso en línea">Curso en línea</option>
-                                                <option value="Actividad bilingüe/multilingüe">Actividad bilingüe/multilingüe</option>
+                                                <option value="Actividad bilingüe/multilingüe">Actividad
+                                                    bilingüe/multilingüe</option>
                                                 <option value="Proyecto de aula">Proyecto de aula</option>
                                                 <option value="Intercambio semestral">Intercambio semestral</option>
                                             </select>
                                         </div>
                                         <div class="mb-4">
-                                            <label for="eventDate" class="block text-sm font-medium text-gray-700">Fecha del evento</label>
+                                            <label for="eventDate"
+                                                class="block text-sm font-medium text-gray-700">Fecha del
+                                                evento</label>
                                             <input type="date" id="eventDate" name="eventDate"
-                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
                                         </div>
                                         <div class="mb-4">
-                                            <label for="eventLocation" class="block text-sm font-medium text-gray-700">Ubicación</label>
+                                            <label for="eventLocation"
+                                                class="block text-sm font-medium text-gray-700">Ubicación</label>
                                             <input type="text" id="eventLocation" name="eventLocation"
-                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
                                         </div>
                                         <div class="mb-4">
-                                            <label for="eventDuration" class="block text-sm font-medium text-gray-700">Duración</label>
+                                            <label for="eventDuration"
+                                                class="block text-sm font-medium text-gray-700">Duración</label>
                                             <input type="text" id="eventDuration" name="eventDuration"
-                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
                                         </div>
                                         <div class="mb-4">
-                                            <label for="eventParticipants" class="block text-sm font-medium text-gray-700">Participantes</label>
+                                            <label for="eventParticipants"
+                                                class="block text-sm font-medium text-gray-700">Participantes</label>
                                             <input type="text" id="eventParticipants" name="eventParticipants"
-                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                                class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                                required>
                                         </div>
                                         <div class="mb-4">
-                                            <label for="eventDocument" class="block text-sm font-medium text-gray-700">Subir documentos</label>
+                                            <label for="eventDocument"
+                                                class="block text-sm font-medium text-gray-700">Subir
+                                                documentos</label>
                                             <input type="file" id="eventDocument" name="eventDocument"
                                                 class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
                                         </div>
                                     </div>
                                     <div class="mb-4">
-                                        <label for="eventDescription" class="block text-sm font-medium text-gray-700">Descripción</label>
+                                        <label for="eventDescription"
+                                            class="block text-sm font-medium text-gray-700">Descripción</label>
                                         <textarea id="eventDescription" name="eventDescription" rows="4"
                                             class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required></textarea>
                                     </div>
@@ -1054,130 +1099,161 @@
                 </div>
 
                 <!-- Botón flotante para crear evento -->
-                <div id="createEventModal" class="fixed inset-0 flex items-center justify-center hidden bg-gray-600 bg-opacity-50 z-50">
+                <div id="createEventModal"
+                    class="fixed inset-0 z-50 flex items-center justify-center hidden bg-gray-600 bg-opacity-50">
                     <div class="w-full max-w-2xl p-6 bg-white rounded-lg shadow-lg">
                         <h2 class="mb-4 text-2xl font-semibold text-gray-800">Crear Evento</h2>
                         <form id="createEventForm" class="space-y-4">
                             <div>
-                                <label for="eventName" class="block text-sm font-medium text-gray-700">Nombre del Evento</label>
+                                <label for="eventName" class="block text-sm font-medium text-gray-700">Nombre del
+                                    Evento</label>
                                 <input type="text" id="eventName"
-                                       class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                       required />
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    required />
                             </div>
                             <div>
-                                <label for="eventDescription" class="block text-sm font-medium text-gray-700">Descripción del Evento</label>
-                                <textarea id="eventDescription" class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" rows="3" required></textarea>
+                                <label for="eventDescription"
+                                    class="block text-sm font-medium text-gray-700">Descripción del Evento</label>
+                                <textarea id="eventDescription"
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    rows="3" required></textarea>
                             </div>
                             <div>
-                                <label for="eventDate" class="block text-sm font-medium text-gray-700">Fecha del Evento</label>
+                                <label for="eventDate" class="block text-sm font-medium text-gray-700">Fecha del
+                                    Evento</label>
                                 <input type="date" id="eventDate"
-                                       class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                       required />
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    required />
                             </div>
                             <div>
-                                <label for="eventTime" class="block text-sm font-medium text-gray-700">Hora del Evento</label>
+                                <label for="eventTime" class="block text-sm font-medium text-gray-700">Hora del
+                                    Evento</label>
                                 <input type="time" id="eventTime"
-                                       class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                       required />
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    required />
                             </div>
                             <div>
-                                <label for="eventLocation" class="block text-sm font-medium text-gray-700">Ubicación</label>
+                                <label for="eventLocation"
+                                    class="block text-sm font-medium text-gray-700">Ubicación</label>
                                 <input type="text" id="eventLocation"
-                                       class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                       required />
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    required />
                             </div>
                             <div>
-                                <label for="eventTags" class="block text-sm font-medium text-gray-700">Etiquetas</label>
+                                <label for="eventTags"
+                                    class="block text-sm font-medium text-gray-700">Etiquetas</label>
                                 <input type="text" id="eventTags"
-                                       class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                       placeholder="Etiquetas separadas por comas" required />
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Etiquetas separadas por comas" required />
                             </div>
                             <div>
-                                <label for="priority" class="block text-sm font-medium text-gray-700">Prioridad</label>
-                                <select id="priority" name="priority" class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                                <label for="priority"
+                                    class="block text-sm font-medium text-gray-700">Prioridad</label>
+                                <select id="priority" name="priority"
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    required>
                                     <option value="alta">Alta</option>
                                     <option value="media">Media</option>
                                     <option value="baja">Baja</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="attachment" class="block text-sm font-medium text-gray-700">Adjuntar Documento</label>
+                                <label for="attachment" class="block text-sm font-medium text-gray-700">Adjuntar
+                                    Documento</label>
                                 <input type="file" id="attachment" name="attachment"
-                                       class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
+                                    class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100" />
                             </div>
                             <div>
-                                <label for="eventColor" class="block text-sm font-medium text-gray-700">Color del Evento</label>
-                                <div id="colorPicker" class="flex space-x-2 mt-1">
+                                <label for="eventColor" class="block text-sm font-medium text-gray-700">Color del
+                                    Evento</label>
+                                <div id="colorPicker" class="flex mt-1 space-x-2">
                                     <button type="button"
-                                            class="w-10 h-10 bg-red-500 rounded-full focus:ring-4 focus:outline-none focus:ring-red-300"
-                                            data-color="#ef4444"></button>
+                                        class="w-10 h-10 bg-red-500 rounded-full focus:ring-4 focus:outline-none focus:ring-red-300"
+                                        data-color="#ef4444"></button>
                                     <button type="button"
-                                            class="w-10 h-10 bg-green-500 rounded-full focus:ring-4 focus:outline-none focus:ring-green-300"
-                                            data-color="#10b981"></button>
+                                        class="w-10 h-10 bg-green-500 rounded-full focus:ring-4 focus:outline-none focus:ring-green-300"
+                                        data-color="#10b981"></button>
                                     <button type="button"
-                                            class="w-10 h-10 bg-blue-500 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300"
-                                            data-color="#3b82f6"></button>
+                                        class="w-10 h-10 bg-blue-500 rounded-full focus:ring-4 focus:outline-none focus:ring-blue-300"
+                                        data-color="#3b82f6"></button>
                                     <button type="button"
-                                            class="w-10 h-10 bg-yellow-500 rounded-full focus:ring-4 focus:outline-none focus:ring-yellow-300"
-                                            data-color="#f59e0b"></button>
+                                        class="w-10 h-10 bg-yellow-500 rounded-full focus:ring-4 focus:outline-none focus:ring-yellow-300"
+                                        data-color="#f59e0b"></button>
                                     <button type="button"
-                                            class="w-10 h-10 bg-purple-500 rounded-full focus:ring-4 focus:outline-none focus:ring-purple-300"
-                                            data-color="#8b5cf6"></button>
+                                        class="w-10 h-10 bg-purple-500 rounded-full focus:ring-4 focus:outline-none focus:ring-purple-300"
+                                        data-color="#8b5cf6"></button>
                                     <button type="button"
-                                            class="w-10 h-10 bg-orange-500 rounded-full focus:ring-4 focus:outline-none focus:ring-orange-300"
-                                            data-color="#f97316"></button>
+                                        class="w-10 h-10 bg-orange-500 rounded-full focus:ring-4 focus:outline-none focus:ring-orange-300"
+                                        data-color="#f97316"></button>
                                     <button type="button"
-                                            class="w-10 h-10 bg-pink-500 rounded-full focus:ring-4 focus:outline-none focus:ring-pink-300"
-                                            data-color="#ec4899"></button>
+                                        class="w-10 h-10 bg-pink-500 rounded-full focus:ring-4 focus:outline-none focus:ring-pink-300"
+                                        data-color="#ec4899"></button>
                                     <button type="button"
-                                            class="w-10 h-10 bg-teal-500 rounded-full focus:ring-4 focus:outline-none focus:ring-teal-300"
-                                            data-color="#14b8a6"></button>
+                                        class="w-10 h-10 bg-teal-500 rounded-full focus:ring-4 focus:outline-none focus:ring-teal-300"
+                                        data-color="#14b8a6"></button>
                                 </div>
                                 <input type="hidden" id="eventColor" name="eventColor" required>
                             </div>
                             <div>
-                                <label for="participants" class="block text-sm font-medium text-gray-700">Participantes</label>
+                                <label for="participants"
+                                    class="block text-sm font-medium text-gray-700">Participantes</label>
                                 <input type="email" id="participants"
-                                       class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                       placeholder="Emails de los participantes separados por comas" required />
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Emails de los participantes separados por comas" required />
                             </div>
                             <div>
-                                <label for="additionalNotes" class="block text-sm font-medium text-gray-700">Notas Adicionales</label>
-                                <textarea id="additionalNotes" class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" rows="3" placeholder="Escribe tus notas aquí..."></textarea>
+                                <label for="additionalNotes" class="block text-sm font-medium text-gray-700">Notas
+                                    Adicionales</label>
+                                <textarea id="additionalNotes"
+                                    class="block w-full p-2 mt-1 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                    rows="3" placeholder="Escribe tus notas aquí..."></textarea>
                             </div>
                             <div class="flex justify-end space-x-4">
                                 <button type="button" id="cancelCreateEventButton"
-                                        class="px-4 py-2 font-medium text-gray-700 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
+                                    class="px-4 py-2 font-medium text-gray-700 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
                                 <button type="submit"
-                                        class="px-4 py-2 font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">Crear</button>
+                                    class="px-4 py-2 font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">Crear</button>
                             </div>
                         </form>
                     </div>
                 </div>
 
                 <div class="fixed bottom-4 right-4">
-                    <button id="createEventButton" class="px-6 py-3 text-white bg-blue-600 rounded-full shadow-lg hover:bg-blue-700">
+                    <button id="createEventButton"
+                        class="px-6 py-3 text-white bg-blue-600 rounded-full shadow-lg hover:bg-blue-700">
                         Crear Evento
                     </button>
                 </div>
 
                 <div id="recentEventsContainer" class="p-6"></div>
 
-                <div class="container mx-auto px-6 mt-6">
+                <div class="container px-6 mx-auto mt-6">
                     <h2 class="text-2xl font-semibold text-gray-800">Todos los Eventos</h2>
                     <table class="min-w-full mt-4 bg-white border border-gray-200 rounded-lg">
                         <thead class="bg-gray-100">
-                        <tr>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Nombre</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Descripción</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Prioridad</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Fecha</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Ubicación</th>
-                            <th class="px-6 py-3 text-left text-sm font-medium text-gray-600 uppercase tracking-wider">Acciones</th>
-                        </tr>
+                            <tr>
+                                <th
+                                    class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-600 uppercase">
+                                    Nombre</th>
+                                <th
+                                    class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-600 uppercase">
+                                    Descripción</th>
+                                <th
+                                    class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-600 uppercase">
+                                    Prioridad</th>
+                                <th
+                                    class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-600 uppercase">
+                                    Fecha</th>
+                                <th
+                                    class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-600 uppercase">
+                                    Ubicación</th>
+                                <th
+                                    class="px-6 py-3 text-sm font-medium tracking-wider text-left text-gray-600 uppercase">
+                                    Acciones</th>
+                            </tr>
                         </thead>
                         <tbody id="eventsTableBody">
-                        <!-- Aquí se agregarán los eventos -->
+                            <!-- Aquí se agregarán los eventos -->
                         </tbody>
                     </table>
                 </div>
@@ -1206,7 +1282,8 @@
                         // Manejar selección de color
                         colorPickerButtons.forEach(button => {
                             button.addEventListener('click', function() {
-                                colorPickerButtons.forEach(btn => btn.classList.remove('ring-4', 'ring-offset-2'));
+                                colorPickerButtons.forEach(btn => btn.classList.remove('ring-4',
+                                    'ring-offset-2'));
                                 button.classList.add('ring-4', 'ring-offset-2');
                                 eventColorInput.value = button.getAttribute('data-color');
                             });
@@ -1267,575 +1344,581 @@
                     });
                 </script>
 
-    {{-- aqui va el contenido del calendario --}}
-    <div class="bg-white rounded-lg shadow p-21">
-        <div id="calendario" style="display: none">
-            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-            <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
-            <style>
-                [x-cloak] {
-                    display: none;
-                }
+                {{-- aqui va el contenido del calendario --}}
+                <div class="bg-white rounded-lg shadow p-21">
+                    <div id="calendario" style="display: none">
+                        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+                            rel="stylesheet">
+                        <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+                        <style>
+                            [x-cloak] {
+                                display: none;
+                            }
 
-                .notification {
-                    position: fixed;
-                    bottom: 16px;
-                    right: 16px;
-                    background-color: #4caf50;
-                    color: white;
-                    padding: 16px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                    opacity: 0;
-                    transform: translateY(100%);
-                    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-                }
+                            .notification {
+                                position: fixed;
+                                bottom: 16px;
+                                right: 16px;
+                                background-color: #4caf50;
+                                color: white;
+                                padding: 16px;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                opacity: 0;
+                                transform: translateY(100%);
+                                transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+                            }
 
-                .notification.show {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+                            .notification.show {
+                                opacity: 1;
+                                transform: translateY(0);
+                            }
 
-                .event-detail {
-                    white-space: pre-wrap;
-                    word-wrap: break-word;
-                }
-            </style>
-            <title>Calendario de Eventos</title>
+                            .event-detail {
+                                white-space: pre-wrap;
+                                word-wrap: break-word;
+                            }
+                        </style>
+                        <title>Calendario de Eventos</title>
 
-            <body class="font-sans antialiased bg-gray-100">
+                        <body class="font-sans antialiased bg-gray-100">
 
-                <div x-data="calendarApp()" x-init="initializeCalendar()" x-cloak>
-                    <div class="container px-5 py-10 mx-auto">
-                        <div class="mb-5 text-3xl font-bold text-center text-gray-900">Calendario de Eventos</div>
+                            <div x-data="calendarApp()" x-init="initializeCalendar()" x-cloak>
+                                <div class="container px-5 py-10 mx-auto">
+                                    <div class="mb-5 text-3xl font-bold text-center text-gray-900">Calendario de
+                                        Eventos</div>
 
-                        <div class="bg-white rounded-lg shadow">
-                            <div class="flex items-center justify-between px-6 py-4 text-white bg-blue-500">
-                                <div>
-                                    <span x-text="MONTH_NAMES[month]" class="text-xl font-bold"></span>
-                                    <span x-text="year" class="ml-1 text-xl"></span>
-                                </div>
-                                <div class="flex items-center">
-                                    <button @click="changeMonth(-1)" :disabled="month == 0"
-                                        class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 19l-7-7 7-7" />
-                                        </svg>
-                                    </button>
-                                    <button @click="changeMonth(1)" :disabled="month == 11"
-                                        class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
-                                            viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 5l7 7-7 7" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-7 gap-1 px-4 py-2 text-center">
-                                <template x-for="day in DAYS" :key="day">
-                                    <div class="font-bold text-gray-800" x-text="day"></div>
-                                </template>
-                            </div>
-
-                            <div class="grid grid-cols-7 gap-1 p-4 border-t border-gray-200">
-                                <template x-for="blank in blankDays">
-                                    <div class="py-2"></div>
-                                </template>
-                                <template x-for="date in noOfDays" :key="date">
-                                    <div class="py-2">
-                                        <div @click="openEventModal(date)"
-                                            class="w-8 h-8 mx-auto text-center cursor-pointer"
-                                            :class="{
-                                                'bg-blue-500 text-white': isToday(date),
-                                                'hover:bg-blue-200': !isToday(
-                                                    date)
-                                            }">
-                                            <span x-text="date"></span>
-                                        </div>
-                                        <template
-                                            x-for="event in events.filter(e => new Date(e.date).toDateString() === new Date(year, month, date).toDateString())">
-                                            <div class="p-1 mt-1 text-sm text-blue-800 truncate bg-blue-100 rounded cursor-pointer"
-                                                @click="viewEvent(event)">
-                                                <span x-text="event.title"></span>
+                                    <div class="bg-white rounded-lg shadow">
+                                        <div
+                                            class="flex items-center justify-between px-6 py-4 text-white bg-blue-500">
+                                            <div>
+                                                <span x-text="MONTH_NAMES[month]" class="text-xl font-bold"></span>
+                                                <span x-text="year" class="ml-1 text-xl"></span>
                                             </div>
-                                        </template>
+                                            <div class="flex items-center">
+                                                <button @click="changeMonth(-1)" :disabled="month == 0"
+                                                    class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                                                    <svg class="w-5 h-5 text-white" fill="none"
+                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M15 19l-7-7 7-7" />
+                                                    </svg>
+                                                </button>
+                                                <button @click="changeMonth(1)" :disabled="month == 11"
+                                                    class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                                                    <svg class="w-5 h-5 text-white" fill="none"
+                                                        stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="grid grid-cols-7 gap-1 px-4 py-2 text-center">
+                                            <template x-for="day in DAYS" :key="day">
+                                                <div class="font-bold text-gray-800" x-text="day"></div>
+                                            </template>
+                                        </div>
+
+                                        <div class="grid grid-cols-7 gap-1 p-4 border-t border-gray-200">
+                                            <template x-for="blank in blankDays">
+                                                <div class="py-2"></div>
+                                            </template>
+                                            <template x-for="date in noOfDays" :key="date">
+                                                <div class="py-2">
+                                                    <div @click="openEventModal(date)"
+                                                        class="w-8 h-8 mx-auto text-center cursor-pointer"
+                                                        :class="{
+                                                            'bg-blue-500 text-white': isToday(date),
+                                                            'hover:bg-blue-200': !isToday(
+                                                                date)
+                                                        }">
+                                                        <span x-text="date"></span>
+                                                    </div>
+                                                    <template
+                                                        x-for="event in events.filter(e => new Date(e.date).toDateString() === new Date(year, month, date).toDateString())">
+                                                        <div class="p-1 mt-1 text-sm text-blue-800 truncate bg-blue-100 rounded cursor-pointer"
+                                                            @click="viewEvent(event)">
+                                                            <span x-text="event.title"></span>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </template>
+                                        </div>
                                     </div>
-                                </template>
-                            </div>
-                        </div>
-                    </div>
+                                </div>
 
-                    <!-- Modal -->
-                    <div x-show="showModal"
-                        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-                        <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                            <h2 class="mb-4 text-2xl font-bold"
-                                x-text="editMode ? 'Editar Evento' : 'Agregar Evento'"></h2>
-                            <form @submit.prevent="saveEvent">
-                                <div class="mb-4">
-                                    <label class="block mb-1 text-gray-700">Título</label>
-                                    <input type="text" x-model="eventTitle"
-                                        class="w-full px-3 py-2 border rounded-lg" required>
+                                <!-- Modal -->
+                                <div x-show="showModal"
+                                    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                                    <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+                                        <h2 class="mb-4 text-2xl font-bold"
+                                            x-text="editMode ? 'Editar Evento' : 'Agregar Evento'"></h2>
+                                        <form @submit.prevent="saveEvent">
+                                            <div class="mb-4">
+                                                <label class="block mb-1 text-gray-700">Título</label>
+                                                <input type="text" x-model="eventTitle"
+                                                    class="w-full px-3 py-2 border rounded-lg" required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label class="block mb-1 text-gray-700">Fecha y Hora</label>
+                                                <input type="datetime-local" x-model="eventDateTime"
+                                                    class="w-full px-3 py-2 border rounded-lg" required>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label class="block mb-1 text-gray-700">Categoría</label>
+                                                <select x-model="eventCategory"
+                                                    class="w-full px-3 py-2 border rounded-lg">
+                                                    <option value="blue">Evento Azul</option>
+                                                    <option value="red">Evento Rojo</option>
+                                                    <option value="yellow">Evento Amarillo</option>
+                                                    <option value="green">Evento Verde</option>
+                                                    <option value="purple">Evento Púrpura</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-4">
+                                                <label class="block mb-1 text-gray-700">Descripción</label>
+                                                <textarea x-model="eventDescription" class="w-full px-3 py-2 border rounded-lg" maxlength="200" rows="4"
+                                                    required></textarea>
+                                                <small
+                                                    x-text="200 - eventDescription.length + ' palabras restantes'"></small>
+                                            </div>
+                                            <div class="flex justify-end">
+                                                <button type="button" @click="closeModal"
+                                                    class="px-4 py-2 mr-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
+                                                <button type="submit"
+                                                    class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Guardar</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <label class="block mb-1 text-gray-700">Fecha y Hora</label>
-                                    <input type="datetime-local" x-model="eventDateTime"
-                                        class="w-full px-3 py-2 border rounded-lg" required>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block mb-1 text-gray-700">Categoría</label>
-                                    <select x-model="eventCategory" class="w-full px-3 py-2 border rounded-lg">
-                                        <option value="blue">Evento Azul</option>
-                                        <option value="red">Evento Rojo</option>
-                                        <option value="yellow">Evento Amarillo</option>
-                                        <option value="green">Evento Verde</option>
-                                        <option value="purple">Evento Púrpura</option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block mb-1 text-gray-700">Descripción</label>
-                                    <textarea x-model="eventDescription" class="w-full px-3 py-2 border rounded-lg" maxlength="200" rows="4"
-                                        required></textarea>
-                                    <small x-text="200 - eventDescription.length + ' palabras restantes'"></small>
-                                </div>
-                                <div class="flex justify-end">
-                                    <button type="button" @click="closeModal"
-                                        class="px-4 py-2 mr-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
-                                    <button type="submit"
-                                        class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Guardar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
 
-                    <!-- Event Detail Modal -->
-                    <div x-show="showEventDetail"
-                        class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-                        <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                            <h2 class="mb-4 text-2xl font-bold">Detalle del Evento</h2>
-                            <div class="mb-4">
-                                <strong>Título:</strong>
-                                <p x-text="viewingEvent.title"></p>
-                            </div>
-                            <div class="mb-4">
-                                <strong>Fecha y Hora:</strong>
-                                <p x-text="new Date(viewingEvent.date).toLocaleString()"></p>
-                            </div>
-                            <div class="mb-4">
-                                <strong>Categoría:</strong>
-                                <p x-text="viewingEvent.category"></p>
-                            </div>
-                            <div class="mb-4">
-                                <strong>Descripción:</strong>
-                                <p class="event-detail" x-text="viewingEvent.description"></p>
-                            </div>
-                            <div class="flex justify-end">
-                                <button @click="editEvent(viewingEvent)"
-                                    class="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600">Editar</button>
-                                <button @click="deleteEvent(viewingEvent)"
-                                    class="px-4 py-2 ml-2 text-white bg-red-500 rounded-lg hover:bg-red-600">Borrar</button>
-                                <button type="button" @click="closeEventDetail"
-                                    class="px-4 py-2 ml-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
+                                <!-- Event Detail Modal -->
+                                <div x-show="showEventDetail"
+                                    class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+                                    <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+                                        <h2 class="mb-4 text-2xl font-bold">Detalle del Evento</h2>
+                                        <div class="mb-4">
+                                            <strong>Título:</strong>
+                                            <p x-text="viewingEvent.title"></p>
+                                        </div>
+                                        <div class="mb-4">
+                                            <strong>Fecha y Hora:</strong>
+                                            <p x-text="new Date(viewingEvent.date).toLocaleString()"></p>
+                                        </div>
+                                        <div class="mb-4">
+                                            <strong>Categoría:</strong>
+                                            <p x-text="viewingEvent.category"></p>
+                                        </div>
+                                        <div class="mb-4">
+                                            <strong>Descripción:</strong>
+                                            <p class="event-detail" x-text="viewingEvent.description"></p>
+                                        </div>
+                                        <div class="flex justify-end">
+                                            <button @click="editEvent(viewingEvent)"
+                                                class="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600">Editar</button>
+                                            <button @click="deleteEvent(viewingEvent)"
+                                                class="px-4 py-2 ml-2 text-white bg-red-500 rounded-lg hover:bg-red-600">Borrar</button>
+                                            <button type="button" @click="closeEventDetail"
+                                                class="px-4 py-2 ml-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    <!-- Notification -->
-                    <div x-show="showNotification" class="notification" x-text="notificationMessage"></div>
+                                <!-- Notification -->
+                                <div x-show="showNotification" class="notification" x-text="notificationMessage">
+                                </div>
+                            </div>
+
+                            <script>
+                                const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
+                                    'Octubre', 'Noviembre', 'Diciembre'
+                                ];
+                                const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+
+                                function calendarApp() {
+                                    return {
+                                        month: null,
+                                        year: null,
+                                        days: DAYS,
+                                        events: JSON.parse(localStorage.getItem('events') || '[]'),
+                                        eventTitle: '',
+                                        eventDateTime: '',
+                                        eventCategory: 'blue',
+                                        eventDescription: '',
+                                        showModal: false,
+                                        showEventDetail: false,
+                                        editMode: false,
+                                        currentEventIndex: null,
+                                        showNotification: false,
+                                        notificationMessage: '',
+                                        viewingEvent: {},
+
+                                        initializeCalendar() {
+                                            const today = new Date();
+                                            this.month = today.getMonth();
+                                            this.year = today.getFullYear();
+                                            this.calculateDays();
+                                            this.checkEvents();
+                                            setInterval(this.checkNotifications.bind(this), 60000); // Check notifications every minute
+                                        },
+
+                                        calculateDays() {
+                                            const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+                                            const dayOfWeek = new Date(this.year, this.month, 1).getDay();
+                                            this.blankDays = Array(dayOfWeek === 0 ? 6 : dayOfWeek - 1).fill(null);
+                                            this.noOfDays = Array.from({
+                                                length: daysInMonth
+                                            }, (v, i) => i + 1);
+                                        },
+
+                                        changeMonth(value) {
+                                            this.month += value;
+                                            if (this.month > 11) {
+                                                this.month = 0;
+                                                this.year++;
+                                            } else if (this.month < 0) {
+                                                this.month = 11;
+                                                this.year--;
+                                            }
+                                            this.calculateDays();
+                                            this.checkEvents();
+                                        },
+
+                                        isToday(date) {
+                                            const today = new Date();
+                                            const d = new Date(this.year, this.month, date);
+                                            return today.toDateString() === d.toDateString();
+                                        },
+
+                                        openEventModal(date) {
+                                            this.showModal = true;
+                                            this.editMode = false;
+                                            this.eventDateTime = new Date(this.year, this.month, date).toISOString().slice(0, 16);
+                                            this.eventTitle = '';
+                                            this.eventCategory = 'blue';
+                                            this.eventDescription = '';
+                                        },
+
+                                        closeModal() {
+                                            this.showModal = false;
+                                            this.editMode = false;
+                                        },
+
+                                        saveEvent() {
+                                            if (this.editMode) {
+                                                this.events[this.currentEventIndex] = {
+                                                    title: this.eventTitle,
+                                                    date: this.eventDateTime,
+                                                    category: this.eventCategory,
+                                                    description: this.eventDescription
+                                                };
+                                            } else {
+                                                this.events.push({
+                                                    title: this.eventTitle,
+                                                    date: this.eventDateTime,
+                                                    category: this.eventCategory,
+                                                    description: this.eventDescription
+                                                });
+                                            }
+                                            localStorage.setItem('events', JSON.stringify(this.events));
+                                            this.closeModal();
+                                            this.checkEvents();
+                                        },
+
+                                        viewEvent(event) {
+                                            this.showEventDetail = true;
+                                            this.viewingEvent = event;
+                                        },
+
+                                        closeEventDetail() {
+                                            this.showEventDetail = false;
+                                        },
+
+                                        editEvent(event) {
+                                            this.showModal = true;
+                                            this.editMode = true;
+                                            this.currentEventIndex = this.events.indexOf(event);
+                                            this.eventTitle = event.title;
+                                            this.eventDateTime = event.date;
+                                            this.eventCategory = event.category;
+                                            this.eventDescription = event.description;
+                                        },
+
+                                        deleteEvent(event) {
+                                            const index = this.events.indexOf(event);
+                                            if (index > -1) {
+                                                this.events.splice(index, 1);
+                                                localStorage.setItem('events', JSON.stringify(this.events));
+                                            }
+                                            this.closeEventDetail();
+                                            this.checkEvents();
+                                        },
+
+                                        checkEvents() {
+                                            const now = new Date();
+                                            this.events.forEach(event => {
+                                                const eventDate = new Date(event.date);
+                                                if (eventDate.toDateString() === now.toDateString()) {
+                                                    this.showNotification = true;
+                                                    this.notificationMessage = `Recordatorio: ¡Hoy es el evento "${event.title}"!`;
+                                                    setTimeout(() => {
+                                                        this.showNotification = false;
+                                                    }, 5000);
+                                                }
+                                            });
+                                        },
+
+                                        checkNotifications() {
+                                            const now = new Date();
+                                            this.events.forEach(event => {
+                                                const eventDate = new Date(event.date);
+                                                const timeDifference = eventDate - now;
+                                                if (timeDifference <= 60000 && timeDifference > 0) { // Notify one minute before event
+                                                    this.showNotification = true;
+                                                    this.notificationMessage = `¡El evento "${event.title}" está a punto de comenzar!`;
+                                                    setTimeout(() => {
+                                                        this.showNotification = false;
+                                                    }, 5000);
+                                                }
+                                            });
+                                        }
+                                    }
+                                }
+                            </script>
+                        </body>
+                    </div>
                 </div>
 
+
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
+                {{-- aqui va el contenido de la tabla de barras --}}
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <script>
-                    const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
-                        'Octubre', 'Noviembre', 'Diciembre'
-                    ];
-                    const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
+                    // Datos para el gráfico de barras
+                    const data = {
+                        labels: ['Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Obtubre',
+                            'Novienbre'
+                        ],
+                        datasets: [{
+                            label: 'Eventos',
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1,
+                            data: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950,
+                                1000
+                            ]
+                        }]
+                    };
 
-                    function calendarApp() {
-                        return {
-                            month: null,
-                            year: null,
-                            days: DAYS,
-                            events: JSON.parse(localStorage.getItem('events') || '[]'),
-                            eventTitle: '',
-                            eventDateTime: '',
-                            eventCategory: 'blue',
-                            eventDescription: '',
-                            showModal: false,
-                            showEventDetail: false,
-                            editMode: false,
-                            currentEventIndex: null,
-                            showNotification: false,
-                            notificationMessage: '',
-                            viewingEvent: {},
-
-                            initializeCalendar() {
-                                const today = new Date();
-                                this.month = today.getMonth();
-                                this.year = today.getFullYear();
-                                this.calculateDays();
-                                this.checkEvents();
-                                setInterval(this.checkNotifications.bind(this), 60000); // Check notifications every minute
-                            },
-
-                            calculateDays() {
-                                const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-                                const dayOfWeek = new Date(this.year, this.month, 1).getDay();
-                                this.blankDays = Array(dayOfWeek === 0 ? 6 : dayOfWeek - 1).fill(null);
-                                this.noOfDays = Array.from({
-                                    length: daysInMonth
-                                }, (v, i) => i + 1);
-                            },
-
-                            changeMonth(value) {
-                                this.month += value;
-                                if (this.month > 11) {
-                                    this.month = 0;
-                                    this.year++;
-                                } else if (this.month < 0) {
-                                    this.month = 11;
-                                    this.year--;
+                    // Configuración del gráfico
+                    const config = {
+                        type: 'bar',
+                        data: data,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
                                 }
-                                this.calculateDays();
-                                this.checkEvents();
-                            },
-
-                            isToday(date) {
-                                const today = new Date();
-                                const d = new Date(this.year, this.month, date);
-                                return today.toDateString() === d.toDateString();
-                            },
-
-                            openEventModal(date) {
-                                this.showModal = true;
-                                this.editMode = false;
-                                this.eventDateTime = new Date(this.year, this.month, date).toISOString().slice(0, 16);
-                                this.eventTitle = '';
-                                this.eventCategory = 'blue';
-                                this.eventDescription = '';
-                            },
-
-                            closeModal() {
-                                this.showModal = false;
-                                this.editMode = false;
-                            },
-
-                            saveEvent() {
-                                if (this.editMode) {
-                                    this.events[this.currentEventIndex] = {
-                                        title: this.eventTitle,
-                                        date: this.eventDateTime,
-                                        category: this.eventCategory,
-                                        description: this.eventDescription
-                                    };
-                                } else {
-                                    this.events.push({
-                                        title: this.eventTitle,
-                                        date: this.eventDateTime,
-                                        category: this.eventCategory,
-                                        description: this.eventDescription
-                                    });
-                                }
-                                localStorage.setItem('events', JSON.stringify(this.events));
-                                this.closeModal();
-                                this.checkEvents();
-                            },
-
-                            viewEvent(event) {
-                                this.showEventDetail = true;
-                                this.viewingEvent = event;
-                            },
-
-                            closeEventDetail() {
-                                this.showEventDetail = false;
-                            },
-
-                            editEvent(event) {
-                                this.showModal = true;
-                                this.editMode = true;
-                                this.currentEventIndex = this.events.indexOf(event);
-                                this.eventTitle = event.title;
-                                this.eventDateTime = event.date;
-                                this.eventCategory = event.category;
-                                this.eventDescription = event.description;
-                            },
-
-                            deleteEvent(event) {
-                                const index = this.events.indexOf(event);
-                                if (index > -1) {
-                                    this.events.splice(index, 1);
-                                    localStorage.setItem('events', JSON.stringify(this.events));
-                                }
-                                this.closeEventDetail();
-                                this.checkEvents();
-                            },
-
-                            checkEvents() {
-                                const now = new Date();
-                                this.events.forEach(event => {
-                                    const eventDate = new Date(event.date);
-                                    if (eventDate.toDateString() === now.toDateString()) {
-                                        this.showNotification = true;
-                                        this.notificationMessage = `Recordatorio: ¡Hoy es el evento "${event.title}"!`;
-                                        setTimeout(() => {
-                                            this.showNotification = false;
-                                        }, 5000);
-                                    }
-                                });
-                            },
-
-                            checkNotifications() {
-                                const now = new Date();
-                                this.events.forEach(event => {
-                                    const eventDate = new Date(event.date);
-                                    const timeDifference = eventDate - now;
-                                    if (timeDifference <= 60000 && timeDifference > 0) { // Notify one minute before event
-                                        this.showNotification = true;
-                                        this.notificationMessage = `¡El evento "${event.title}" está a punto de comenzar!`;
-                                        setTimeout(() => {
-                                            this.showNotification = false;
-                                        }, 5000);
-                                    }
-                                });
                             }
                         }
+                    };
+
+                    // Inicializar el gráfico
+                    var myChart = new Chart(
+                        document.getElementById('column-chart').querySelector('canvas'),
+                        config
+                    );
+                </script>
+                {{-- AQUI VA EL CONTENIDO DEL DIAGRAMA DE PASTEL --}}
+                <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+                <script>
+                    let a = document.getElementById('calendario');
+                    let b = document.getElementById('estadisticas');
+                    let c = document.getElementById('home');
+
+                    function estadistica() {
+                        b.style.display = b.style.display === 'none' ? 'block' : 'none';
+                        a.style.display = 'none';
+                        c.style.display = 'none';
+                    }
+
+                    function calendario() {
+                        a.style.display = "block";
+                        b.style.display = 'none';
+                        c.style.display = 'none';
+                    }
+
+                    function home() {
+                        a.style.display = "none";
+                        b.style.display = 'none';
+                        c.style.display = 'block';
                     }
                 </script>
-            </body>
-        </div>
-    </div>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
-    {{-- aqui va el contenido de la tabla de barras --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Datos para el gráfico de barras
-        const data = {
-            labels: ['Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Obtubre',
-                'Novienbre'
-            ],
-            datasets: [{
-                label: 'Eventos',
-                backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                data: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950,
-                    1000
-                ]
-            }]
-        };
-
-        // Configuración del gráfico
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                <style>
+                    #drawer-body-scrolling {
+                        width: 160px;
+                        /* Ancho inicial */
+                        transition: width 0.3s;
+                        /* Transición suave */
                     }
-                }
-            }
-        };
 
-        // Inicializar el gráfico
-        var myChart = new Chart(
-            document.getElementById('column-chart').querySelector('canvas'),
-            config
-        );
-    </script>
-    {{-- AQUI VA EL CONTENIDO DEL DIAGRAMA DE PASTEL --}}
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script>
-        let a = document.getElementById('calendario');
-        let b = document.getElementById('estadisticas');
-        let c = document.getElementById('home');
+                    #drawer-body-scrolling.expanded {
+                        width: 332px;
+                        /* Ancho expandido */
+                    }
 
-        function estadistica() {
-            b.style.display = b.style.display === 'none' ? 'block' : 'none';
-            a.style.display = 'none';
-            c.style.display = 'none';
-        }
-
-        function calendario() {
-            a.style.display = "block";
-            b.style.display = 'none';
-            c.style.display = 'none';
-        }
-
-        function home() {
-            a.style.display = "none";
-            b.style.display = 'none';
-            c.style.display = 'block';
-        }
-    </script>
-
-
-    <style>
-        #drawer-body-scrolling {
-            width: 160px;
-            /* Ancho inicial */
-            transition: width 0.3s;
-            /* Transición suave */
-        }
-
-        #drawer-body-scrolling.expanded {
-            width: 332px;
-            /* Ancho expandido */
-        }
-
-        /* Ocultamos el texto mientras el panel está contraído */
-        #drawer-body-scrolling:not(.expanded) .expand-text {
-            display: none;
-        }
+                    /* Ocultamos el texto mientras el panel está contraído */
+                    #drawer-body-scrolling:not(.expanded) .expand-text {
+                        display: none;
+                    }
 
 
 
-        #contentinicio {
-            position: absolute;
-            right: 900px;
-            /* Ajusta este valor según sea necesario */
-            top: 100px;
-            /* Ajusta este valor según sea necesario */
-            background-color: white;
-            /* Solo para claridad */
-            padding: 0px;
-            /* Solo para claridad */
-            border: 1px solid #ffffff;
-            /* Solo para claridad */
-            z-index: 999;
-            /* Asegura que el contenido esté encima de otros elementos */
-        }
+                    #contentinicio {
+                        position: absolute;
+                        right: 900px;
+                        /* Ajusta este valor según sea necesario */
+                        top: 100px;
+                        /* Ajusta este valor según sea necesario */
+                        background-color: white;
+                        /* Solo para claridad */
+                        padding: 0px;
+                        /* Solo para claridad */
+                        border: 1px solid #ffffff;
+                        /* Solo para claridad */
+                        z-index: 999;
+                        /* Asegura que el contenido esté encima de otros elementos */
+                    }
 
-        #contentDiv {
-            position: absolute;
-            right: 950px;
-            /* Ajusta este valor según sea necesario */
-            top: 100px;
-            /* Ajusta este valor según sea necesario */
-            background-color: white;
-            /* Solo para claridad */
-            padding: 0px;
-            /* Solo para claridad */
-            border: 1px solid #ffffff;
-            /* Solo para claridad */
-            z-index: 999;
-            /* Asegura que el contenido esté encima de otros elementos */
-        }
+                    #contentDiv {
+                        position: absolute;
+                        right: 950px;
+                        /* Ajusta este valor según sea necesario */
+                        top: 100px;
+                        /* Ajusta este valor según sea necesario */
+                        background-color: white;
+                        /* Solo para claridad */
+                        padding: 0px;
+                        /* Solo para claridad */
+                        border: 1px solid #ffffff;
+                        /* Solo para claridad */
+                        z-index: 999;
+                        /* Asegura que el contenido esté encima de otros elementos */
+                    }
 
-        #contentDivu {
-            position: absolute;
-            right: 650px;
-            /* Ajusta este valor según sea necesario */
-            top: 100px;
-            /* Ajusta este valor según sea necesario */
-            background-color: white;
-            /* Solo para claridad */
-            padding: 0px;
-            /* Solo para claridad */
-            border: 1px solid #fffefe;
-            /* Solo para claridad */
-            z-index: 999;
-            /* Asegura que el contenido esté encima de otros elementos */
-        }
+                    #contentDivu {
+                        position: absolute;
+                        right: 650px;
+                        /* Ajusta este valor según sea necesario */
+                        top: 100px;
+                        /* Ajusta este valor según sea necesario */
+                        background-color: white;
+                        /* Solo para claridad */
+                        padding: 0px;
+                        /* Solo para claridad */
+                        border: 1px solid #fffefe;
+                        /* Solo para claridad */
+                        z-index: 999;
+                        /* Asegura que el contenido esté encima de otros elementos */
+                    }
 
-        #contentDivl {
-            position: absolute;
-            right: 350px;
-            /* Ajusta este valor según sea necesario */
-            top: 100px;
-            /* Ajusta este valor según sea necesario */
-            background-color: white;
-            /* Solo para claridad */
-            padding: 0px;
-            /* Solo para claridad */
-            border: 1px solid #fffefe;
-            /* Solo para claridad */
-            z-index: 999;
-            /* Asegura que el contenido esté encima de otros elementos */
-        }
+                    #contentDivl {
+                        position: absolute;
+                        right: 350px;
+                        /* Ajusta este valor según sea necesario */
+                        top: 100px;
+                        /* Ajusta este valor según sea necesario */
+                        background-color: white;
+                        /* Solo para claridad */
+                        padding: 0px;
+                        /* Solo para claridad */
+                        border: 1px solid #fffefe;
+                        /* Solo para claridad */
+                        z-index: 999;
+                        /* Asegura que el contenido esté encima de otros elementos */
+                    }
 
-        #contentD {
-            position: absolute;
-            right: 600px;
-            /* Ajusta este valor según sea necesario */
-            top: 300px;
-            /* Ajusta este valor según sea necesario */
-            background-color: white;
-            /* Solo para claridad */
-            padding: 0px;
-            /* Solo para claridad */
-            border: 1px solid #fffefe;
-            /* Solo para claridad */
-            z-index: 999;
-            /* Asegura que el contenido esté encima de otros elementos */
-        }
+                    #contentD {
+                        position: absolute;
+                        right: 600px;
+                        /* Ajusta este valor según sea necesario */
+                        top: 300px;
+                        /* Ajusta este valor según sea necesario */
+                        background-color: white;
+                        /* Solo para claridad */
+                        padding: 0px;
+                        /* Solo para claridad */
+                        border: 1px solid #fffefe;
+                        /* Solo para claridad */
+                        z-index: 999;
+                        /* Asegura que el contenido esté encima de otros elementos */
+                    }
 
-        #container {
-            clear: left;
-            max-width: 1000px;
-            padding-top: 200px;
-            background-color: ghostwhite;
-            z-index: 999;
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+                    #container {
+                        clear: left;
+                        max-width: 1000px;
+                        padding-top: 200px;
+                        background-color: ghostwhite;
+                        z-index: 999;
+                        display: none;
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
 
-        }
+                    }
 
-        #pastel {
-            position: fixed;
-            right: 450px;
-            /* Cambiado a 20px para moverlo más a la derecha */
-            top: 150px;
-            background-color: white;
-            padding: 0px;
-            border: 1px solid #fffefe;
-            z-index: 999;
-        }
+                    #pastel {
+                        position: fixed;
+                        right: 450px;
+                        /* Cambiado a 20px para moverlo más a la derecha */
+                        top: 150px;
+                        background-color: white;
+                        padding: 0px;
+                        border: 1px solid #fffefe;
+                        z-index: 999;
+                    }
 
 
 
-        body {
-            background-image: url('{{ asset('Imagenes/background.png') }}');
-            background-size: cover;
-            /* per adattare l'immagine allo schermo */
-            background-repeat: no-repeat;
-            /* per evitare che l'immagine si ripeta */
-        }
-    </style>
-    <style>
-        .fixed-element {
-            position: fixed;
-            right: calc(50vw - 600px);
-            /* Ajusta el valor según tu preferencia */
-            top: 155px;
-            /* Ajusta el valor según tu preferencia */
-        }
-    </style>
+                    body {
+                        background-image: url('{{ asset('Imagenes/background.png') }}');
+                        background-size: cover;
+                        /* per adattare l'immagine allo schermo */
+                        background-repeat: no-repeat;
+                        /* per evitare che l'immagine si ripeta */
+                    }
+                </style>
+                <style>
+                    .fixed-element {
+                        position: fixed;
+                        right: calc(50vw - 600px);
+                        /* Ajusta el valor según tu preferencia */
+                        top: 155px;
+                        /* Ajusta el valor según tu preferencia */
+                    }
+                </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Función para expandir el panel
-            function expandDrawer() {
-                document.getElementById('drawer-body-scrolling').classList.add('expanded');
-            }
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // Función para expandir el panel
+                        function expandDrawer() {
+                            document.getElementById('drawer-body-scrolling').classList.add('expanded');
+                        }
 
-            // Función para contraer el panel
-            function collapseDrawer() {
-                document.getElementById('drawer-body-scrolling').classList.remove('expanded');
-            }
+                        // Función para contraer el panel
+                        function collapseDrawer() {
+                            document.getElementById('drawer-body-scrolling').classList.remove('expanded');
+                        }
 
-            // Detectar cuando el cursor se mueve sobre el panel
-            document.getElementById('drawer-body-scrolling').addEventListener('mouseenter', expandDrawer);
+                        // Detectar cuando el cursor se mueve sobre el panel
+                        document.getElementById('drawer-body-scrolling').addEventListener('mouseenter', expandDrawer);
 
-            // Detectar cuando el cursor sale del panel
-            document.getElementById('drawer-body-scrolling').addEventListener('mouseleave', collapseDrawer);
-        });
-    </script>
+                        // Detectar cuando el cursor sale del panel
+                        document.getElementById('drawer-body-scrolling').addEventListener('mouseleave', collapseDrawer);
+                    });
+                </script>
