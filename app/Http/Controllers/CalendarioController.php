@@ -14,6 +14,7 @@ class CalendarioController extends Controller
         return view('calendario');
     }
 
+
     /**
      * Show the form for creating a new resource.
      */

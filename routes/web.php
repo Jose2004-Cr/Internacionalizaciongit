@@ -6,6 +6,8 @@ use App\Http\Controllers\registro3Controller;
 use App\Http\Controllers\welcomeController;
 use App\Http\Controllers\registroinicioController;
 use App\Http\Controllers\welcomeinicialController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CalendarioController;
 
 // Modifica la ruta raíz para que use el inicioController
 Route::get('/', [inicioController::class, 'index'])->name('inicio');
@@ -33,3 +35,5 @@ Route::get('/welcome', [welcomeController::class, 'index'])->name('welcome');
 Route::get('/inicio', [inicioController::class, 'index'])->name('inicio');
 Route::get('/registroinicio', [registroinicioController::class, 'index'])->name('registroinicio');
 Route::get('/welcomeinicial', [welcomeinicialController::class, 'index'])->name('welcomeinicial');
+Route::get('/Home', [HomeController::class, 'index'])->name('Home');
+Route::get('/Calendario', [calendarioController::class, 'index'])->name('Calendario');
