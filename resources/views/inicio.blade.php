@@ -117,14 +117,17 @@
                                     <span class="tooltip">Soy colombiano: Cedula de<br> ciudadania - Tarjeta de identidad.<br><br> Soy extranjero: Cedula de extranjeria-<br>Pasaporte - Visa.</span>
                                 </div>
                             </div>
-
-                            <input class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4 mt-6" type="text" id="documento" name="email" required placeholder="Numero del documento" oninput="validarCampos()" />
-
+                            <div id= "campo-documento">
+                                <p>Documento</p>
+                                <input class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4 mt-6" type="text" id="documento" name="email" required placeholder="Numero del documento" oninput="validarCampos()" />
+                            </div>
                             <div id="campo-contrasena-colombiano" class="hidden">
+                                <p>Contraseña</p>
                                 <input type="password" id="contrasena-colombiano" name="password" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
                             </div>
 
                             <div id="campo-contrasena-extranjero" class="hidden">
+                                <p>Contraseña</p>
                                 <input type="password" id="contrasena-extranjero" name="contrasena" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
                             </div>
 

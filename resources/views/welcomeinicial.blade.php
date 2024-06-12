@@ -64,20 +64,20 @@
             <div class="w-full  md:pr-8 border-r-2 border-blue-700 ">
                 <div class="">
                     <div>
-                        <label class=" block mb-2 text-xl font-bold text-blue-800 dark:text-white" for="numero_documento" >Nombre completo </label>
+                        <label class=" block mb-2 text-xl font-bold text-blue-800 dark:text-white" for="user_documento" >Nombre completo </label>
                         <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido..." class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
 
                     </div>
                     <br>
                     <div>
-                        <label class="block mb-2 text-xl font-bold text-blue-800 dark:text-white" for="user_avatar">Nacionalidad</label>
+                        <label class="block mb-2 text-xl font-bold text-blue-800 dark:text-white" for="user_nacionalidad">Nacionalidad</label>
                         <input type="text" id="numero_documento" name="numero_documento" placeholder="Pais o codigo postal..." class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
 
                     </div>
                     <br>
                     <div>
                         <label class="block mb-2 text-xl font-bold text-blue-800 dark:text-white"
-                            for="user_avatar">Fecha de nacimiento</label>
+                            for="user_nacimiento">Fecha de nacimiento</label>
                             <input type="date" id="numero_documento" name="numero_documento" placeholder="Nombre del evento a participar" class="shadow-md rounded-md p-2 block w-56 py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
 
 
@@ -98,11 +98,11 @@
                                 <label class="block mb-2 text-xl font-bold text-blue-800 dark:text-white"
                                 for="user_avatar">Tipo de Documento</label>
                                 <select id="document_type" name="document_type" class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
-                                    <option value="tarjeta_de_identidad">Tarjeta de identidad</option>
-                                    <option value="cedula_de_ciudadania">Cédula de ciudadanía</option>
-                                    <option value="pasaporte">Pasaporte</option>
-                                    <option value="cedula_de_extranjeria">Cédula de extranjería</option>
-                                    <option value="visa">Visa</option>
+                                    <option value="A">Tarjeta de identidad</option>
+                                    <option value="B">Cédula de ciudadanía</option>
+                                    <option value="C">Pasaporte</option>
+                                    <option value="D">Cédula de extranjería</option>
+                                    <option value="E">Visa</option>
                                     <!-- Agrega más opciones según sea necesario -->
                                 </select>
                             </div>

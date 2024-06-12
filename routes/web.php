@@ -8,7 +8,7 @@ use App\Http\Controllers\registroinicioController;
 use App\Http\Controllers\welcomeinicialController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 
 Route::middleware([
@@ -26,4 +26,3 @@ Route::get('/welcome',[welcomeController::class,'index'])->name('welcome');
 Route::get('/inicio',[inicioController::class,'index'])->name('inicio');
 Route::get('/registroinicio',[registroinicioController::class,'index'])->name('registroinicio');
 Route::get('/welcomeinicial',[welcomeinicialController::class,'index'])->name('welcomeinicial');
-
