@@ -132,7 +132,7 @@
                         <br>
                         <div class="mb-4 w-full md:w-9/12">
                             <label for="countries" class="text-blue-700 text-lg font-bold mb-2">Nacionalidad</label>
-                            <select id="countries" class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
+                            <select id="countries" class=" shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
                                 <option class="text-base py-2" value="" disabled selected>Nombre del pais - codigo del pais (ISO3)- codigo</option>
                                 <option value="COL">COLOMBIA | COL | 170</option>
                                 <option value="ARG">ARGENTINA | ARG | 032</option>
