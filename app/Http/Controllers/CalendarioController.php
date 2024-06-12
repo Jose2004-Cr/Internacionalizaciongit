@@ -11,16 +11,10 @@ class CalendarioController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        return view('Calendario');
-    }
-
-
-=======
         return view('calendario');
     }
 
->>>>>>> f176771899d55b50992f0461183131385203afa2
+
     /**
      * Show the form for creating a new resource.
      */
