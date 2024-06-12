@@ -4,23 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CalendarioController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-<<<<<<< HEAD
-        return view('Calendario');
+        return view('Home');
     }
 
-
-=======
-        return view('calendario');
-    }
-
->>>>>>> f176771899d55b50992f0461183131385203afa2
     /**
      * Show the form for creating a new resource.
      */
