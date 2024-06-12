@@ -118,17 +118,13 @@
                                 </div>
                             </div>
 
-                            <input class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4 mt-6" type="text" id="documento" name="email" required placeholder="Numero del documento" oninput="validarCampos()" />
+                            <input class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4 mt-6" type="text" id="documento" name="email" required placeholder="Numero del documento"  />
 
                             <div id="campo-contrasena-colombiano" class="hidden">
-                                <input type="password" id="contrasena-colombiano" name="password" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
+                                <input type="password" id="contrasena-colombiano" name="password" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña"  />
                             </div>
 
-                            <div id="campo-contrasena-extranjero" class="hidden">
-                                <input type="password" id="contrasena-extranjero" name="contrasena" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
-                            </div>
-
-                            <button type="submit" id="btn-ingresar" class="w-11/12 pr-10 p-5 bg-gray-400 text-white rounded cursor-not-allowed" disabled>
+                            <button type="submit" id="btn-ingresar" class="w-11/12 pr-10 p-5 bg-gray-400 text-white rounded cursor-not-allowed" >
                                 INGRESAR
                             </button>
                         </form>
@@ -158,61 +154,24 @@
             }, 10);
         }
 
-        function mostrarCampos() {
-            var nacionalidad = document.getElementById("nacionalidad").value;
-            var campoContrasenaColombiano = document.getElementById("campo-contrasena-colombiano");
-            var campoContrasenaExtranjero = document.getElementById("campo-contrasena-extranjero");
+        document.getElementById('documento').addEventListener('input', function() {
+            const documentoInput = document.getElementById('documento');
+            const contrasenaField = document.getElementById('campo-contrasena-colombiano');
+            const ingresarButton = document.getElementById('btn-ingresar');
 
-            if (nacionalidad === "extranjero") {
-                campoContrasenaColombiano.classList.add("hidden");
-                campoContrasenaExtranjero.classList.remove("hidden");
+            if (documentoInput.value.trim() !== '') {
+                contrasenaField.classList.remove('hidden');
+                ingresarButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                ingresarButton.classList.add('bg-blue-900', 'cursor-pointer');
+                ingresarButton.disabled = false;
             } else {
-                campoContrasenaColombiano.classList.remove("hidden");
-                campoContrasenaExtranjero.classList.add("hidden");
+                contrasenaField.classList.add('hidden');
+                ingresarButton.classList.remove('bg-blue-900', 'cursor-pointer');
+                ingresarButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+                ingresarButton.disabled = true;
             }
-            validarCampos();
-        }
+        });
 
-        function validarCampos() {
-            const nacionalidad = document.getElementById('nacionalidad').value;
-            const documento = document.getElementById('documento').value.trim();
-            const contrasenaColombiano = document.getElementById('contrasena-colombiano').value.trim();
-            const contrasenaExtranjero = document.getElementById('contrasena-extranjero').value.trim();
-            const btnIngresar = document.getElementById('btn-ingresar');
-
-            if (documento !== '' && ((nacionalidad === 'colombiano' && contrasenaColombiano !== '') || (nacionalidad === 'extranjero' && contrasenaExtranjero !== ''))) {
-                btnIngresar.disabled = false;
-                btnIngresar.classList.remove('bg-gray-400', 'cursor-not-allowed');
-                btnIngresar.classList.add('bg-blue-500', 'cursor-pointer');
-            } else {
-                btnIngresar.disabled = true;
-                btnIngresar.classList.remove('bg-blue-500', 'cursor-pointer');
-                btnIngresar.classList.add('bg-gray-400', 'cursor-not-allowed');
-            }
-
-            if (nacionalidad === 'colombiano' && documento !== '') {
-                document.getElementById("campo-contrasena-colombiano").classList.remove("hidden");
-            } else {
-                document.getElementById("campo-contrasena-colombiano").classList.add("hidden");
-            }
-
-            if (nacionalidad === 'extranjero' && documento !== '') {
-                document.getElementById("campo-contrasena-extranjero").classList.remove("hidden");
-            } else {
-                document.getElementById("campo-contrasena-extranjero").classList.add("hidden");
-            }
-        }
-
-        function redirigirUsuario(event) {
-            event.preventDefault();
-            const email = document.getElementById('documento').value.trim();
-
-            if (email === 'carlos@gmail.com') {
-                window.location.href = '/dashboard';
-            } else {
-                window.location.href = '/welcomeinicial';
-            }
-        }
     </script>
 </body>
 

@@ -1287,34 +1287,7 @@ function logout() {
 
 </div>
 
-{{-- aqui va el contenido del calendario --}}
-<div class="bg-white rounded-lg shadow p-21">
-    <div id="calendario" style="display: none">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
-            <script>
 
-            document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-                var calendar = new FullCalendar.Calendar(calendarEl, {
-                    initialView: 'dayGridMonth'
-                });
-                calendar.render();
-            });
-
-            </script>
-            <title>FullCalendar Tutorial</title>
-        </head>
-
-        <body>
-            <div style="max-width: 1000px; margin: auto" id='calendar'></div>
-            <script src="./calendar.js"></script>
-        </body>
-
-    </div>
-</div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
 {{-- aqui va el contenido de la tabla de barras --}}
