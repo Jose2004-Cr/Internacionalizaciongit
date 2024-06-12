@@ -1290,310 +1290,31 @@ function logout() {
 {{-- aqui va el contenido del calendario --}}
 <div class="bg-white rounded-lg shadow p-21">
     <div id="calendario" style="display: none">
-        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
-        <style>
-            [x-cloak] { display: none; }
-            .notification {
-                position: fixed;
-                bottom: 16px;
-                right: 16px;
-                background-color: #4caf50;
-                color: white;
-                padding: 16px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                opacity: 0;
-                transform: translateY(100%);
-                transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-            }
-            .notification.show {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            .event-detail {
-                white-space: pre-wrap;
-                word-wrap: break-word;
-            }
-        </style>
-        <title>Calendario de Eventos</title>
-    </head>
-    <body class="font-sans antialiased bg-gray-100">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+            <script>
 
-    <div x-data="calendarApp()" x-init="initializeCalendar()" x-cloak>
-        <div class="container px-5 py-10 mx-auto">
-            <div class="mb-5 text-3xl font-bold text-center text-gray-900">Calendario de Eventos</div>
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth'
+                });
+                calendar.render();
+            });
 
-            <div class="bg-white rounded-lg shadow">
-                <div class="flex items-center justify-between px-6 py-4 text-white bg-blue-500">
-                    <div>
-                        <span x-text="MONTH_NAMES[month]" class="text-xl font-bold"></span>
-                        <span x-text="year" class="ml-1 text-xl"></span>
-                    </div>
-                    <div class="flex items-center">
-                        <button @click="changeMonth(-1)" :disabled="month == 0" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                            </svg>
-                        </button>
-                        <button @click="changeMonth(1)" :disabled="month == 11" class="p-2 mx-1 bg-blue-700 rounded-full hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
-                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+            </script>
+            <title>FullCalendar Tutorial</title>
+        </head>
 
-                <div class="grid grid-cols-7 gap-1 px-4 py-2 text-center">
-                    <template x-for="day in DAYS" :key="day">
-                        <div class="font-bold text-gray-800" x-text="day"></div>
-                    </template>
-                </div>
+        <body>
+            <div style="max-width: 1000px; margin: auto" id='calendar'></div>
+            <script src="./calendar.js"></script>
+        </body>
 
-                <div class="grid grid-cols-7 gap-1 p-4 border-t border-gray-200">
-                    <template x-for="blank in blankDays">
-                        <div class="py-2"></div>
-                    </template>
-                    <template x-for="date in noOfDays" :key="date">
-                        <div class="py-2">
-                            <div @click="openEventModal(date)" class="w-8 h-8 mx-auto text-center cursor-pointer" :class="{'bg-blue-500 text-white': isToday(date), 'hover:bg-blue-200': !isToday(date)}">
-                                <span x-text="date"></span>
-                            </div>
-                            <template x-for="event in events.filter(e => new Date(e.date).toDateString() === new Date(year, month, date).toDateString())">
-                                <div class="p-1 mt-1 text-sm text-blue-800 truncate bg-blue-100 rounded cursor-pointer" @click="viewEvent(event)">
-                                    <span x-text="event.title"></span>
-                                </div>
-                            </template>
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div x-show="showModal" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-            <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                <h2 class="mb-4 text-2xl font-bold" x-text="editMode ? 'Editar Evento' : 'Agregar Evento'"></h2>
-                <form @submit.prevent="saveEvent">
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Título</label>
-                        <input type="text" x-model="eventTitle" class="w-full px-3 py-2 border rounded-lg" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Fecha y Hora</label>
-                        <input type="datetime-local" x-model="eventDateTime" class="w-full px-3 py-2 border rounded-lg" required>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Categoría</label>
-                        <select x-model="eventCategory" class="w-full px-3 py-2 border rounded-lg">
-                            <option value="blue">Evento Azul</option>
-                            <option value="red">Evento Rojo</option>
-                            <option value="yellow">Evento Amarillo</option>
-                            <option value="green">Evento Verde</option>
-                            <option value="purple">Evento Púrpura</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label class="block mb-1 text-gray-700">Descripción</label>
-                        <textarea x-model="eventDescription" class="w-full px-3 py-2 border rounded-lg" maxlength="200" rows="4" required></textarea>
-                        <small x-text="200 - eventDescription.length + ' palabras restantes'"></small>
-                    </div>
-                    <div class="flex justify-end">
-                        <button type="button" @click="closeModal" class="px-4 py-2 mr-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cancelar</button>
-                        <button type="submit" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- Event Detail Modal -->
-        <div x-show="showEventDetail" class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
-            <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
-                <h2 class="mb-4 text-2xl font-bold">Detalle del Evento</h2>
-                <div class="mb-4">
-                    <strong>Título:</strong>
-                    <p x-text="viewingEvent.title"></p>
-                </div>
-                <div class="mb-4">
-                    <strong>Fecha y Hora:</strong>
-                    <p x-text="new Date(viewingEvent.date).toLocaleString()"></p>
-                </div>
-                <div class="mb-4">
-                    <strong>Categoría:</strong>
-                    <p x-text="viewingEvent.category"></p>
-                </div>
-                <div class="mb-4">
-                    <strong>Descripción:</strong>
-                    <p class="event-detail" x-text="viewingEvent.description"></p>
-                </div>
-                <div class="flex justify-end">
-                    <button @click="editEvent(viewingEvent)" class="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600">Editar</button>
-                    <button @click="deleteEvent(viewingEvent)" class="px-4 py-2 ml-2 text-white bg-red-500 rounded-lg hover:bg-red-600">Borrar</button>
-                    <button type="button" @click="closeEventDetail" class="px-4 py-2 ml-2 bg-gray-300 rounded-lg hover:bg-gray-400">Cerrar</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Notification -->
-        <div x-show="showNotification" class="notification" x-text="notificationMessage"></div>
-    </div>
-
-    <script>
-        const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-        const DAYS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
-
-        function calendarApp() {
-            return {
-                month: null,
-                year: null,
-                days: DAYS,
-                events: JSON.parse(localStorage.getItem('events') || '[]'),
-                eventTitle: '',
-                eventDateTime: '',
-                eventCategory: 'blue',
-                eventDescription: '',
-                showModal: false,
-                showEventDetail: false,
-                editMode: false,
-                currentEventIndex: null,
-                showNotification: false,
-                notificationMessage: '',
-                viewingEvent: {},
-
-                initializeCalendar() {
-                    const today = new Date();
-                    this.month = today.getMonth();
-                    this.year = today.getFullYear();
-                    this.calculateDays();
-                    this.checkEvents();
-                    setInterval(this.checkNotifications.bind(this), 60000); // Check notifications every minute
-                },
-
-                calculateDays() {
-                    const daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
-                    const dayOfWeek = new Date(this.year, this.month, 1).getDay();
-                    this.blankDays = Array(dayOfWeek === 0 ? 6 : dayOfWeek - 1).fill(null);
-                    this.noOfDays = Array.from({ length: daysInMonth }, (v, i) => i + 1);
-                },
-
-                changeMonth(value) {
-                    this.month += value;
-                    if (this.month > 11) {
-                        this.month = 0;
-                        this.year++;
-                    } else if (this.month < 0) {
-                        this.month = 11;
-                        this.year--;
-                    }
-                    this.calculateDays();
-                    this.checkEvents();
-                },
-
-                isToday(date) {
-                    const today = new Date();
-                    const d = new Date(this.year, this.month, date);
-                    return today.toDateString() === d.toDateString();
-                },
-
-                openEventModal(date) {
-                    this.showModal = true;
-                    this.editMode = false;
-                    this.eventDateTime = new Date(this.year, this.month, date).toISOString().slice(0, 16);
-                    this.eventTitle = '';
-                    this.eventCategory = 'blue';
-                    this.eventDescription = '';
-                },
-
-                closeModal() {
-                    this.showModal = false;
-                    this.editMode = false;
-                },
-
-                saveEvent() {
-                    if (this.editMode) {
-                        this.events[this.currentEventIndex] = {
-                            title: this.eventTitle,
-                            date: this.eventDateTime,
-                            category: this.eventCategory,
-                            description: this.eventDescription
-                        };
-                    } else {
-                        this.events.push({
-                            title: this.eventTitle,
-                            date: this.eventDateTime,
-                            category: this.eventCategory,
-                            description: this.eventDescription
-                        });
-                    }
-                    localStorage.setItem('events', JSON.stringify(this.events));
-                    this.closeModal();
-                    this.checkEvents();
-                },
-
-                viewEvent(event) {
-                    this.showEventDetail = true;
-                    this.viewingEvent = event;
-                },
-
-                closeEventDetail() {
-                    this.showEventDetail = false;
-                },
-
-                editEvent(event) {
-                    this.showModal = true;
-                    this.editMode = true;
-                    this.currentEventIndex = this.events.indexOf(event);
-                    this.eventTitle = event.title;
-                    this.eventDateTime = event.date;
-                    this.eventCategory = event.category;
-                    this.eventDescription = event.description;
-                },
-
-                deleteEvent(event) {
-                    const index = this.events.indexOf(event);
-                    if (index > -1) {
-                        this.events.splice(index, 1);
-                        localStorage.setItem('events', JSON.stringify(this.events));
-                    }
-                    this.closeEventDetail();
-                    this.checkEvents();
-                },
-
-                checkEvents() {
-                    const now = new Date();
-                    this.events.forEach(event => {
-                        const eventDate = new Date(event.date);
-                        if (eventDate.toDateString() === now.toDateString()) {
-                            this.showNotification = true;
-                            this.notificationMessage = `Recordatorio: ¡Hoy es el evento "${event.title}"!`;
-                            setTimeout(() => {
-                                this.showNotification = false;
-                            }, 5000);
-                        }
-                    });
-                },
-
-                checkNotifications() {
-                    const now = new Date();
-                    this.events.forEach(event => {
-                        const eventDate = new Date(event.date);
-                        const timeDifference = eventDate - now;
-                        if (timeDifference <= 60000 && timeDifference > 0) { // Notify one minute before event
-                            this.showNotification = true;
-                            this.notificationMessage = `¡El evento "${event.title}" está a punto de comenzar!`;
-                            setTimeout(() => {
-                                this.showNotification = false;
-                            }, 5000);
-                        }
-                    });
-                }
-            }
-        }
-    </script>
-    </body>
     </div>
 </div>
-
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
 {{-- aqui va el contenido de la tabla de barras --}}
@@ -1796,6 +1517,7 @@ function logout() {
         /* per evitare che l'immagine si ripeta */
     }
 </style>
+
 <style>
     .fixed-element {
         position: fixed;
