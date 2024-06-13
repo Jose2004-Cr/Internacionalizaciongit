@@ -28,4 +28,4 @@ Route::get('/inicio', [inicioController::class, 'index'])->name('inicio');
 Route::get('/registroinicio', [registroinicioController::class, 'index'])->name('registroinicio');
 Route::get('/welcomeinicial', [welcomeinicialController::class, 'index'])->name('welcomeinicial');
 Route::get('/Home', [HomeController::class, 'index'])->name('Home');
-Route::get('/Calendario', [calendarioController::class, 'index'])->name('Calendario');
+Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
