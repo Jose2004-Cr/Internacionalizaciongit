@@ -11,7 +11,7 @@ class CalendarioController extends Controller
      */
     public function index()
     {
-        return view('calendario');
+        return view('Calendario');
     }
 
 }
