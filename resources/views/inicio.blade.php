@@ -76,26 +76,26 @@
 </head>
 
 <body>
-    <div class="relative w-full h-full flex">
-        <div class="absolute top-0 right-0 flex items-center mr-4 mt-4">
+    <div class="relative flex w-full h-full">
+        <div class="absolute top-0 right-0 flex items-center mt-4 mr-4">
             <div class="relative">
                 <img src="images/Estados unidos.png" alt="Bandera de Estados Unidos" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('usa')" />
-                <div id="usa-line" class="hidden h-1 bg-red-500 rounded-full transition-all duration-500 -translate-x-full mt-1"></div>
+                <div id="usa-line" class="hidden h-1 mt-1 transition-all duration-500 -translate-x-full bg-red-500 rounded-full"></div>
             </div>
             <div class="relative ml-2">
                 <img src="images/COLOMBIA.png" alt="Bandera de Colombia" class="w-12 h-8 rounded cursor-pointer" onclick="showLine('colombia')" />
-                <div id="colombia-line" class="hidden h-1 bg-yellow-200 rounded-full transition-all duration-500 -translate-x-full mt-1"></div>
+                <div id="colombia-line" class="hidden h-1 mt-1 transition-all duration-500 -translate-x-full bg-yellow-200 rounded-full"></div>
             </div>
         </div>
 
         <div class="flex w-full">
             <div class="w-1/2 h-screen">
-                <img class="w-full h-full object-cover" src="images/x2.png" alt="Banner Image" />
+                <img class="object-cover w-full h-full" src="images/x2.png" alt="Banner Image" />
             </div>
-            <div class="w-1/2 h-screen flex flex-col justify-center items-center">
+            <div class="flex flex-col items-center justify-center w-1/2 h-screen">
                 <div>
                     <div class="w-full pb-8 border-b-2 border-blue-900">
-                        <h1 class="text-7xl font-bold mb-2 text-blue-900">
+                        <h1 class="mb-2 font-bold text-blue-900 text-7xl">
                             Ingresa tus datos
                         </h1>
                     </div>
@@ -105,30 +105,30 @@
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
-                            <div class="flex items-center w-full relative">
-                                <select id="nacionalidad" class="w-full pr-10 p-5 border border-gray-300 rounded mb-4 text-white bg-blue-800" onchange="mostrarCampos()">
+                            <div class="relative flex items-center w-full">
+                                <select id="nacionalidad" class="w-full p-5 pr-10 mb-4 text-white bg-blue-800 border border-gray-300 rounded" onchange="mostrarCampos()">
                                     <option value="colombiano">Soy colombiano</option>
                                     <option value="extranjero">Soy extranjero</option>
                                 </select>
-                                <div class="help-icon ml-4">
-                                    <svg class="h-8 w-9 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <div class="ml-4 help-icon">
+                                    <svg class="h-8 text-gray-800 w-9 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
                                     <span class="tooltip">Soy colombiano: Cedula de<br> ciudadania - Tarjeta de identidad.<br><br> Soy extranjero: Cedula de extranjeria-<br>Pasaporte - Visa.</span>
                                 </div>
                             </div>
 
-                            <input class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4 mt-6" type="text" id="documento" name="email" required placeholder="Numero del documento" oninput="validarCampos()" />
+                            <input class="w-11/12 p-5 pr-10 mt-6 mb-4 border border-blue-900 rounded" type="text" id="documento" name="email" required placeholder="Numero del documento" oninput="validarCampos()" />
 
                             <div id="campo-contrasena-colombiano" class="hidden">
-                                <input type="password" id="contrasena-colombiano" name="password" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
+                                <input type="password" id="contrasena-colombiano" name="password" class="w-11/12 p-5 pr-10 mb-4 border border-blue-900 rounded" required placeholder="Contraseña" oninput="validarCampos()" />
                             </div>
 
                             <div id="campo-contrasena-extranjero" class="hidden">
-                                <input type="password" id="contrasena-extranjero" name="contrasena" class="w-11/12 pr-10 p-5 border border-blue-900 rounded mb-4" required placeholder="Contraseña" oninput="validarCampos()" />
+                                <input type="password" id="contrasena-extranjero" name="contrasena" class="w-11/12 p-5 pr-10 mb-4 border border-blue-900 rounded" required placeholder="Contraseña" oninput="validarCampos()" />
                             </div>
 
-                            <button type="submit" id="btn-ingresar" class="w-11/12 pr-10 p-5 bg-gray-400 text-white rounded cursor-not-allowed" disabled>
+                            <button type="submit" id="btn-ingresar" class="w-11/12 p-5 pr-10 text-white bg-gray-400 rounded cursor-not-allowed" disabled>
                                 INGRESAR
                             </button>
                         </form>
