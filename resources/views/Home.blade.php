@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
 <body>
     <div class="fixed top-0 left-0 z-0 h-screen p-2 overflow-y-auto transition-all duration-300 ease-in-out sidebar">
         <h5 class="mb-2 text-xs font-bold text-center text-white uppercase">Hermes</h5>
@@ -18,7 +10,7 @@
                     </a>
                 </li>
                 <li class="mb-5">
-                    <a href="#" onclick="home()" id="showContent" class="sidebar-item">
+                    <a href="/Home" onclick="home()" id="showContent" class="sidebar-item">
                         <img src="\images\Eventosss.png" aria-hidden="true">
                         <span class="expand-text">Home</span>
                     </a>
@@ -27,14 +19,6 @@
                     <a href="/calendario" onclick="calendario()" class="sidebar-item">
                         <img src="\images\calendariofinal.png" aria-hidden="true">
                         <span class="expand-text">Calendario</span>
-                    </a>
-                </li>
-            </ul>
-            <ul class="mt-auto logout">
-                <li class="mb-5">
-                    <a href="#" onclick="logout()" class="sidebar-item">
-                        <img src="\images\salirbasb.png" aria-hidden="true">
-                        <span class="expand-text">Sign off</span>
                     </a>
                 </li>
             </ul>

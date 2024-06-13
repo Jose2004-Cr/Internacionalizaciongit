@@ -75,39 +75,8 @@
                     </a>
                 </li>
             </ul>
-            <ul class="mt-auto logout">
-                <li class="mb-5">
-                    <a href="#" onclick="logout()" class="sidebar-item">
-                        <img src="\images\salirbasb.png" aria-hidden="true">
-                        <span class="expand-text">Sign off</span>
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
-
-    <script>
-        function logout() {
-            fetch('/logout', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = '/';
-                    } else {
-                        alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-                    }
-                })
-                .catch(error => {
-                    alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
-                    console.error(error);
-                });
-        }
-    </script>
 </body>
 
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">

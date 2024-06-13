@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white px-6 py-[10px] flex items-center justify-between shadow-sm">
+<nav x-data="{ open: false }" class="bg-white px-6 py-[20px] flex items-center justify-between shadow-sm">
     <!-- Menu Toggle Button -->
     <a @click="open = !open" href="#" class="text-gray-800">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
@@ -8,29 +8,11 @@
 
     <!-- Search Input -->
     <div class="flex items-center">
-        <!-- Profile Dropdown -->
-        <div x-data="{ open: false }" @click.away="open = false" class="relative ml-3">
-            <a @click="open = !open" href="#" class="flex-shrink-0">
-                <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Avatar">
-            </a>
-
-            <div x-show="open" class="absolute right-0 w-48 mt-2 bg-white rounded-md shadow-lg">
-                <a href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Editar Perfil</a>
-                <div class="border-t border-gray-100"></div>
-                <a href="#"
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Sign Out</a>
-            </div>
-        </div>
-
-        <!-- Notification Dropdown -->
         <div x-data="{ open: false }" @click.away="open = false" class="relative ml-3">
             <a @click="open = !open" href="#" class="text-gray-600">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5"/>
+                  </svg>
             </a>
 
             <div x-show="open" class="absolute right-0 w-64 mt-2 bg-white rounded-md shadow-lg">
@@ -63,7 +45,49 @@
                 </ul>
             </div>
         </div>
-    </div>
-    </div>
+        <!-- Profile Dropdown -->
+        <div x-data="{ open: false }" @click.away="open = false" class="relative ml-3">
+            <a @click="open = !open" href="#" class="flex-shrink-0">
+                <img class="w-8 h-8 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Avatar">
+            </a>
+
+            <div x-show="open" class="absolute right-0 w-48 mt-2 bg-white rounded-md shadow-lg">
+                <a href=""
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                Perfil
+             </a>
+                <a href="{{ route('editarperfil') }}"
+                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                   Configuracion //editar
+                </a>
+                <div class="border-t border-gray-100"></div>
+                <a href="#" onclick="logout()"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Sign Out</a>
+            </div>
+            <script>
+                function logout() {
+                    fetch('/logout', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            }
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                window.location.href = '/';
+                            } else {
+                                alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
+                            }
+                        })
+                        .catch(error => {
+                            alert('Error al cerrar la sesión. Por favor, inténtalo de nuevo.');
+                            console.error(error);
+                        });
+                }
+            </script>
+        </div>
+
+        <!-- Notification Dropdown -->
     </div>
 </nav>
