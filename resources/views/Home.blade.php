@@ -189,31 +189,31 @@
             </ul>
         </div>
     </div>
-    <div class="container px-4 mx-auto mt-10">
-        <div class="flex items-center justify-between mb-4">
+
+    <div class="container px-40 mx-auto mt-20">
+        <div class="flex items-center justify-between mb-10">
             <h1 class="text-2xl font-bold">Agregados recientes..</h1>
-            <button id="addEventButton" class="px-4 py-2 text-white bg-blue-500 rounded shadow">Agregar evento
-                +</button>
+
         </div>
         <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col justify-between w-full h-24 p-4 text-white bg-blue-500 rounded shadow-md">
-                <h3 class="font-bold">Nombre del evento</h3>
-                <p>Director del evento</p>
+                <h3 class="font-bold">Internacionalizacion</h3>
+                <p>Innova _ Colombia</p>
                 <p>Fecha: 14-06 hasta las 6:00 P.M.</p>
             </div>
             <div class="flex flex-col justify-between w-full h-24 p-4 text-white bg-blue-500 rounded shadow-md">
-                <h3 class="font-bold">Nombre del evento</h3>
-                <p>Director del evento</p>
+                <h3 class="font-bold">Hermes</h3>
+                <p>Tecnologico _ Colombia</p>
                 <p>Fecha: 17-06 hasta las 3:00 P.M.</p>
             </div>
             <div class="flex flex-col justify-between w-full h-24 p-4 text-white bg-blue-500 rounded shadow-md">
-                <h3 class="font-bold">Nombre del evento</h3>
-                <p>Director del evento</p>
+                <h3 class="font-bold">Los Panes</h3>
+                <p>Panderia _ Colombia</p>
                 <p>Fecha: 21-06 hasta las 9:00 A.M.</p>
             </div>
-            <div id="newEventCard"
+            <div id="addEventButton"
                 class="flex items-center justify-center w-full h-24 p-4 text-gray-600 bg-gray-200 rounded shadow-md cursor-pointer">
-                <span>Agregar evento +</span>
+                <button>Agregar evento +</button>
             </div>
         </div>
     </div>
