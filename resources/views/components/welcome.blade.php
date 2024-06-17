@@ -273,81 +273,79 @@
                 </div>
             </div>
         </div>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Line chart data
-            const lineData = {
-                labels: ['Entrante virtual', 'Entrante presencial', 'Saliente virtual', 'Saliente presencial'],
-                datasets: [{
-                        label: '2023',
-                        data: [30, 35, 20, 10],
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        fill: true,
-                    },
-                    {
-                        label: '2024',
-                        data: [40, 30, 25, 5],
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        fill: true,
-                    }
-                ]
-            };
-
-            const lineConfig = {
-                type: 'line',
-                data: lineData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            };
-
-            const lineCtx = document.getElementById('lineChart').getContext('2d');
-            new Chart(lineCtx, lineConfig);
-
-            // Pie chart data
-            const pieData = {
-                labels: ['Entrante virtual', 'Entrante presencial', 'Saliente virtual', 'Saliente presencial'],
-                datasets: [{
-                    data: [52, 12, 8, 8],
-                    backgroundColor: [
-                        '#ff6384',
-                        '#36a2eb',
-                        '#ffcd56',
-                        '#4bc0c0'
-                    ]
-                }]
-            };
-
-            const pieConfig = {
-                type: 'pie',
-                data: pieData,
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top'
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Line chart data
+                const lineData = {
+                    labels: ['Entrante virtual', 'Entrante presencial', 'Saliente virtual', 'Saliente presencial'],
+                    datasets: [{
+                            label: '2023',
+                            data: [30, 35, 20, 10],
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            fill: true,
                         },
-                        title: {
-                            display: true,
-                            text: 'Total de actividades'
+                        {
+                            label: '2024',
+                            data: [40, 30, 25, 5],
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            fill: true,
+                        }
+                    ]
+                };
+
+                const lineConfig = {
+                    type: 'line',
+                    data: lineData,
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
                         }
                     }
-                }
-            };
+                };
 
-            const pieCtx = document.getElementById('pieChart').getContext('2d');
-            new Chart(pieCtx, pieConfig);
-        });
-    </script>
+                const lineCtx = document.getElementById('lineChart').getContext('2d');
+                new Chart(lineCtx, lineConfig);
+
+                // Pie chart data
+                const pieData = {
+                    labels: ['Entrante virtual', 'Entrante presencial', 'Saliente virtual', 'Saliente presencial'],
+                    datasets: [{
+                        data: [52, 12, 8, 8],
+                        backgroundColor: [
+                            '#ff6384',
+                            '#36a2eb',
+                            '#ffcd56',
+                            '#4bc0c0'
+                        ]
+                    }]
+                };
+
+                const pieConfig = {
+                    type: 'pie',
+                    data: pieData,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top'
+                            },
+                            title: {
+                                display: true,
+                                text: 'Total de actividades'
+                            }
+                        }
+                    }
+                };
+
+                const pieCtx = document.getElementById('pieChart').getContext('2d');
+                new Chart(pieCtx, pieConfig);
+            });
+        </script>
 </body>
 
 
@@ -438,172 +436,4 @@
         }
     });
 </script>
-<!-- Leaflet.js for Maps -->
-<link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.bundled.js"></script>
-<script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
-<style>
-    #location {
-        width: 100%;
-        height: 500px;
-        position: relative;
-    }
-
-    .leaflet-container {
-        border-radius: 0.5rem;
-        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .scrollable-table {
-        max-height: 400px;
-        overflow-y: auto;
-    }
-
-    .leaflet-container .leaflet-control-attribution {
-        display: none;
-    }
-
-    .watermark {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.7);
-        padding: 5px;
-        font-size: 12px;
-        z-index: 1000;
-    }
-</style>
-</head>
-
-<body class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-    <div class="flex flex-col w-full gap-4 xl:flex-row xl:w-11/12 lg:w-10/12">
-    </div>
-    <script>
-        // Inicializar el mapa centrado en Cartagena
-        var map = L.map('location', {
-            fullscreenControl: true
-        }).setView([10.39972, -75.51444], 13);
-
-        // Añadir capa de mapa base con un estilo minimalista
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: false
-        }).addTo(map);
-
-        // Coordenadas y nombres de las sedes de la Universidad Tecnológico Comfenalco
-        var locations = [{
-                coords: [10.39225, -75.48421],
-                name: 'Sede Principal'
-            },
-            {
-                coords: [10.39568, -75.49543],
-                name: 'Sede Norte'
-            },
-            {
-                coords: [10.40353, -75.51367],
-                name: 'Sede Sur'
-            }
-        ];
-
-        // Agregar marcadores al mapa con estilo personalizado
-        locations.forEach(function(location) {
-            L.marker(location.coords).addTo(map)
-                .bindPopup('<b>' + location.name + '</b><br>Universidad Tecnológico Comfenalco.');
-        });
-
-        // Cargar datos GeoJSON para los países y aplicar colores suaves
-        fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
-            .then(response => response.json())
-            .then(data => {
-                var colors = {};
-                var colorIndex = 0;
-                var pastelColors = ['#FFD1DC', '#FF9A8B', '#FF96A8', '#FFC1A6', '#FFD5A5', '#E2F0CB', '#B5EAD7',
-                    '#C7CEEA'
-                ];
-
-                L.geoJson(data, {
-                    style: function(feature) {
-                        var countryName = feature.properties.ADMIN;
-                        if (!colors[countryName]) {
-                            colors[countryName] = pastelColors[colorIndex % pastelColors.length];
-                            colorIndex++;
-                        }
-                        return {
-                            color: colors[countryName],
-                            weight: 1,
-                            fillColor: colors[countryName],
-                            fillOpacity: 0.6
-                        };
-                    }
-                }).addTo(map);
-
-                // Agregar datos a la tabla de países
-                var tableBody = document.getElementById('country-table');
-                for (var country in colors) {
-                    var row = document.createElement('tr');
-                    var countryCell = document.createElement('td');
-                    countryCell.className = 'border px-4 py-2';
-                    countryCell.textContent = country;
-                    var colorCell = document.createElement('td');
-                    colorCell.className = 'border px-4 py-2';
-                    colorCell.style.backgroundColor = colors[country];
-                    row.appendChild(countryCell);
-                    row.appendChild(colorCell);
-                    tableBody.appendChild(row);
-                }
-            });
-
-        // Mejorar la funcionalidad del mapa
-        map.scrollWheelZoom.disable(); // Desactivar zoom con la rueda del ratón
-        map.on('click', function() {
-            map.scrollWheelZoom.enable(); // Activar zoom con la rueda del ratón al hacer clic en el mapa
-        });
-        map.on('mouseout', function() {
-            map.scrollWheelZoom.disable(); // Desactivar zoom con la rueda del ratón al salir del mapa
-        });
-    </script>
-</body>
-
-</div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
-{{-- aqui va el contenido de la tabla de barras --}}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Datos para el gráfico de barras
-    const data = {
-        labels: ['Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Obtubre',
-            'Novienbre'
-        ],
-        datasets: [{
-            label: 'Eventos',
-            backgroundColor: 'rgba(54, 162, 235, 0.5)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-            data: [100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950,
-                1000
-            ]
-        }]
-    };
-
-    // Configuración del gráfico
-    const config = {
-        type: 'bar',
-        data: data,
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    };
-
-    // Inicializar el gráfico
-    var myChart = new Chart(
-        document.getElementById('column-chart').querySelector('canvas'),
-        config
-    );
-</script>
+</main>
