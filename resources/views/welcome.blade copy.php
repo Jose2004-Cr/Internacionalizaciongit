@@ -14,7 +14,7 @@
     }
 
     .sidebar:hover {
-        width: 10rem;
+        width: 11rem;
     }
 
     .expand-text {
@@ -119,7 +119,7 @@
             </li>
             <li>
                 <a href="/reportes" onclick="reportes()" class="sidebar-item">
-                    <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
+                    <div class="icon"><img src="/images/reportesss.png" aria-hidden="true"></div>
                     <span class="expand-text">Reportes</span>
                 </a>
             </li>
@@ -373,136 +373,7 @@
             });
         </script>
         <!-- Leaflet.js for Maps -->
-        <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.css" />
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.bundled.js"></script>
-        <script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
-        <style>
-            #location {
-                width: 100%;
-                height: 500px;
-                position: relative;
-            }
 
-            .leaflet-container {
-                border-radius: 0.5rem;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .scrollable-table {
-                max-height: 400px;
-                overflow-y: auto;
-            }
-
-            .leaflet-container .leaflet-control-attribution {
-                display: none;
-            }
-
-            .watermark {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.7);
-                padding: 5px;
-                font-size: 12px;
-                z-index: 1000;
-            }
-        </style>
-        </head>
-
-        <body class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-            <div class="flex flex-col w-full gap-4 xl:flex-row xl:w-11/12 lg:w-10/12">
-            </div>
-            <script>
-                // Inicializar el mapa centrado en Cartagena
-                var map = L.map('location', {
-                    fullscreenControl: true
-                }).setView([10.39972, -75.51444], 13);
-
-                // Añadir capa de mapa base con un estilo minimalista
-                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                    attribution: false
-                }).addTo(map);
-
-                // Coordenadas y nombres de las sedes de la Universidad Tecnológico Comfenalco
-                var locations = [{
-                        coords: [10.39225, -75.48421],
-                        name: 'Sede Principal'
-                    },
-                    {
-                        coords: [10.39568, -75.49543],
-                        name: 'Sede Norte'
-                    },
-                    {
-                        coords: [10.40353, -75.51367],
-                        name: 'Sede Sur'
-                    }
-                ];
-
-                // Agregar marcadores al mapa con estilo personalizado
-                locations.forEach(function(location) {
-                    L.marker(location.coords).addTo(map)
-                        .bindPopup('<b>' + location.name + '</b><br>Universidad Tecnológico Comfenalco.');
-                });
-
-                // Cargar datos GeoJSON para los países y aplicar colores suaves
-                fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson')
-                    .then(response => response.json())
-                    .then(data => {
-                        var colors = {};
-                        var colorIndex = 0;
-                        var pastelColors = ['#FFD1DC', '#FF9A8B', '#FF96A8', '#FFC1A6', '#FFD5A5', '#E2F0CB', '#B5EAD7',
-                            '#C7CEEA'
-                        ];
-
-                        L.geoJson(data, {
-                            style: function(feature) {
-                                var countryName = feature.properties.ADMIN;
-                                if (!colors[countryName]) {
-                                    colors[countryName] = pastelColors[colorIndex % pastelColors.length];
-                                    colorIndex++;
-                                }
-                                return {
-                                    color: colors[countryName],
-                                    weight: 1,
-                                    fillColor: colors[countryName],
-                                    fillOpacity: 0.6
-                                };
-                            }
-                        }).addTo(map);
-
-                        // Agregar datos a la tabla de países
-                        var tableBody = document.getElementById('country-table');
-                        for (var country in colors) {
-                            var row = document.createElement('tr');
-                            var countryCell = document.createElement('td');
-                            countryCell.className = 'border px-4 py-2';
-                            countryCell.textContent = country;
-                            var colorCell = document.createElement('td');
-                            colorCell.className = 'border px-4 py-2';
-                            colorCell.style.backgroundColor = colors[country];
-                            row.appendChild(countryCell);
-                            row.appendChild(colorCell);
-                            tableBody.appendChild(row);
-                        }
-                    });
-
-                // Mejorar la funcionalidad del mapa
-                map.scrollWheelZoom.disable(); // Desactivar zoom con la rueda del ratón
-                map.on('click', function() {
-                    map.scrollWheelZoom.enable(); // Activar zoom con la rueda del ratón al hacer clic en el mapa
-                });
-                map.on('mouseout', function() {
-                    map.scrollWheelZoom.disable(); // Desactivar zoom con la rueda del ratón al salir del mapa
-                });
-            </script>
-        </body>
-
-</div>
-
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz4gdUPxRDbBhm_SuctQwVTLrbvItdvMU"></script>
                 {{-- aqui va el contenido de la tabla de barras --}}
                 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
                 <script>
