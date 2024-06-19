@@ -1,214 +1,186 @@
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<style>
-    .sidebar {
-        width: 4rem;
-        transition: width 0.3s ease-in-out;
-        background: linear-gradient(135deg, #bd0b29, #860211);
-        border-radius: 0 1rem 1rem 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-    }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<x-app-layout>
+    @vite(['resources/css/configuracion.css', 'resources/css/certificado.css', 'resources/js/certificados.js'])
 
-    .sidebar:hover {
-        width: 10rem;
-    }
-
-    .expand-text {
-        opacity: 0;
-        margin-left: 0.5rem;
-        white-space: nowrap;
-        transition: opacity 0.2s ease-in-out;
-    }
-
-    .sidebar:hover .expand-text {
-        opacity: 1;
-    }
-
-    .sidebar-item {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 0.5rem 1rem;
-        color: white;
-        text-decoration: none;
-        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-        border-radius: 0.5rem;
-        margin: 0.5rem 0;
-    }
-
-    .sidebar-item img {
-        width: 2rem;
-        height: 2rem;
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .sidebar-item:hover {
-        background-color: #0F293E;
-        transform: scale(0.95);
-    }
-
-    .sidebar-item:hover img {
-        transform: scale(1.1);
-    }
-
-    .sidebar-item .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-    }
-
-    .sidebar h5 {
-        text-align: center;
-        color: white;
-        margin-bottom: 1rem;
-        font-size: 1rem;
-    }
-
-    .drawer-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
-
-    li {
-        width: 100%;
-    }
-
-    .modal-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal-overlay.active {
-        display: flex;
-    }
-
-    .modal {
-        background: white;
-        padding: 2rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 90%;
-        max-width: 500px;
-    }
-
-    .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .modal-header h2 {
-        margin: 0;
-    }
-
-    .modal-body {
-        margin-top: 1rem;
-    }
-
-    .modal-footer {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 1rem;
-    }
-
-    .slide-in {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 0;
-        overflow: hidden;
-        background: white;
-        transition: width 0.3s ease-in-out;
-        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-    }
-
-    .slide-in.active {
-        width: 20rem;
-    }
-</style>
-</head>
-
-<body class="bg-gray-100">
-
-    <div class="fixed top-0 left-0 z-10 h-screen transition-all duration-300 ease-in-out sidebar">
-        <h5 class="text-xs font-bold uppercase">Hermes</h5>
-        <div class="drawer-content">
-            <ul>
+    <body class="bg-gray-100">
+        <div class="fixed top-0 left-0 z-0 h-screen transition-all duration-300 ease-in-out sidebar">
+            <h5 class="text-xs font-bold uppercase">Hermes</h5>
+            <div class="drawer-content">
+                <ul>
+                    <li>
+                        <a href="/iniciodasboard" onclick="estadisticas()" class="sidebar-item">
+                            <div class="icon"><img src="/images/estadisticassd.png" aria-hidden="true"></div>
+                            <span class="expand-text">Estadística</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Home" onclick="home()" class="sidebar-item">
+                            <div class="icon"><img src="/images/Eventosss.png" aria-hidden="true"></div>
+                            <span class="expand-text">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/calendario" onclick="calendario()" class="sidebar-item">
+                            <div class="icon"><img src="/images/calendariofinal.png" aria-hidden="true"></div>
+                            <span class="expand-text">Calendario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/certificados" onclick="certificados()" class="sidebar-item">
+                            <div class="icon"><img src="/images/certificado.png" aria-hidden="true"></div>
+                            <span class="expand-text">Certificados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/reportes" onclick="reportes()" class="sidebar-item">
+                            <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
+                            <span class="expand-text">Reportes</span>
+                        </a>
+                    </li>
+                </ul>
                 <li>
-                    <a href="/iniciodasboard" onclick="estadisticas()" id="showContent" class="sidebar-item">
-                        <div class="icon"><img src="/images/estadisticassd.png" aria-hidden="true"></div>
-                        <span class="expand-text">Estadística</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/Home" onclick="home()" id="showContent" class="sidebar-item">
-                        <div class="icon"><img src="/images/Eventosss.png" aria-hidden="true"></div>
-                        <span class="expand-text">Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/calendario" onclick="calendario()" class="sidebar-item">
-                        <div class="icon"><img src="/images/calendariofinal.png" aria-hidden="true"></div>
-                        <span class="expand-text">Calendario</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/certificados" onclick="certificados()" class="sidebar-item">
-                        <div class="icon"><img src="/images/certificado.png" aria-hidden="true"></div>
-                        <span class="expand-text">Certificados</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/reportes" onclick="reportes()" class="sidebar-item">
+                    <a href="/soporte" onclick="soporte()" class="sidebar-item">
                         <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
-                        <span class="expand-text">Reportes</span>
+                        <span class="expand-text">Soporte</span>
                     </a>
                 </li>
-            </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="container px-40 mx-auto mt-20">
-        <div class="flex items-center justify-between mb-10">
-            <h1 class="text-2xl font-bold">CONFIGURACIONES</h1>
-        </div>
-        <body class="flex items-center justify-center min-h-screen bg-gray-100">
-            <section class="container p-6 mx-auto bg-white rounded-md shadow-md">
-                <h2 class="mb-4 text-2xl font-semibold">Sistema ...</h2>
-                <p class="mb-6"></p>
-        </body>
-    </div>
-    <div class="container px-40 mx-auto mt-20">
-        <div class="flex items-center justify-between mb-10">
-            <h1 class="text-2xl font-bold"></h1>
-        </div>
-        <body class="flex items-center justify-center min-h-screen bg-gray-100">
-            <section class="container p-6 mx-auto bg-white rounded-md shadow-md">
-                <h2 class="mb-4 text-2xl font-semibold">Avanzadas ...</h2>
-                <p class="mb-6"></p>
-        </body>
-    </div>
+        <body class="bg-gray-100">
 
-</body>
+            <body class="flex items-center justify-center min-h-screen bg-gray-100">
+            </body>
+            <div class="container px-40 mx-auto mt-10">
+                <div class="flex items-center justify-between mb-10">
+                    <h1 class="text-2xl font-bold">CONFIGURACIONES</h1>
+                </div>
+
+                <script>
+                    function toggleForm(section) {
+                        const formContainer = document.getElementById(section);
+                        const button = document.querySelector(`button[data-section='${section}']`);
+
+                        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+                            formContainer.style.display = 'block';
+                            formContainer.style.maxHeight = formContainer.scrollHeight + 'px';
+                            button.classList.add('expanded');
+                        } else {
+                            formContainer.style.maxHeight = 0;
+                            formContainer.addEventListener('transitionend', () => {
+                                formContainer.style.display = 'none';
+                            }, {
+                                once: true
+                            });
+                            button.classList.remove('expanded');
+                        }
+                    }
+                </script>
+                </head>
+
+                <body>
+                    <div class="container">
+                        <div class="section">
+                            <h2>Configuracion Avanzada ...</h2>
+                            <div class="line"></div>
+                            <button class="button" data-section="form1" onclick="toggleForm('form1')">▼</button>
+                        </div>
+                        <div id="form1" class="form-container">
+                            <form>
+                                <!-- Your form elements here -->
+                                <label for="field1">Field 1:</label>
+                                <input type="text" id="field1" name="field1"><br><br>
+                                <label for="field2">Field 2:</label>
+                                <input type="text" id="field2" name="field2"><br><br>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                    {{-- 1 --}}
+                    <div class="container">
+                        <div class="section">
+                            <h2>Configuracion Clases ...</h2>
+                            <div class="line"></div>
+                            <button class="button" data-section="form2" onclick="toggleForm('form2')">▼</button>
+                        </div>
+                        <div id="form2" class="form-container">
+                            <form>
+                                <!-- Your form elements here -->
+                                <label for="field3">Field 3:</label>
+                                <input type="text" id="field3" name="field3"><br><br>
+                                <label for="field4">Field 4:</label>
+                                <input type="text" id="field4" name="field4"><br><br>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+
+                    {{-- 2 --}}
+                    <div class="container">
+                        <div class="section">
+                            <h2>Certificacion ...</h2>
+                            <div class="line"></div>
+                            <button class="button" data-section="form3" onclick="toggleForm('form3')">▼</button>
+                        </div>
+                        <div id="form3" class="form-container">
+
+                            <body>
+                                <div class="container">
+                                    <h2 class="text-center">Certificado</h2>
+                                    <form id="certForm">
+                                        <div class="form-group">
+                                            <label for="name">Nombre del Participante:</label>
+                                            <input type="text" class="form-control" id="name" required>
+                                            <p>Colocar nombre completo en MAYUSCULA</p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="course">Nombre del Curso:</label>
+                                            <input type="text" class="form-control" id="course" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">Fecha de Finalización:</label>
+                                            <input type="date" class="form-control" id="date" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Generar Certificado</button>
+                                    </form>
+                                </div>
+
+                                <div id="certificate" class="certificate" style="display: none;">
+                                    <img class="logo" src="/images/confecerti.png" alt="Logo">
+                                    <div class="header">
+                                        <h2>Fundación Universitaria Tecnológico Comfenalco</h2>
+                                        <h3>Otorga reconocimiento a</h3>
+                                        <h2 id="certName"></h2>
+                                        <h2>FACULTAD DE INGENIERÍA</h2>
+                                        <p>POR SU PARTICIPACIÓN EN LOS EVENTOS REALIZADOS POR LA INSTITUCION
+                                            UNIVERSITARIA TECNOLOGICO COMFENALCO</p>
+                                        <p><span id="certDateText"></span></p>
+                                    </div>
+                                    <div class="signature">
+                                        <div>
+                                            <p>_____________________________</p>
+                                            <p></p>
+                                            <p>Rector</p>
+                                        </div>
+                                        <div>
+                                            <p>_____________________________</p>
+                                            <p></p>
+                                            <p>Vicerrector Académico</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </body>
+
+                        </div>
+                    </div>
+            </div>
+        </body>
+        </div>
+    </body>
+    </body>
+
+</x-app-layout>
