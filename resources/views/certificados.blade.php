@@ -103,7 +103,7 @@
 <div class="drawer-content">
     <ul>
         <li>
-            <a href="/dashboard" onclick="estadisticas()" id="showContent" class="sidebar-item">
+            <a href="/iniciodasboard" onclick="estadisticas()" id="showContent" class="sidebar-item">
                 <div class="icon"><img src="/images/estadisticassd.png" aria-hidden="true"></div>
                 <span class="expand-text">Estadística</span>
             </a>
