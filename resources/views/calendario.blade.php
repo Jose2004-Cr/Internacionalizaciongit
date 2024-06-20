@@ -2,8 +2,13 @@
 <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
 <x-app-layout>
-    @vite(['resources/css/dashboard.css'])
+    @vite (['resources/css/dashboard.css','resources/css/calendario.css','resources/js/calendario.js'])
+
+    <link rel="dns-prefetch" href="//unpkg.com" />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
 
     <div>
         <body>
@@ -30,21 +35,24 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/certificados" onclick="certificados()" class="sidebar-item">
-                                <div class="icon"><img src="/images/certificado.png" aria-hidden="true"></div>
-                                <span class="expand-text">Certificados</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="/reportes" onclick="reportes()" class="sidebar-item">
                                 <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
                                 <span class="expand-text">Reportes</span>
                             </a>
                         </li>
                     </ul>
+                    <li>
+                        <a href="/soporte" onclick="soporte()" class="sidebar-item">
+                            <div class="icon"><img src="/images/engranaje.png" aria-hidden="true"></div>
+                            <span class="expand-text">Soporte</span>
+                        </a>
+                    </li>
                 </div>
             </div>
         </body>
     </div>
-</x-app-layout>
 
+
+
+    </html>
+</x-app-layout>

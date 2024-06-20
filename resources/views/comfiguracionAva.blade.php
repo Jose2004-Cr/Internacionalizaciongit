@@ -28,12 +28,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/certificados" onclick="certificados()" class="sidebar-item">
-                            <div class="icon"><img src="/images/certificado.png" aria-hidden="true"></div>
-                            <span class="expand-text">Certificados</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="/reportes" onclick="reportes()" class="sidebar-item">
                             <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
                             <span class="expand-text">Reportes</span>
@@ -42,145 +36,87 @@
                 </ul>
                 <li>
                     <a href="/soporte" onclick="soporte()" class="sidebar-item">
-                        <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
+                        <div class="icon"><img src="/images/engranaje.png" aria-hidden="true"></div>
                         <span class="expand-text">Soporte</span>
                     </a>
                 </li>
             </div>
         </div>
-
-        <body class="bg-gray-100">
-
-            <body class="flex items-center justify-center min-h-screen bg-gray-100">
-            </body>
-            <div class="container px-40 mx-auto mt-10">
-                <div class="flex items-center justify-between mb-10">
-                    <h1 class="text-2xl font-bold">CONFIGURACIONES</h1>
+        
+            <div id="section2" class="container">
+                <div class="section">
+                    <h2>Configuracion Clases</h2>
+                    <div class="line"></div>
+                    <button class="button" data-section="form2" onclick="toggleForm('form2')">▼</button>
                 </div>
-
-                <script>
-                    function toggleForm(section) {
-                        const formContainer = document.getElementById(section);
-                        const button = document.querySelector(`button[data-section='${section}']`);
-
-                        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
-                            formContainer.style.display = 'block';
-                            formContainer.style.maxHeight = formContainer.scrollHeight + 'px';
-                            button.classList.add('expanded');
-                        } else {
-                            formContainer.style.maxHeight = 0;
-                            formContainer.addEventListener('transitionend', () => {
-                                formContainer.style.display = 'none';
-                            }, {
-                                once: true
-                            });
-                            button.classList.remove('expanded');
-                        }
-                    }
-                </script>
-                </head>
-
-                <body>
-                    <div class="container">
-                        <div class="section">
-                            <h2>Configuracion Avanzada ...</h2>
-                            <div class="line"></div>
-                            <button class="button" data-section="form1" onclick="toggleForm('form1')">▼</button>
-                        </div>
-                        <div id="form1" class="form-container">
-                            <form>
-                                <!-- Your form elements here -->
-                                <label for="field1">Field 1:</label>
-                                <input type="text" id="field1" name="field1"><br><br>
-                                <label for="field2">Field 2:</label>
-                                <input type="text" id="field2" name="field2"><br><br>
-                                <input type="submit" value="Submit">
-                            </form>
-                        </div>
-                    </div>
-                    {{-- 1 --}}
-                    <div class="container">
-                        <div class="section">
-                            <h2>Configuracion Clases ...</h2>
-                            <div class="line"></div>
-                            <button class="button" data-section="form2" onclick="toggleForm('form2')">▼</button>
-                        </div>
-                        <div id="form2" class="form-container">
-                            <form>
-                                <!-- Your form elements here -->
-                                <label for="field3">Field 3:</label>
-                                <input type="text" id="field3" name="field3"><br><br>
-                                <label for="field4">Field 4:</label>
-                                <input type="text" id="field4" name="field4"><br><br>
-                                <input type="submit" value="Submit">
-                            </form>
-                        </div>
-                    </div>
-
-                    {{-- 2 --}}
-                    <div class="container">
-                        <div class="section">
-                            <h2>Certificacion ...</h2>
-                            <div class="line"></div>
-                            <button class="button" data-section="form3" onclick="toggleForm('form3')">▼</button>
-                        </div>
-                        <div id="form3" class="form-container">
-
-                            <body>
-                                <div class="container">
-                                    <h2 class="text-center">Certificado</h2>
-                                    <form id="certForm">
-                                        <div class="form-group">
-                                            <label for="name">Nombre del Participante:</label>
-                                            <input type="text" class="form-control" id="name" required>
-                                            <p>Colocar nombre completo en MAYUSCULA</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="course">Nombre del Curso:</label>
-                                            <input type="text" class="form-control" id="course" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="date">Fecha de Finalización:</label>
-                                            <input type="date" class="form-control" id="date" required>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Generar Certificado</button>
-                                    </form>
-                                </div>
-
-                                <div id="certificate" class="certificate" style="display: none;">
-                                    <img class="logo" src="/images/confecerti.png" alt="Logo">
-                                    <div class="header">
-                                        <h2>Fundación Universitaria Tecnológico Comfenalco</h2>
-                                        <h3>Otorga reconocimiento a</h3>
-                                        <h2 id="certName"></h2>
-                                        <h2>FACULTAD DE INGENIERÍA</h2>
-                                        <p>POR SU PARTICIPACIÓN EN LOS EVENTOS REALIZADOS POR LA INSTITUCION
-                                            UNIVERSITARIA TECNOLOGICO COMFENALCO</p>
-                                        <p><span id="certDateText"></span></p>
-                                    </div>
-                                    <div class="signature">
-                                        <div>
-                                            <p>_____________________________</p>
-                                            <p></p>
-                                            <p>Rector</p>
-                                        </div>
-                                        <div>
-                                            <p>_____________________________</p>
-                                            <p></p>
-                                            <p>Vicerrector Académico</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </body>
-
-                        </div>
-                    </div>
+                <div id="form2" class="form-container">
+                    <form>
+                        <!-- Your form elements here -->
+                        <label for="field3">Field 3:</label>
+                        <input type="text" id="field3" name="field3"><br><br>
+                        <label for="field4">Field 4:</label>
+                        <input type="text" id="field4" name="field4"><br><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
-        </body>
+
+            <div id="section3" class="container">
+                <div class="section">
+                    <h2>Certificación</h2>
+                    <div class="line"></div>
+                    <button class="button" data-section="form3" onclick="toggleForm('form3')">▼</button>
+                </div>
+                <div id="form3" class="form-container">
+                    <div class="container">
+                        <h2 class="text-center">Certificado</h2>
+                        <form id="certForm">
+                            <div class="form-group">
+                                <label for="name">Nombre del Participante:</label>
+                                <input type="text" class="form-control" id="name" required>
+                                <p>Colocar nombre completo en MAYUSCULA</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="course">Nombre del Curso:</label>
+                                <input type="text" class="form-control" id="course" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Fecha de Finalización:</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Generar Certificado</button>
+                        </form>
+                    </div>
+
+                    <div id="certificate" class="certificate" style="display: none;">
+                        <img class="logo" src="/images/confecerti.png" alt="Logo">
+                        <div class="header">
+                            <h2>Fundación Universitaria Tecnológico Comfenalco</h2>
+                            <h3>Otorga reconocimiento a</h3>
+                            <h2 id="certName"></h2>
+                            <h2>FACULTAD DE INGENIERÍA</h2>
+                            <p>POR SU PARTICIPACIÓN EN LOS EVENTOS REALIZADOS POR LA INSTITUCION UNIVERSITARIA TECNOLOGICO COMFENALCO</p>
+                            <p><span id="certDateText"></span></p>
+                        </div>
+                        <div class="signature">
+                            <div>
+                                <p>_____________________________</p>
+                                <p></p>
+                                <p>Rector</p>
+                            </div>
+                            <div>
+                                <p>_____________________________</p>
+                                <p></p>
+                                <p>Vicerrector Académico</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
+
+        </div>
     </body>
 
 </x-app-layout>

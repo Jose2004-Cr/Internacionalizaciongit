@@ -27,12 +27,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/certificados" onclick="certificados()" class="sidebar-item">
-                            <div class="icon"><img src="/images/certificado.png" aria-hidden="true"></div>
-                            <span class="expand-text">Certificados</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="/reportes" onclick="reportes()" class="sidebar-item">
                             <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
                             <span class="expand-text">Reportes</span>
@@ -41,7 +35,7 @@
                 </ul>
                 <li>
                     <a href="/soporte" onclick="soporte()" class="sidebar-item">
-                        <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
+                        <div class="icon"><img src="/images/engranaje.png" aria-hidden="true"></div>
                         <span class="expand-text">Soporte</span>
                     </a>
                 </li>

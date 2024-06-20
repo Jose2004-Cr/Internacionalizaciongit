@@ -4,11 +4,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.css" />
 <x-app-layout>
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/mapa.css', 'resources/js/mapa.js'])
-
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.bundled.js"></script>
-    <script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
+    @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/mapa.css'])
 
     <div class="fixed top-0 left-0 z-10 h-screen transition-all duration-300 ease-in-out sidebar">
         <h5 class="text-xs font-bold uppercase">Hermes</h5>
@@ -33,19 +29,18 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/certificados" onclick="certificados()" class="sidebar-item">
-                        <div class="icon"><img src="/images/certificado.png" aria-hidden="true"></div>
-                        <span class="expand-text">Certificados</span>
-                    </a>
-                </li>
-                <li>
                     <a href="/reportes" onclick="reportes()" class="sidebar-item">
                         <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
                         <span class="expand-text">Reportes</span>
                     </a>
                 </li>
-
             </ul>
+            <li>
+                <a href="/soporte" onclick="soporte()" class="sidebar-item">
+                    <div class="icon"><img src="/images/engranaje.png" aria-hidden="true"></div>
+                    <span class="expand-text">Soporte</span>
+                </a>
+            </li>
         </div>
     </div>
 
@@ -86,5 +81,12 @@
             </body>
         </div>
     </div>
+
+    @push('js')
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.bundled.js"></script>
+        <script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
+        <script src="{{ asset('js/mapa.js') }}"></script>
+    @endpush
     </body>
 </x-app-layout>
