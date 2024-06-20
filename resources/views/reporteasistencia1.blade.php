@@ -65,20 +65,20 @@
                 <div class="">
                     <div>
                         <label class=" block mb-2 text-xl font-bold text-blue-800 dark:text-white" for="numero_documento" >Nombre completo </label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido..." class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre y apellido..." class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" required>
 
                     </div>
                     <br>
                     <div>
                         <label class="block mb-2 text-xl font-bold text-blue-800 dark:text-white" for="user_avatar">Nacionalidad</label>
-                        <input type="text" id="numero_documento" name="numero_documento" placeholder="Pais o codigo postal..." class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
+                        <input type="text" id="numero_documento" name="numero_documento" placeholder="Pais o codigo postal..." class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" required>
 
                     </div>
                     <br>
                     <div>
                         <label class="block mb-2 text-xl font-bold text-blue-800 dark:text-white"
                             for="user_avatar">Fecha de nacimiento</label>
-                            <input type="date" id="numero_documento" name="numero_documento" placeholder="Nombre del evento a participar" class="shadow-md rounded-md p-2 block w-56 py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
+                            <input type="date" id="numero_documento" name="numero_documento" placeholder="Nombre del evento a participar" class="shadow-md rounded-md p-2 block w-56 py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" required>
 
 
                     </div>
@@ -86,6 +86,8 @@
 
                 <br>
                 <br>
+                <br>
+
                 <button type="button" class="text-white bg-blue-800 from-blue-800 focus:ring-4 shadow-md rounded-bl-sm rounded-br-sm rounded-tl-sm rounded-tr-sm focus:ring-blue-300 font-semibold  text-end px-20 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Regresar</button>
             </div>
 
@@ -108,7 +110,7 @@
                             </div>
                             <div>
                                 <label for="document_number" class="block text-gray-700"></label>
-                                <input type="text" id="document_number" name="document_number" class=" mt-8 shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" placeholder="Ingrese el número del documento">
+                                <input type="text" id="document_number" name="document_number" class=" mt-8 shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" placeholder="Ingrese el número del documento" required>
                             </div>
                         </div>
 
@@ -128,7 +130,7 @@
                         <div>
                             <label class="block mb-2 text-xl font-bold text-blue-800 dark:text-white"
                                 for="user_avatar">Fecha de expedicion de docuemnto</label>
-                                <input type="date" id="numero_documento" name="numero_documento" placeholder="Psicologia,Ingenieria de sistemas,Contaduria..." class="shadow-md rounded-md p-2 block w-56 py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
+                                <input type="date" id="numero_documento" name="numero_documento" placeholder="Psicologia,Ingenieria de sistemas,Contaduria..." class="shadow-md rounded-md p-2 block w-56 py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" required>
 
                         </div>
                         <br>
@@ -156,7 +158,8 @@
             event.preventDefault();
 
             // Obtener la URL de la vista que deseas cargar
-            var url = "{{ route('Registro3') }}"; // Cambia 'Registro3' por la ruta de la vista que deseas cargar
+
+            var url = "{{ route('reporteasistencia2') }}"; // Cambia 'Registro3' por la ruta de la vista que deseas cargar
 
             // Realizar la solicitud AJAX
             $.ajax({

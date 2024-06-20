@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class registro3Controller extends Controller
+class reporteasistencia3Controller extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Registro3');
+        return view('reporteasistencia3');
     }
 
     /**

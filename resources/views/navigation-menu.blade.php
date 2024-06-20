@@ -7,6 +7,9 @@
     </a>
 
     <!-- Search Input -->
+
+
+
     <div class="flex items-center">
         <div x-data="{ open: false }" @click.away="open = false" class="relative ml-3">
             <a @click="open = !open" href="#" class="text-gray-600">
@@ -45,8 +48,9 @@
                 </ul>
             </div>
         </div>
-        
+
         <!-- Profile Dropdown -->
+
         <div x-data="{ open: false }" @click.away="open = false" class="relative ml-3">
             <a @click="open = !open" href="#" class="flex-shrink-0">
                 <img class="w-10 h-10 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Avatar">

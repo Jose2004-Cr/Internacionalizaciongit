@@ -118,21 +118,21 @@
                 <div class="form-container w-3/4">
                     <div class="form-header w-full pb-8 border-b-2 border-blue-900 flex justify-center items-center">
                         <h1 class="text-2xl md:text-5xl font-bold mb-2 text-blue-900 text-center">
-                            REGISTRAR TUS DATOS
+                            REGISTRAR TUS DATOS EXTRANGERO
                         </h1>
                     </div>
 
-                    <form class="bg-white rounded px-8 pt-6 pb-8 mb-4">
+                    <form class="bg-white rounded px-8 pt-6 pb-8 mb-4" type="submit" >
                         <div class="mb-4 w-full md:w-9/12">
                             <label class="text-blue-700 text-lg font-bold mb-2 " for="nombre">
                                 Nombre Completo
                             </label>
-                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="nombre" type="text" placeholder="Nombre">
+                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="nombre" type="text" placeholder="Nombre" required>
                         </div>
                         <br>
                         <div class="mb-4 w-full md:w-9/12">
                             <label for="countries" class="text-blue-700 text-lg font-bold mb-2">Nacionalidad</label>
-                            <select id="countries" class=" shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500">
+                            <select id="countries" class=" shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" required>
                                 <option class="text-base py-2" value="" disabled selected>Nombre del pais - codigo del pais (ISO3)- codigo</option>
                                 <option value="COL">COLOMBIA | COL | 170</option>
                                 <option value="ARG">ARGENTINA | ARG | 032</option>
@@ -148,12 +148,12 @@
                         <br>
                         <div class="mb-4 w-full md:w-60">
                             <label class="text-blue-700 text-lg font-bold mb-2" for="fecha">Fecha de nacimiento</label>
-                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="fecha" type="date" placeholder="Nombre">
+                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="fecha" type="date" placeholder="Nombre" required>
                         </div>
 
                         <div class="mb-3 w-full">
                             <label class="text-blue-700 text-lg font-bold mb-2" for="genero">Género</label>
-                            <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-4" >
                                 <input type="checkbox" id="hombre" name="genero" class="hidden" onclick="hideInput()">
                                 <label for="hombre" class="inline-flex items-center gap-2 px-6 py-4 md:pr-8 border-r-2 border-blue-700 cursor-pointer" onclick="check('hombre')">
                                     <span class="text-gray-700">Hombre</span>
@@ -193,7 +193,7 @@
                                     <option class="text-base py-2" value="pasaporte">Pasaporte</option>
                                     <option class="text-base py-2" value="visa">Visa</option>
                                 </select>
-                                <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="numero_documento" type="text" placeholder="Número de documento">
+                                <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="numero_documento" type="number" placeholder="Número de documento" required>
                             </div>
                         </div>
                         <br>
@@ -208,27 +208,28 @@
                         <br>
                         <div class="mb-4 w-full md:w-80">
                             <label class="text-blue-700 text-lg font-bold mb-2 block" for="fecha_expedicion">Fecha de expedición del documento</label>
-                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="fecha_expedicion" type="date" placeholder="Fecha de expedición">
+                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="fecha_expedicion" type="date" placeholder="Fecha de expedición" required>
                         </div>
                         <br>
                         <div class="mb-4 w-full md:w-9/12">
                             <label class="text-blue-700 text-lg font-bold mb-2" for="correo">Correo electrónico</label>
-                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="correo" type="email" placeholder="Correo de preferencia Gmail...">
+                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="correo" type="email" placeholder="Correo de preferencia Gmail..." required>
                         </div>
                         <br>
                         <div class="mb-4 w-full md:w-9/12">
                             <label class="text-blue-700 text-lg font-bold mb-2" for="contraseña">Contraseña</label>
-                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="contraseña" type="password" placeholder="Mínimo 8 caracteres...">
+                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="contraseña" type="password" placeholder="Mínimo 8 caracteres..." required>
                         </div>
                         <br>
                         <div class="mb-4 w-full md:w-9/12">
                             <label class="text-blue-700 text-lg font-bold mb-2" for="confirmacion_contraseña">Confirmar contraseña</label>
-                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="confirmacion_contraseña" type="password" placeholder="Mínimo 8 caracteres...">
+                            <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="confirmacion_contraseña" type="password" placeholder="Mínimo 8 caracteres..." required>
                         </div>
 
                         <div class="flex items-center justify-between my-10 mb-4 w-full md:w-9/12">
-                            <button class="custom-boton bg-blue-500 hover:bg-blue-700 shadow appearance-none border rounded w-full py-4 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" type="button">
+                            <button class="custom-boton bg-blue-500 hover:bg-blue-700 shadow appearance-none border rounded w-full py-4 px-3 text-white leading-tight focus:outline-none focus:shadow-outline" type="submit" >
                                 Registrarse
+
                             </button>
                         </div>
                         <p class="mt-4" style="font-family: 'Poppins', sans-serif; font-weight: 500;">
@@ -240,6 +241,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>
@@ -263,18 +266,19 @@
             }, 10);
         }
 
+
         function check(id) {
             const checkboxes = ['hombre', 'mujer', 'no_identificado'];
             checkboxes.forEach((checkbox) => {
                 if (checkbox !== id) {
                     const checkboxElement = document.getElementById('check-' + checkbox);
                     checkboxElement.classList.remove('bg-blue-700');
-                    checkboxElement.querySelector('i').classList.add('hidden'); // Ocultar ícono de chulito
+                    checkboxElement.querySelector('i').classList.add('hidden');
                 }
             });
             const checkboxElement = document.getElementById('check-' + id);
             checkboxElement.classList.toggle('bg-blue-700');
-            checkboxElement.querySelector('i').classList.toggle('hidden'); // Mostrar/ocultar ícono de chulito
+            checkboxElement.querySelector('i').classList.toggle('hidden');
         }
 
         function hideInput() {
@@ -286,6 +290,24 @@
             document.getElementById('otro').classList.remove('opacity-0');
             document.getElementById('otro').classList.remove('pointer-events-none');
         }
+
+        function toggleInput(id) {
+            if (id === 'no_identificado') {
+                const checkboxElement = document.getElementById('check-' + id);
+                if (checkboxElement.classList.contains('bg-blue-700')) {
+                    showInput();
+                } else {
+                    hideInput();
+                }
+            } else {
+                hideInput();
+            }
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            hideInput();
+        };
 
 
     </script>

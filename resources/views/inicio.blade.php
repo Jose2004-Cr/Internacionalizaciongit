@@ -110,6 +110,10 @@
                                     <option value="colombiano">Soy colombiano</option>
                                     <option value="extranjero">Soy extranjero</option>
                                 </select>
+
+
+
+
                                 <div class="ml-4 help-icon">
                                     <svg class="h-8 text-gray-800 w-9 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.529 9.988a2.502 2.502 0 1 1 5 .191A2.441 2.441 0 0 1 12 12.582V14m-.01 3.008H12M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -117,6 +121,9 @@
                                     <span class="tooltip">Soy colombiano: Cedula de<br> ciudadania - Tarjeta de identidad.<br><br> Soy extranjero: Cedula de extranjeria-<br>Pasaporte - Visa.</span>
                                 </div>
                             </div>
+
+
+
 
                             <input class="w-11/12 p-5 pr-10 mt-6 mb-4 border border-blue-900 rounded" type="text" id="documento" name="email" required placeholder="Numero del documento" oninput="validarCampos()" />
 
@@ -135,7 +142,7 @@
 
                         <p class="mt-4" style="font-family: 'Poppins', sans-serif; font-weight: 500;">
                             ¿No tienes cuenta?
-                            <a href="{{ route('registroinicio') }}" class="text-blue-700">Regístrate aquí.</a>
+                            <a href="{{ route('registroinicio_extrangero') }}" class="text-blue-700">Regístrate aquí.</a>
                         </p>
                     </div>
                 </div>
@@ -203,16 +210,7 @@
             }
         }
 
-        function redirigirUsuario(event) {
-            event.preventDefault();
-            const email = document.getElementById('documento').value.trim();
 
-            if (email === 'carlos@gmail.com') {
-                window.location.href = '/dashboard';
-            } else {
-                window.location.href = '/welcomeinicial';
-            }
-        }
     </script>
 </body>
 
