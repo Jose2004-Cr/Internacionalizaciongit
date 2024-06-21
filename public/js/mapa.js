@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 var map = L.map('location', {
     fullscreenControl: true
 }).setView([10.39972, -75.51444], 13);
@@ -13,22 +10,6 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 
 
 var locations = [{
-<<<<<<< HEAD
-        coords: [10.39225, -75.48421],
-        name: 'Sede Principal'
-    },
-    {
-        coords: [10.39568, -75.49543],
-        name: 'Sede Norte'
-    },
-    {
-        coords: [10.40353, -75.51367],
-        name: 'Sede Sur'
-    }
-];
-
-locations.forEach(function(location) {
-=======
     coords: [10.39225, -75.48421],
     name: 'Sede Principal'
 },
@@ -43,7 +24,6 @@ locations.forEach(function(location) {
 ];
 
 locations.forEach(function (location) {
->>>>>>> main
     L.marker(location.coords).addTo(map)
         .bindPopup('<b>' + location.name + '</b><br>Universidad Tecnológico Comfenalco.');
 });
@@ -59,11 +39,7 @@ fetch('https://raw.githubusercontent.com/datasets/geo-countries/master/data/coun
         ];
 
         L.geoJson(data, {
-<<<<<<< HEAD
-            style: function(feature) {
-=======
             style: function (feature) {
->>>>>>> main
                 var countryName = feature.properties.ADMIN;
                 if (!colors[countryName]) {
                     colors[countryName] = pastelColors[colorIndex % pastelColors.length];
@@ -1243,11 +1219,7 @@ var users = [
 ];
 
 var currentPage = 1;
-<<<<<<< HEAD
-var rowsPerPage = 5;
-=======
 var rowsPerPage = 8;
->>>>>>> main
 
 function displayUsers(users, rowsPerPage, page) {
     const startIndex = (page - 1) * rowsPerPage;
@@ -1261,11 +1233,7 @@ function displayUsers(users, rowsPerPage, page) {
         var row = document.createElement('tr');
         row.innerHTML =
             `<td class="px-4 py-2 border">${user.country}</td>
-<<<<<<< HEAD
-         <td class="px-4 py-2 border"><button class="details-button" onclick="showOnMap(${user.lat}, ${user.lng})">Ver</button></td>`;
-=======
         <td class="px-4 py-2 border"><button class="details-button" onclick="showOnMap(${user.lat}, ${user.lng})">Ver</button></td>`;
->>>>>>> main
         tableBody.appendChild(row);
     });
 
@@ -1279,33 +1247,21 @@ function showOnMap(lat, lng) {
 
 displayUsers(users, rowsPerPage, currentPage);
 
-<<<<<<< HEAD
-document.getElementById('prev').addEventListener('click', function() {
-=======
 document.getElementById('prev').addEventListener('click', function () {
->>>>>>> main
     if (currentPage > 1) {
         currentPage--;
         displayUsers(users, rowsPerPage, currentPage);
     }
 });
 
-<<<<<<< HEAD
-document.getElementById('next').addEventListener('click', function() {
-=======
 document.getElementById('next').addEventListener('click', function () {
->>>>>>> main
     if (currentPage * rowsPerPage < users.length) {
         currentPage++;
         displayUsers(users, rowsPerPage, currentPage);
     }
 });
 
-<<<<<<< HEAD
-document.getElementById('search').addEventListener('input', function(e) {
-=======
 document.getElementById('search').addEventListener('input', function (e) {
->>>>>>> main
     var searchTerm = e.target.value.toLowerCase();
     var filteredUsers = users.filter(user => user.country.toLowerCase().includes(searchTerm));
     displayUsers(filteredUsers, rowsPerPage, 1);
@@ -1313,16 +1269,9 @@ document.getElementById('search').addEventListener('input', function (e) {
 
 // Mejorar la funcionalidad del mapa
 map.scrollWheelZoom.disable();
-<<<<<<< HEAD
-map.on('click', function() {
-    map.scrollWheelZoom.enable();
-});
-map.on('mouseout', function() {
-=======
 map.on('click', function () {
     map.scrollWheelZoom.enable();
 });
 map.on('mouseout', function () {
->>>>>>> main
     map.scrollWheelZoom.disable();
 });

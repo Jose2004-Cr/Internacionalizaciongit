@@ -45,7 +45,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <!-- Profile Dropdown -->
         <div x-data="{ open: false }" @click.away="open = false" class="relative ml-3">
             <a @click="open = !open" href="#" class="flex-shrink-0">
@@ -53,13 +53,13 @@
             </a>
 
             <div x-show="open" class="absolute right-0 w-48 mt-2 bg-white rounded-md shadow-lg">
-                <a href=""
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
-                Perfil
-             </a>
                 <a href="{{ route('editarperfil') }}"
                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
-                   Configuracion //editar
+                   Perfil
+                </a>
+                <a href="{{ route('comfiguracionAva') }}"
+                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                   Configuracion
                 </a>
                 <div class="border-t border-gray-100"></div>
                 <a href="#" onclick="logout()"

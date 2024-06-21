@@ -1,0 +1,84 @@
+body {
+    padding: 20px;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.container h2 {
+    color: #0F293E;
+}
+
+.certificate {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    background: url('/images/Certificado de Reconocimiento Médico Moderno Azul.png') no-repeat center center;
+    background-size: cover;
+    color: black;
+    padding: 50px;
+    text-align: center;
+    margin: auto;
+}
+
+.certificate h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.certificate h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+.certificate h3 {
+    font-size: 1.2em;
+}
+
+.certificate p {
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.certificate .header {
+    margin-bottom: 30px;
+}
+
+.certificate .logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.certificate .signature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 1em;
+}
+
+.certificate .signature img {
+    width: 150px;
+}
+
+.certificate .signature div {
+    text-align: center;
+}
+
+.certificate .footer {
+    margin-top: 50px;
+}
+
+.certificate .footer p {
+    margin: 0;
+}

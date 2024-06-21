@@ -12,8 +12,14 @@ use App\Http\Controllers\EditpController;
 use App\Http\Controllers\CertificadoController;
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\MapaController;
+<<<<<<< HEAD
 use App\Http\Controllers\RegistroController;
 
+=======
+use App\Http\Controllers\ComfigController;
+use App\Http\Controllers\SoporteController;
+use App\Http\Controllers\Welcome2Controller;
+>>>>>>> main
 
 
 // Modifica la ruta raíz para que use el inicioController
@@ -26,7 +32,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('iniciodasboard');
     })->name('dashboard');
 });
 
@@ -47,4 +53,11 @@ Route::get('/editarperfil', [EditpController::class, 'index'])->name('editarperf
 Route::get('/certificados', [CertificadoController::class, 'index'])->name('certificados');
 Route::get('/reportes', [ReportesController::class, 'index'])->name('reportes');
 Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
+<<<<<<< HEAD
 Route::get('/registro', [RegistroController::class, 'registro'])->name('registro');
+=======
+Route::get('/comfiguracionAva', [ComfigController::class, 'index'])->name('comfiguracionAva');
+Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
+Route::get('/iniciodasboard', [Welcome2Controller::class, 'index'])->name('iniciodasboard');
+
+>>>>>>> main
