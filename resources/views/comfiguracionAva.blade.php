@@ -42,7 +42,26 @@
                 </li>
             </div>
         </div>
-        
+        </head>
+
+        <body>
+            <div id="section1" class="container">
+                <div class="section">
+                    <h2>Configuracion Software</h2>
+                    <div class="line"></div>
+                    <button class="button" data-section="form1" onclick="toggleForm('form1')">▼</button>
+                </div>
+                <div id="form1" class="form-container">
+                    <form>
+                        <label for="field1">Field 1:</label>
+                        <input type="text" id="field1" name="field1"><br><br>
+                        <label for="field2">Field 2:</label>
+                        <input type="text" id="field2" name="field2"><br><br>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
             <div id="section2" class="container">
                 <div class="section">
                     <h2>Configuracion Clases</h2>
@@ -51,7 +70,6 @@
                 </div>
                 <div id="form2" class="form-container">
                     <form>
-                        <!-- Your form elements here -->
                         <label for="field3">Field 3:</label>
                         <input type="text" id="field3" name="field3"><br><br>
                         <label for="field4">Field 4:</label>
@@ -69,12 +87,10 @@
                 </div>
                 <div id="form3" class="form-container">
                     <div class="container">
-                        <h2 class="text-center">Certificado</h2>
                         <form id="certForm">
                             <div class="form-group">
                                 <label for="name">Nombre del Participante:</label>
                                 <input type="text" class="form-control" id="name" required>
-                                <p>Colocar nombre completo en MAYUSCULA</p>
                             </div>
                             <div class="form-group">
                                 <label for="course">Nombre del Curso:</label>
@@ -84,7 +100,9 @@
                                 <label for="date">Fecha de Finalización:</label>
                                 <input type="date" class="form-control" id="date" required>
                             </div>
-                            <button type="submit" class="btn btn-primary">Generar Certificado</button>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Descargar PDF</button>
+                            </div>
                         </form>
                     </div>
 
@@ -113,10 +131,63 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
 
-        </div>
-    </body>
+
+            <script>
+                function toggleForm(formId) {
+                    const form = document.getElementById(formId);
+                    form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+                }
+
+                function toggleMenu() {
+                    const menu = document.getElementById('menu');
+                    menu.style.display = menu.style.display === 'none' || menu.style.display === '' ? 'block' : 'none';
+                }
+
+                document.getElementById('certForm').addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const name = document.getElementById('name').value;
+                    const course = document.getElementById('course').value;
+                    const date = new Date(document.getElementById('date').value).toLocaleDateString();
+
+                    document.getElementById('certName').innerText = name;
+                    document.getElementById('certDateText').innerText = date;
+
+                    const certificate = document.getElementById('certificate');
+                    certificate.style.display = 'block';
+
+                    const loadImage = (url) => {
+                        return new Promise((resolve, reject) => {
+                            const img = new Image();
+                            img.src = url;
+                            img.onload = () => resolve(img);
+                            img.onerror = (err) => reject(err);
+                        });
+                    };
+
+                    const generatePDF = async () => {
+                        await loadImage(document.querySelector('.logo').src);
+
+                        html2canvas(certificate, { scale: 2 }).then(canvas => {
+                            const imgData = canvas.toDataURL('image/png');
+                            const { jsPDF } = window.jspdf;
+                            const pdf = new jsPDF('landscape');
+                            pdf.addImage(imgData, 'PNG', 0, 0, 297, 210);
+                            pdf.save("certificado.pdf");
+
+                            certificate.style.display = 'none';
+                        }).catch(error => {
+                            console.error('Error generating PDF:', error);
+                            certificate.style.display = 'none';
+                        });
+                    };
+
+                    generatePDF();
+                });
+            </script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+        </body>
 
 </x-app-layout>

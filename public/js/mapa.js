@@ -10,17 +10,786 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 
 
 var locations = [{
-    coords: [10.39225, -75.48421],
-    name: 'Sede Principal'
-},
-{
     coords: [10.39568, -75.49543],
     name: 'Sede Norte'
 },
 {
-    coords: [10.40353, -75.51367],
-    name: 'Sede Sur'
+    coords: [33.93911, 67.709953],
+    name: ' Afghanistan'
+},
+{
+    coords: [33.93911, 67.709953],
+    name: "Afghanistan"
+},
+{
+    coords: [41.1533, 20.1683],
+    name: "Albania"
+},
+{
+    coords: [28.0339, 1.6596],
+    name: "Algeria"
+},
+{
+    coords: [42.5063, 1.5218],
+    name: "Andorra"
+},
+{
+    coords: [-11.2027, 17.8739],
+    name: "Angola"
+},
+{
+    coords: [17.0608, -61.7964],
+    name: "Antigua and Barbuda"
+},
+{
+    coords: [-38.4161, -63.6167],
+    name: "Argentina"
+},
+{
+    coords: [40.0691, 45.0382],
+    name: "Armenia"
+},
+{
+    coords: [-25.2744, 133.7751],
+    name: "Australia"
+},
+{
+    coords: [47.5162, 14.5501],
+    name: "Austria"
+},
+{
+    coords: [40.1431, 47.5769],
+    name: "Azerbaijan"
+},
+{
+    coords: [25.0343, -77.3963],
+    name: "Bahamas"
+},
+{
+    coords: [25.9304, 50.6378],
+    name: "Bahrain"
+},
+{
+    coords: [23.6850, 90.3563],
+    name: "Bangladesh"
+},
+{
+    coords: [13.1939, -59.5432],
+    name: "Barbados"
+},
+{
+    coords: [53.7098, 27.9534],
+    name: "Belarus"
+},
+{
+    coords: [50.8503, 4.3517],
+    name: "Belgium"
+},
+{
+    coords: [17.1899, -88.4976],
+    name: "Belize"
+},
+{
+    coords: [9.3077, 2.3158],
+    name: "Benin"
+},
+{
+    coords: [27.5142, 90.4336],
+    name: "Bhutan"
+},
+{
+    coords: [-16.2902, -63.5887],
+    name: "Bolivia"
+},
+{
+    coords: [43.9159, 17.6791],
+    name: "Bosnia and Herzegovina"
+},
+{
+    coords: [-22.3285, 24.6849],
+    name: "Botswana"
+},
+{
+    coords: [-14.2350, -51.9253],
+    name: "Brazil"
+},
+{
+    coords: [4.5353, 114.7277],
+    name: "Brunei"
+},
+{
+    coords: [42.7339, 25.4858],
+    name: "Bulgaria"
+},
+{
+    coords: [12.2383, -1.5616],
+    name: "Burkina Faso"
+},
+{
+    coords: [-3.3731, 29.9189],
+    name: "Burundi"
+},
+{
+    coords: [16.5388, -23.0418],
+    name: "Cabo Verde"
+},
+{
+    coords: [12.5657, 104.9910],
+    name: "Cambodia"
+},
+{
+    coords: [7.3697, 12.3547],
+    name: "Cameroon"
+},
+{
+    coords: [56.1304, -106.3468],
+    name: "Canada"
+},
+{
+    coords: [6.6111, 20.9394],
+    name: "Central African Republic"
+},
+{
+    coords: [15.4542, 18.7322],
+    name: "Chad"
+},
+{
+    coords: [-35.6751, -71.5430],
+    name: "Chile"
+},
+{
+    coords: [35.8617, 104.1954],
+    name: "China"
+},
+{
+    coords: [4.5709, -74.2973],
+    name: "Colombia"
+},
+{
+    coords: [-11.6455, 43.3333],
+    name: "Comoros"
+},
+{
+    coords: [-0.2280, 15.8277],
+    name: "Congo (Congo-Brazzaville)"
+},
+{
+    coords: [9.7489, -83.7534],
+    name: "Costa Rica"
+},
+{
+    coords: [45.1, 15.2],
+    name: "Croatia"
+},
+{
+    coords: [21.5218, -77.7812],
+    name: "Cuba"
+},
+{
+    coords: [35.1264, 33.4299],
+    name: "Cyprus"
+},
+{
+    coords: [49.8175, 15.4730],
+    name: "Czechia (Czech Republic)"
+},
+{
+    coords: [-4.0383, 21.7587],
+    name: "Democratic Republic of the Congo"
+},
+{
+    coords: [56.2639, 9.5018],
+    name: "Denmark"
+},
+{
+    coords: [11.8251, 42.5903],
+    name: "Djibouti"
+},
+{
+    coords: [15.4149, -61.370976],
+    name: "Dominica"
+},
+{
+    coords: [18.7357, -70.1627],
+    name: "Dominican Republic"
+},
+{
+    coords: [-1.8312, -78.1834],
+    name: "Ecuador"
+},
+{
+    coords: [26.8206, 30.8025],
+    name: "Egypt"
+},
+{
+    coords: [13.7942, -88.8965],
+    name: "El Salvador"
+},
+{
+    coords: [1.6508, 10.2679],
+    name: "Equatorial Guinea"
+},
+{
+    coords: [15.1794, 39.7823],
+    name: "Eritrea"
+},
+{
+    coords: [58.5953, 25.0136],
+    name: "Estonia"
+},
+{
+    coords: [9.145, 40.4897],
+    name: "Ethiopia"
+},
+{
+    coords: [-17.7134, 178.065],
+    name: "Fiji"
+},
+{
+    coords: [61.9241, 25.7482],
+    name: "Finland"
+},
+{
+    coords: [46.6034, 1.8883],
+    name: "France"
+},
+{
+    coords: [-0.8037, 11.6094],
+    name: "Gabon"
+},
+{
+    coords: [13.4432, -15.3101],
+    name: "Gambia"
+},
+{
+    coords: [32.1656, -82.9001],
+    name: "Georgia"
+},
+{
+    coords: [51.1657, 10.4515],
+    name: "Germany"
+},
+{
+    coords: [7.9465, -1.0232],
+    name: "Ghana"
+},
+{
+    coords: [39.0742, 21.8243],
+    name: "Greece"
+},
+{
+    coords: [12.1165, -61.679],
+    name: "Grenada"
+},
+{
+    coords: [15.7835, -90.2308],
+    name: "Guatemala"
+},
+{
+    coords: [9.9456, -9.6966],
+    name: "Guinea"
+},
+{
+    coords: [11.8037, -15.1804],
+    name: "Guinea-Bissau"
+},
+{
+    coords: [4.8604, -58.9302],
+    name: "Guyana"
+},
+{
+    coords: [18.9712, -72.2852],
+    name: "Haiti"
+},
+{
+    coords: [15.2, -86.2419],
+    name: "Honduras"
+},
+{
+    coords: [47.1625, 19.5033],
+    name: "Hungary"
+},
+{
+    coords: [64.9631, -19.0208],
+    name: "Iceland"
+},
+{
+    coords: [20.5937, 78.9629],
+    name: "India"
+},
+{
+    coords: [-0.7893, 113.9213],
+    name: "Indonesia"
+},
+{
+    coords: [32.4279, 53.688],
+    name: "Iran"
+},
+{
+    coords: [33.2232, 43.6793],
+    name: "Iraq"
+},
+{
+    coords: [53.4129, -8.2439],
+    name: "Ireland"
+},
+{
+    coords: [31.0461, 34.8516],
+    name: "Israel"
+},
+{
+    coords: [41.8719, 12.5674],
+    name: "Italy"
+},
+{
+    coords: [18.1096, -77.2975],
+    name: "Jamaica"
+},
+{
+    coords: [36.2048, 138.2529],
+    name: "Japan"
+},
+{
+    coords: [30.5852, 36.2384],
+    name: "Jordan"
+},
+{
+    coords: [48.0196, 66.9237],
+    name: "Kazakhstan"
+},
+{
+    coords: [-0.0236, 37.9062],
+    name: "Kenya"
+},
+{
+    coords: [-3.3704, -168.734],
+    name: "Kiribati"
+},
+{
+    coords: [29.3117, 47.4818],
+    name: "Kuwait"
+},
+{
+    coords: [41.2044, 74.7661],
+    name: "Kyrgyzstan"
+},
+{
+    coords: [19.8563, 102.4955],
+    name: "Laos"
+},
+{
+    coords: [56.8796, 24.6032],
+    name: "Latvia"
+},
+{
+    coords: [33.8547, 35.8623],
+    name: "Lebanon"
+},
+{
+    coords: [-29.6105, 28.2336],
+    name: "Lesotho"
+},
+{
+    coords: [6.4281, -9.4295],
+    name: "Liberia"
+},
+{
+    coords: [26.3351, 17.2283],
+    name: "Libya"
+},
+{
+    coords: [47.166, 9.5554],
+    name: "Liechtenstein"
+},
+{
+    coords: [55.1694, 23.8813],
+    name: "Lithuania"
+},
+{
+    coords: [49.8153, 6.1296],
+    name: "Luxembourg"
+},
+{
+    coords: [-18.7669, 46.8691],
+    name: "Madagascar"
+},
+{
+    coords: [-13.2543, 34.3015],
+    name: "Malawi"
+},
+{
+    coords: [4.2105, 101.9758],
+    name: "Malaysia"
+},
+{
+    coords: [3.2028, 73.2207],
+    name: "Maldives"
+},
+{
+    coords: [17.5707, -3.9962],
+    name: "Mali"
+},
+{
+    coords: [35.9375, 14.3754],
+    name: "Malta"
+},
+{
+    coords: [7.1315, 171.1845],
+    name: "Marshall Islands"
+},
+{
+    coords: [21.0079, -10.9408],
+    name: "Mauritania"
+},
+{
+    coords: [-20.3484, 57.5522],
+    name: "Mauritius"
+},
+{
+    coords: [23.6345, -102.5528],
+    name: "Mexico"
+},
+{
+    coords: [7.4256, 150.5508],
+    name: "Micronesia"
+},
+{
+    coords: [47.4116, 28.3699],
+    name: "Moldova"
+},
+{
+    coords: [43.7384, 7.4246],
+    name: "Monaco"
+},
+{
+    coords: [46.8625, 103.8467],
+    name: "Mongolia"
+},
+{
+    coords: [42.7087, 19.3744],
+    name: "Montenegro"
+},
+{
+    coords: [31.7917, -7.0926],
+    name: "Morocco"
+},
+{
+    coords: [-18.6657, 35.5296],
+    name: "Mozambique"
+},
+{
+    coords: [21.9162, 95.956],
+    name: "Myanmar (formerly Burma)"
+},
+{
+    coords: [-22.9576, 18.4904],
+    name: "Namibia"
+},
+{
+    coords: [-0.5228, 166.9315],
+    name: "Nauru"
+},
+{
+    coords: [28.3949, 84.124],
+    name: "Nepal"
+},
+{
+    coords: [52.1326, 5.2913],
+    name: "Netherlands"
+},
+{
+    coords: [-40.9006, 174.886],
+    name: "New Zealand"
+},
+{
+    coords: [12.8654, -85.2072],
+    name: "Nicaragua"
+},
+{
+    coords: [17.6078, 8.0817],
+    name: "Niger"
+},
+{
+    coords: [9.082, 8.6753],
+    name: "Nigeria"
+},
+{
+    coords: [40.3399, 127.5101],
+    name: "North Korea"
+},
+{
+    coords: [41.6086, 21.7453],
+    name: "North Macedonia"
+},
+{
+    coords: [60.472, 8.4689],
+    name: "Norway"
+},
+{
+    coords: [21.4735, 55.9754],
+    name: "Oman"
+},
+{
+    coords: [30.3753, 69.3451],
+    name: "Pakistan"
+},
+{
+    coords: [7.51498, 134.5825],
+    name: "Palau"
+},
+{
+    coords: [31.9474, 35.2272],
+    name: "Palestine"
+},
+{
+    coords: [8.538, -80.7821],
+    name: "Panama"
+},
+{
+    coords: [-6.314993, 143.9555],
+    name: "Papua New Guinea"
+},
+{
+    coords: [-23.4425, -58.4438],
+    name: "Paraguay"
+},
+{
+    coords: [-9.19, -75.0152],
+    name: "Peru"
+},
+{
+    coords: [12.8797, 121.774],
+    name: "Philippines"
+},
+{
+    coords: [51.9194, 19.1451],
+    name: "Poland"
+},
+{
+    coords: [39.3999, -8.2245],
+    name: "Portugal"
+},
+{
+    coords: [25.3548, 51.1839],
+    name: "Qatar"
+},
+{
+    coords: [45.9432, 24.9668],
+    name: "Romania"
+},
+{
+    coords: [61.524, 105.3188],
+    name: "Russia"
+},
+{
+    coords: [-1.9403, 29.8739],
+    name: "Rwanda"
+},
+{
+    coords: [17.3578, -62.783],
+    name: "Saint Kitts and Nevis"
+},
+{
+    coords: [13.9094, -60.9789],
+    name: "Saint Lucia"
+},
+{
+    coords: [12.9843, -61.2872],
+    name: "Saint Vincent and the Grenadines"
+},
+{
+    coords: [-13.759, -172.1046],
+    name: "Samoa"
+},
+{
+    coords: [43.9424, 12.4578],
+    name: "San Marino"
+},
+{
+    coords: [0.1864, 6.6131],
+    name: "Sao Tome and Principe"
+},
+{
+    coords: [23.8859, 45.0792],
+    name: "Saudi Arabia"
+},
+{
+    coords: [14.4974, -14.4524],
+    name: "Senegal"
+},
+{
+    coords: [44.0165, 21.0059],
+    name: "Serbia"
+},
+{
+    coords: [-4.6796, 55.491977],
+    name: "Seychelles"
+},
+{
+    coords: [8.460555, -11.779889],
+    name: "Sierra Leone"
+},
+{
+    coords: [1.352083, 103.819836],
+    name: "Singapore"
+},
+{
+    coords: [48.669, 19.699],
+    name: "Slovakia"
+},
+{
+    coords: [46.1512, 14.9955],
+    name: "Slovenia"
+},
+{
+    coords: [-9.6457, 160.1562],
+    name: "Solomon Islands"
+},
+{
+    coords: [5.1521, 46.1996],
+    name: "Somalia"
+},
+{
+    coords: [-30.5595, 22.9375],
+    name: "South Africa"
+},
+{
+    coords: [35.9078, 127.7669],
+    name: "South Korea"
+},
+{
+    coords: [7.862684, 29.694923],
+    name: "South Sudan"
+},
+{
+    coords: [40.4637, -3.7492],
+    name: "Spain"
+},
+{
+    coords: [7.8731, 80.7718],
+    name: "Sri Lanka"
+},
+{
+    coords: [12.8628, 30.2176],
+    name: "Sudan"
+},
+{
+    coords: [3.9193, -56.0278],
+    name: "Suriname"
+},
+{
+    coords: [60.1282, 18.6435],
+    name: "Sweden"
+},
+{
+    coords: [46.8182, 8.2275],
+    name: "Switzerland"
+},
+{
+    coords: [34.8021, 38.9968],
+    name: "Syria"
+},
+{
+    coords: [38.861, 71.2761],
+    name: "Tajikistan"
+},
+{
+    coords: [-6.369028, 34.888822],
+    name: "Tanzania"
+},
+{
+    coords: [15.870032, 100.992541],
+    name: "Thailand"
+},
+{
+    coords: [-8.874217, 125.727539],
+    name: "Timor-Leste"
+},
+{
+    coords: [8.619543, 0.824782],
+    name: "Togo"
+},
+{
+    coords: [-21.178986, -175.198242],
+    name: "Tonga"
+},
+{
+    coords: [10.6918, -61.2225],
+    name: "Trinidad and Tobago"
+},
+{
+    coords: [33.886917, 9.537499],
+    name: "Tunisia"
+},
+{
+    coords: [38.963745, 35.243322],
+    name: "Turkey"
+},
+{
+    coords: [38.969719, 59.556278],
+    name: "Turkmenistan"
+},
+{
+    coords: [-7.109535, 179.194275],
+    name: "Tuvalu"
+},
+{
+    coords: [1.373333, 32.290275],
+    name: "Uganda"
+},
+{
+    coords: [48.379433, 31.16558],
+    name: "Ukraine"
+},
+{
+    coords: [23.424076, 53.847818],
+    name: "United Arab Emirates"
+},
+{
+    coords: [55.378051, -3.435973],
+    name: "United Kingdom"
+},
+{
+    coords: [37.09024, -95.712891],
+    name: "United States of America"
+},
+{
+    coords: [-32.522779, -55.765835],
+    name: "Uruguay"
+},
+{
+    coords: [41.377491, 64.585262],
+    name: "Uzbekistan"
+},
+{
+    coords: [-15.376706, 166.959158],
+    name: "Vanuatu"
+},
+{
+    coords: [41.902916, 12.453389],
+    name: "Vatican City (Holy See)"
+},
+{
+    coords: [6.42375, -66.58973],
+    name: "Venezuela"
+},
+{
+    coords: [14.058324, 108.277199],
+    name: "Vietnam"
+},
+{
+    coords: [15.552727, 48.516388],
+    name: "Yemen"
+},
+{
+    coords: [-13.133897, 27.849332],
+    name: "Zambia"
+},
+{
+    coords: [-19.015438, 29.154857],
+    name: "Zimbabwe"
 }
+
 ];
 
 locations.forEach(function (location) {

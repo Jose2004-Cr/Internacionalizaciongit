@@ -3,7 +3,6 @@ body {
     background-color: #f0f0f0;
     font-family: 'Arial', sans-serif;
 }
-
 .container {
     max-width: 600px;
     margin: auto;
@@ -11,13 +10,41 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-
+    margin-bottom: 20px;
 }
-
 .container h2 {
     color: #0F293E;
 }
-
+.form-container {
+    display: none;
+    margin-top: 20px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input {
+    width: calc(50% - 10px);
+    padding: 8px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+.form-group input[type="date"] {
+    width: 100%;
+}
+.form-group button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.form-group button:hover {
+    background-color: #218838;
+}
 .certificate {
     position: relative;
     width: 800px;
@@ -29,36 +56,29 @@ body {
     text-align: center;
     margin: auto;
 }
-
 .certificate h1 {
     font-size: 2em;
     font-weight: bold;
     margin-bottom: 20px;
 }
-
 .certificate h2 {
     font-size: 1.5em;
     margin-top: 20px;
 }
-
 .certificate h3 {
     font-size: 1.2em;
 }
-
 .certificate p {
     font-size: 1em;
     margin-top: 20px;
 }
-
 .certificate .header {
     margin-bottom: 30px;
 }
-
 .certificate .logo {
     width: 100px;
     margin-bottom: 20px;
 }
-
 .certificate .signature {
     display: flex;
     justify-content: space-between;
@@ -66,19 +86,15 @@ body {
     margin-top: 50px;
     font-size: 1em;
 }
-
 .certificate .signature img {
     width: 150px;
 }
-
 .certificate .signature div {
     text-align: center;
 }
-
 .certificate .footer {
     margin-top: 50px;
 }
-
 .certificate .footer p {
     margin: 0;
 }
