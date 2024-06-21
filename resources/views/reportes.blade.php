@@ -151,15 +151,16 @@
 
     <div class="container px-4 mx-auto mt-10">
         <div class="flex items-center justify-between mb-4">
-            <h1 class="text-2xl font-bold">Agregados recientes..</h1>
-            <button id="addEventButton" class="px-4 py-2 text-white bg-blue-500 rounded shadow">Agregar evento +</button>
+            <h1 class="text-2xl font-bold">Maestro de Reportes</h1>
+            {{-- <button id="addEventButton" class="px-4 py-2 text-white bg-blue-500 rounded shadow">Agregar evento +</button> --}}
         </div>
-        <div class="grid grid-cols-3 gap-4">
+        <select name="" id="reporte" class="w-full p-5 pr-10 mb-4 text-white bg-blue-800 border border-gray-300 rounded" onchange="mostrarCampos()"></select>
+        {{-- <div class="grid grid-cols-3 gap-4">
             <div class="flex flex-col justify-between w-full h-24 p-4 text-white bg-blue-500 rounded shadow-md">
                 <h3 class="font-bold">Nombre del evento</h3>
                 <p>Director del evento</p>
                 <p>Fecha: 14-06 hasta las 6:00 P.M.</p>
-            </div>
+            </div> --}}
             <div class="flex flex-col justify-between w-full h-24 p-4 text-white bg-blue-500 rounded shadow-md">
                 <h3 class="font-bold">Nombre del evento</h3>
                 <p>Director del evento</p>

@@ -87,8 +87,6 @@
         body, select, input, label, button, a {
             font-family: 'Poppins', sans-serif;
         }
-
-
     </style>
 </head>
 

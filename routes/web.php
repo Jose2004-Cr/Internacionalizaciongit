@@ -12,6 +12,7 @@ use App\Http\Controllers\EditpController;
 use App\Http\Controllers\CertificadoController;
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\MapaController;
+use App\Http\Controllers\RegistroController;
 
 
 
@@ -46,3 +47,4 @@ Route::get('/editarperfil', [EditpController::class, 'index'])->name('editarperf
 Route::get('/certificados', [CertificadoController::class, 'index'])->name('certificados');
 Route::get('/reportes', [ReportesController::class, 'index'])->name('reportes');
 Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
+Route::get('/registro', [RegistroController::class, 'registro'])->name('registro');
