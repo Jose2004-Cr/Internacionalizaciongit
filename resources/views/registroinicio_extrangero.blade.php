@@ -193,7 +193,7 @@
                                     <option class="text-base py-2" value="pasaporte">Pasaporte</option>
                                     <option class="text-base py-2" value="visa">Visa</option>
                                 </select>
-                                <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="numero_documento" type="number" placeholder="Número de documento" required>
+                                <input class="shadow-md rounded-md p-2 block w-full py-4 px-3 bg-gray-100 border border-gray-300 border-opacity-50 text-gray-700 focus:outline-none focus:border-gray-500" id="numero_documento" type="text" placeholder="Número de documento" required>
                             </div>
                         </div>
                         <br>
