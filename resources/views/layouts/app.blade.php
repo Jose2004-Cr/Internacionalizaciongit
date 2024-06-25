@@ -42,7 +42,11 @@
     @stack('modals')
 
     @livewireScripts
-
+    @stack('js')
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.bundled.js"></script>
+    <script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
+    <script src="{{ asset('mapa.js') }}"></script>
 </body>
 
 </html>
