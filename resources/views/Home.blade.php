@@ -78,7 +78,86 @@
                         </div>
                     </main>
                 </section>
+                <br><br><br>
 
+                <section class="container p-6 mx-auto bg-white rounded-md shadow-md">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                        <table class="w-full text-sm text-left rtl:text-right text-white dark:text-gray-400">
+                            <thead class="text-xs text-gray-700 uppercase bg-current dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 text-white">
+                                        NOMBRE
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-white">
+                                        FECHA
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-white">
+                                        DIRECTOR
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-white">
+                                        ESTADO
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-white">
+                                        DETALLES
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        Internacionalizacion
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                                        Innova _ Colombia
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                                        Fecha: 14-06 hasta las 6:00 P.M.
+                                    </td>
+                                    <td>
+                                        <button type="button" class="text-white bg-gradient-to-r px-6 py-3  from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Green</button>
+
+                                    </td>
+
+
+                                </tr>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        Hermes
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                                        Tecnologico _ Colombia
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                                        Fecha: 17-06 hasta las 3:00 P.M.
+                                    </td>
+                                    <td>
+                                        <button type="button" class="flex items-center justify-center text-white bg-gradient-to-r px-6 py-3  from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Green</button>
+
+                                    </td>
+
+                                </tr>
+                                <tr class="bg-white dark:bg-gray-800">
+                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        Los Panes
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                                        Panderia _ Colombia
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
+                                        Fecha: 21-06 hasta las 9:00 A.M.
+                                    </td>
+                                    <td>
+                                        <button type="button" class="text-white bg-gradient-to-r px-6 py-3 from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Red</button>
+
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
                 <div id="slideInForm" class="slide-in rounded-l-md">
                     <div class="flex items-center justify-between mb-4 modal-header">
                         <h2 class="text-2xl font-bold text-gray-700">Agregar evento</h2>

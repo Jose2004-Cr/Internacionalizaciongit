@@ -34,7 +34,11 @@ const addEventButton = document.getElementById('addEventButton');
                 <p>${eventDirector}</p>
                 <p>${eventDate}</p>
             `;
-            document.getElementById('eventsGrid').appendChild(newEventCard);
+
+            // Insertar la nueva carta al principio
+            const eventsGrid = document.getElementById('eventsGrid');
+            const firstChild = eventsGrid.firstChild;
+            eventsGrid.insertBefore(newEventCard, firstChild);
 
             slideInForm.classList.remove('active');
             document.getElementById('eventForm').reset();

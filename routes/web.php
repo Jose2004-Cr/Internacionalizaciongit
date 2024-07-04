@@ -12,15 +12,10 @@ use App\Http\Controllers\EditpController;
 use App\Http\Controllers\CertificadoController;
 use App\Http\Controllers\ReportesController;
 use App\Http\Controllers\MapaController;
-<<<<<<< HEAD
-use App\Http\Controllers\registroinicio_colombianoController;
-use App\Http\Controllers\agradecimientoController;
-
-=======
 use App\Http\Controllers\ComfigController;
 use App\Http\Controllers\SoporteController;
 use App\Http\Controllers\Welcome2Controller;
->>>>>>> main
+use App\Http\Controllers\carta_homeController;
 
 
 // Modifica la ruta raíz para que use el inicioController
@@ -36,6 +31,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
+Route::get('/reporteasistencia1', [reporteasistencia1Controller::class, 'index'])->name('reporteasistencia1');
 Route::get('/reporteasistencia3', [reporteasistencia3Controller::class, 'index'])->name('reporteasistencia3');
 Route::get('/reporteasistencia2', [reporteasistencia2Controller::class, 'index'])->name('reporteasistencia2');
 Route::get('/inicio', [inicioController::class, 'index'])->name('inicio');
@@ -47,14 +43,8 @@ Route::get('/editarperfil', [EditpController::class, 'index'])->name('editarperf
 Route::get('/certificados', [CertificadoController::class, 'index'])->name('certificados');
 Route::get('/reportes', [ReportesController::class, 'index'])->name('reportes');
 Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
-<<<<<<< HEAD
-Route::get('/reporteasistencia1',[reporteasistencia1Controller::class,'index'])->name('reporteasistencia1');
-Route::get('/registroinicio_colombiano',[registroinicio_colombianoController::class,'index'])->name('registroinicio_colombiano');
-Route::get('/agradecimiento',[agradecimientoController::class,'index'])->name('agradecimiento');
-
-=======
 Route::get('/comfiguracionAva', [ComfigController::class, 'index'])->name('comfiguracionAva');
 Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
 Route::get('/iniciodasboard', [Welcome2Controller::class, 'index'])->name('iniciodasboard');
->>>>>>> main
+Route::get('/carta_del_home', [carta_homeController::class, 'index'])->name('carta_del_home');
 

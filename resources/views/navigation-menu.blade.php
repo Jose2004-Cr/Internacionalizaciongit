@@ -57,25 +57,14 @@
             </a>
 
             <div x-show="open" class="absolute right-0 w-48 mt-2 bg-white rounded-md shadow-lg">
-<<<<<<< HEAD
-                <a href=""
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
-                Perfil
-            </a>
                 <a href="{{ route('editarperfil') }}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
-                   Configuracion //editar
-            </a>
-=======
-                <a href="{{ route('editarperfil') }}"
-                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
-                   Perfil
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                    Perfil
                 </a>
                 <a href="{{ route('comfiguracionAva') }}"
-                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
-                   Configuracion
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">
+                    Configuracion
                 </a>
->>>>>>> main
                 <div class="border-t border-gray-100"></div>
                 <a href="#" onclick="logout()"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white">Sign Out</a>

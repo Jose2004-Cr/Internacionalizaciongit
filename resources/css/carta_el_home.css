@@ -1,0 +1,99 @@
+.sidebar {
+    width: 4rem;
+    transition: width 0.3s ease-in-out;
+    background: linear-gradient(135deg, #bd0b29, #860211);
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.sidebar:hover {
+    width: 10rem;
+}
+
+.expand-text {
+    opacity: 0;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.sidebar:hover .expand-text {
+    opacity: 1;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.sidebar-item img {
+    width: 2rem;
+    height: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-item:hover {
+    background-color: #0F293E;
+    transform: scale(0.95);
+}
+
+.sidebar-item:hover img {
+    transform: scale(1.1);
+}
+
+.sidebar-item .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+}
+
+.sidebar h5 {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.drawer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* estos estilos modifican el section del formulario que esta abajo del mapa  */
+
+.blue-border {
+    border-color: blue !important;
+}
+.hidden {
+    display: none;
+}
+.participant-item {
+    display: inline-block;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: #151bd5;
+
+}
+
+#participantList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espacio entre elementos */
+}
