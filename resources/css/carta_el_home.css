@@ -97,3 +97,14 @@
     flex-direction: column;
     gap: 8px; /* Espacio entre elementos */
 }
+
+
+  /* Estilo para el modal */
+  .modal {
+    display: none; /* Ocultar el modal inicialmente */
+}
+/* Estilo para el fondo oscuro */
+.modal-backdrop {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
