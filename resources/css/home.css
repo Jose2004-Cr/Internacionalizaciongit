@@ -1,115 +1,164 @@
 
-    .sidebar {
-        width: 4rem;
-        transition: width 0.3s ease-in-out;
-        background: linear-gradient(135deg, #bd0b29, #860211);
-        border-radius: 0 1rem 1rem 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0;
-    }
+/* Custom styles */
+body {
+    background-color: #f0f4f8;
+}
 
-    .sidebar:hover {
-        width: 10rem;
-    }
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
 
-    .expand-text {
-        opacity: 0;
-        margin-left: 0.5rem;
-        white-space: nowrap;
-        transition: opacity 0.2s ease-in-out;
-    }
+.card {
+    width: 300px;
+    padding: 20px;
+    background: linear-gradient(90deg, #00274C, #1E90FF);
+    border-radius: 10px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
 
-    .sidebar:hover .expand-text {
-        opacity: 1;
-    }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-    .sidebar-item {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 0.5rem 1rem;
-        color: white;
-        text-decoration: none;
-        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-        border-radius: 0.5rem;
-        margin: 0.5rem 0;
-    }
 
-    .sidebar-item img {
-        width: 2rem;
-        height: 2rem;
-        transition: transform 0.3s ease-in-out;
-    }
+.slide-in {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    overflow: hidden;
+    background: white;
+    transition: width 0.3s ease-in-out;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
+}
 
-    .sidebar-item:hover {
-        background-color: #0F293E;
-        transform: scale(0.95);
-    }
+.slide-in.active {
+    width: 400px;
+}
 
-    .sidebar-item:hover img {
-        transform: scale(1.1);
-    }
+.modal-header,
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .sidebar-item .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-    }
+.modal-body {
+    margin-top: 20px;
+}
 
-    .sidebar h5 {
-        text-align: center;
-        color: white;
-        margin-bottom: 1rem;
-        font-size: 1rem;
-    }
+/* Table styles */
+.table-header {
+    background-color: #0F293E;
+    color: white;
 
-    .drawer-content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-    }
+}
 
-    li {
-        width: 100%;
-    }
+.table-body .status.active {
+    background-color: #48BB78;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+}
 
-    .slide-in {
-        display: none;
-        transition: transform 0.3s ease-out;
-        transform: translateX(100%);
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 30%;
-        background-color: white;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-        padding: 20px;
-        z-index: 1000;
-    }
+.table-body .status.finalized {
+    background-color: #FF6B6B;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+}
 
-    .slide-in.active {
-        display: block;
-        transform: translateX(0);
-    }
+.table-body .details {
+    color: #1E40AF;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
-    .card {
-        transition: transform 0.2s ease-in-out;
-    }
+.table-container {
+    max-height: 400px; /* Ajusta la altura según tus necesidades */
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
 
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
+}
+
+.table-container::-webkit-scrollbar {
+    display: none; /* Safari y Chrome */
+}
+
+#eventsTable thead {
+    position: sticky;
+    top: 0;
+    z-index: 2; /* Asegura que esté por encima del contenido */
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px; /* Puedes ajustar este valor según tus necesidades */
+}
+
+.Encurso {
+    background-color: #c7f9cc; /* Color de fondo verde claro */
+    color: #57cc99; /* Color del texto verde */
+    border: 2px solid #57cc99; /* Borde verde */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 20px; /* Relleno interno */
+    font-family: Arial, sans-serif; /* Familia de fuente */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Alineación del texto */
+    display: inline-block; /* Para que el botón tenga un tamaño acorde a su contenido */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.finalizado {
+    background-color: #ff5a5f; /* Color de fondo rojo claro */
+    color: #9b151b; /* Color del texto rojo */
+    border: 2px solid #9f181e; /* Borde rojo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 20px; /* Relleno interno */
+    font-family: Arial, sans-serif; /* Familia de fuente */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Alineación del texto */
+    display: inline-block; /* Para que el botón tenga un tamaño acorde a su contenido */
+    cursor: default; /* Cursor por defecto */
+}
+
+.details{
+    background-color: white; /* Color de fondo blanco */
+    color: #459af4; /* Color del texto azul */
+    border: 1px solid #007BFF; /* Borde azul */
+    border-radius: 20px; /* Bordes redondeados */
+    padding: 10px 20px; /* Relleno interno */
+    font-family: Arial, sans-serif; /* Familia de fuente */
+    font-size: 16px; /* Tamaño de la fuente */
+    text-align: center; /* Alineación del texto */
+    display: inline-block; /* Para que el botón tenga un tamaño acorde a su contenido */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    text-decoration: none; /* Sin subrayado */
+    width: 100px; /* Ancho del botón */
+    height: 40px; /* Altura del botón */
+}
+
+.details:hover {
+    background-color: #00589e; /* Color de fondo al pasar el ratón por encima */
+    color: white; /* Color del texto al pasar el ratón por encima */
+    text-decoration: none; /* Asegurarse de que el subrayado no aparezca al pasar el ratón por encima */
+}
+

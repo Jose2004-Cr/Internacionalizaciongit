@@ -46,5 +46,5 @@ Route::get('/mapa', [MapaController::class, 'index'])->name('mapa');
 Route::get('/comfiguracionAva', [ComfigController::class, 'index'])->name('comfiguracionAva');
 Route::get('/soporte', [SoporteController::class, 'index'])->name('soporte');
 Route::get('/iniciodasboard', [Welcome2Controller::class, 'index'])->name('iniciodasboard');
-Route::get('/carta_del_home', [carta_homeController::class, 'index'])->name('carta_del_home');
+Route::get('/homecartas', [carta_homeController::class, 'index'])->name('homecartas');
 

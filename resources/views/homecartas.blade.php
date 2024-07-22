@@ -33,7 +33,7 @@
                                 class="p-2 ml-2 text-white bg-blue-500 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 onclick="addParticipant()" disabled>+</button>
                         </div>
-                        <div id="participantList" class="flex flex-wrap gap-2 mt-4"></div>1
+                        <div id="participantList" class="flex flex-wrap gap-2 mt-4"></div>
                     </div>
                 </div>
                 <div>

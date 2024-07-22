@@ -109,9 +109,7 @@
         <!-- Contenedor de la imagen y el contenido -->
         <div class="flex w-full">
             <!-- Contenedor de la imagen -->
-            <div class="hidden w-1/2 h-screen md:block">
-                <img class="object-cover w-full h-full" src="images/x2.png" alt="Banner Image" />
-            </div>
+
             <!-- Contenedor del contenido -->
             <div class="flex flex-col items-center justify-center w-full h-screen md:w-1/2">
                 <!-- Contenedor del formulario con scroll -->
@@ -132,7 +130,7 @@
                         <br>
                         <div class="w-full mb-4 md:w-9/12">
                             <label for="countries" class="mb-2 text-lg font-bold text-blue-700">Nacionalidad</label>
-                            <select id="countries" class="block w-full p-2 px-3 py-4 text-gray-700 bg-gray-100 border border-gray-300 border-opacity-50 rounded-md shadow-md  focus:outline-none focus:border-gray-500">
+                            <select id="countries" class="block w-full p-2 px-3 py-4 text-gray-700 bg-gray-100 border border-gray-300 border-opacity-50 rounded-md shadow-md focus:outline-none focus:border-gray-500">
                                 <option class="py-2 text-base" value="" disabled selected>Nombre del pais - codigo del pais (ISO3)- codigo</option>
                                 <option value="COL">COLOMBIA | COL | 170</option>
                                 <option value="ARG">ARGENTINA | ARG | 032</option>
@@ -205,22 +203,22 @@
                                 <span class="file-upload-description">Fotos de ambas caras del documento en PDF</span>
                             </div>
                         </div>
-                        <br>
+
                         <div class="w-full mb-4 md:w-80">
                             <label class="block mb-2 text-lg font-bold text-blue-700" for="fecha_expedicion">Fecha de expedición del documento</label>
                             <input class="block w-full p-2 px-3 py-4 text-gray-700 bg-gray-100 border border-gray-300 border-opacity-50 rounded-md shadow-md focus:outline-none focus:border-gray-500" id="fecha_expedicion" type="date" placeholder="Fecha de expedición">
                         </div>
-                        <br>
+
                         <div class="w-full mb-4 md:w-9/12">
                             <label class="mb-2 text-lg font-bold text-blue-700" for="correo">Correo electrónico</label>
                             <input class="block w-full p-2 px-3 py-4 text-gray-700 bg-gray-100 border border-gray-300 border-opacity-50 rounded-md shadow-md focus:outline-none focus:border-gray-500" id="correo" type="email" placeholder="Correo de preferencia Gmail...">
                         </div>
-                        <br>
+
                         <div class="w-full mb-4 md:w-9/12">
                             <label class="mb-2 text-lg font-bold text-blue-700" for="contraseña">Contraseña</label>
                             <input class="block w-full p-2 px-3 py-4 text-gray-700 bg-gray-100 border border-gray-300 border-opacity-50 rounded-md shadow-md focus:outline-none focus:border-gray-500" id="contraseña" type="password" placeholder="Mínimo 8 caracteres...">
                         </div>
-                        <br>
+
                         <div class="w-full mb-4 md:w-9/12">
                             <label class="mb-2 text-lg font-bold text-blue-700" for="confirmacion_contraseña">Confirmar contraseña</label>
                             <input class="block w-full p-2 px-3 py-4 text-gray-700 bg-gray-100 border border-gray-300 border-opacity-50 rounded-md shadow-md focus:outline-none focus:border-gray-500" id="confirmacion_contraseña" type="password" placeholder="Mínimo 8 caracteres...">
@@ -289,7 +287,7 @@
 
 
     </script>
-</body>
+
 
 </html>
 

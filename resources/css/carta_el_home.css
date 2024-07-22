@@ -108,3 +108,21 @@
     display: none;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+
+   /* Custom CSS for dark mode toggle */
+   .dark-mode .bg-white {
+    background-color: #1a202c;
+}
+.dark-mode .text-gray-700 {
+    color: #a0aec0;
+}
+.dark-mode .bg-gray-50 {
+    background-color: #2d3748;
+}
+.dark-mode .border-gray-300 {
+    border-color: #4a5568;
+}
+.dark-mode .bg-gray-200 {
+    background-color: #4a5568;
+}

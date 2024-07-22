@@ -1,192 +1,136 @@
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
 
 <x-app-layout>
     @vite(['resources/css/home.css', 'resources/js/home.js'])
 
-    <body class="bg-gray-100">
-        <div class="fixed top-0 left-0 z-0 h-screen transition-all duration-300 ease-in-out sidebar">
-            <h5 class="text-xs font-bold uppercase">Hermes</h5>
-            <div class="drawer-content">
-                <ul>
-                    <li>
-                        <a href="/iniciodasboard" onclick="estadisticas()" class="sidebar-item">
-                            <div class="icon"><img src="/images/estadisticassd.png" aria-hidden="true"></div>
-                            <span class="expand-text">Estadística</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Home" onclick="home()" class="sidebar-item">
-                            <div class="icon"><img src="/images/Eventosss.png" aria-hidden="true"></div>
-                            <span class="expand-text">Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/calendario" onclick="calendario()" class="sidebar-item">
-                            <div class="icon"><img src="/images/calendariofinal.png" aria-hidden="true"></div>
-                            <span class="expand-text">Calendario</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/reportes" onclick="reportes()" class="sidebar-item">
-                            <div class="icon"><img src="/images/reportesbln.png" aria-hidden="true"></div>
-                            <span class="expand-text">Reportes</span>
-                        </a>
-                    </li>
-                </ul>
-                <li>
-                    <a href="/soporte" onclick="soporte()" class="sidebar-item">
-                        <div class="icon"><img src="/images/engranaje.png" aria-hidden="true"></div>
-                        <span class="expand-text">Soporte</span>
-                    </a>
-                </li>
+    <body>
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between mb-6">
+                <h1 class="text-3xl font-bold text-gray-800">Agregados Reciente...</h1>
+                <button id="addEventButton"
+                class="mt-4 sm:mt-0 px-4 py-2 text-white bg-[#0F293E] rounded shadow-md hover:bg-blue-900">
+                Agregar Evento +
+            </button>
+            </div>
+            <section>
+                <main>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="eventsGrid">
+                        <!-- Event cards will be dynamically added here -->
+                    </div>
+                    <div class="mt-12">
+                        <h2 class="text-xl font-bold text-gray-800">Eventos Registrados</h2>
+
+                        <!-- Add your code block here -->
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <div
+                            class="flex flex-col sm:flex-row items-center justify-between pb-4 space-y-4 sm:space-y-0">
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 flex items-center px-3 pointer-events-none">
+                                    <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 19-4-4m2-7A8 8 0 1 1 1 8a8 8 0 0 1 16 0Z" />
+                                </svg>
+                            </div>
+                            <input type="text" id="table-search"
+                            class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-full sm:w-96 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Buscar">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="eventsTable"
+                        class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-xs font-semibold text-white uppercase bg-gray-700 table-header">
+                            <tr>
+                                <th scope="col" class="text-center px-6 py-3">Nombre</th>
+                                <th scope="col" class="text-center px-6 py-3">Fecha</th>
+                                <th scope="col" class="text-center px-6 py-3">Responsable</th>
+                                <th scope="col" class="text-center px-6 py-3">Movilidad</th>
+                                <th scope="col" class=" text-center px-6 py-3">Estado</th>
+                                <th scope="col" class="text-center px-6 py-3">Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsTableBody" class="table-body">
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <td
+                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                NameEvent</td>
+                                                <td class="px-6 py-4">Start Date</td>
+                                                <td class="px-6 py-4">End Date</td>
+                                                <td class="px-6 py-4">NameDirect</td>
+                                                <td class="px-6 py-4"><span class="status">Finalizado</span></td>
+                                                <td class="px-6 py-4"><button class="details">Ver</button></td>
+                                            </tr>
+                                        <!-- Add more rows as needed -->
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </main>
+            </section>
+        </div>
+        <div id="eventModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+            <div class="w-full max-w-lg p-6 bg-white rounded-lg shadow-lg">
+                <h2 class="mb-4 text-2xl font-bold">Agregar Nuevo Evento</h2>
+                <form id="eventForm">
+                    <div class="mb-4">
+                        <label for="eventName" class="block mb-2 font-bold text-gray-700">Nombre del Evento</label>
+                        <input type="text" id="eventName"
+                        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200">
+                    </div>
+                    <div class="mb-4">
+                        <label for="eventDirector" class="block mb-2 font-bold text-gray-700">Director del
+                            Evento</label>
+                            <input type="text" id="eventDirector"
+                            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200">
+                        </div>
+                        <div class="mb-4">
+                            <label for="eventModalidad" class="block mb-2 font-bold text-gray-700">Tipo de movilidad</label>
+                            <select
+                            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200"
+                            name="eventModalidad" id="eventModalidad">
+                            <option value="" disabled selected>Seleccione un tipo de movilidad</option>
+                            <option value="Entrante virtual">Entrante virtual</option>
+                            <option value="Entrante presencial">Entrante presencial</option>
+                            <option value="Saliente virtual">Saliente virtual</option>
+                            <option value="Saliente presencial">Saliente presencial</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="eventStartDate" class="block mb-2 font-bold text-gray-700">Fecha de Inicio</label>
+                        <input type="date" id="eventStartDate"
+                        class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200">
+                    </div>
+                    <div class="mb-4">
+                        <label for="eventEndDate" class="block mb-2 font-bold text-gray-700">Fecha de
+                            Finalización</label>
+                            <input type="date" id="eventEndDate"
+                            class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-200">
+                        </div>
+                    <div class="flex justify-end">
+                        <button type="button" id="closeModalButton"
+                        class="px-4 py-2 mr-2 text-gray-700 bg-gray-200 rounded hover:bg-gray-300">Cancelar</button>
+                        <button type="submit"
+                        class="px-4 py-2 text-white bg-[#0F293E] rounded hover:bg-blue-900">Agregar Evento</button>
+                    </div>
+                </form>
             </div>
         </div>
-
-
-        <body class="flex items-center justify-center min-h-screen bg-gray-100">
-
-            <div class="container px-10 mx-auto mt-10">
-                <div class="flex items-center justify-between mb-10">
-                    <h1 class="text-3xl font-bold text-gray-700">Eventos Recientes</h1>
-                    <button id="addEventButton"
-                        class="px-4 py-2 text-white transition bg-blue-600 rounded shadow-md hover:bg-blue-700">Agregar
-                        evento +</button>
-                </div>
-
-                <section class="container p-6 mx-auto bg-white rounded-md shadow-md">
-                    <main class="container p-6 mx-auto">
-                        <div class="grid grid-cols-3 gap-6" id="eventsGrid">
-                            <!-- Example Event Cards -->
-                            <div
-                                class="flex flex-col justify-between w-full p-6 text-white rounded-md shadow-md card bg-gradient-to-r from-blue-500 to-indigo-600">
-                                <h3 class="text-xl font-bold">Internacionalizacion</h3>
-                                <p>Innova _ Colombia</p>
-                                <p>Fecha: 14-06 hasta las 6:00 P.M.</p>
-                            </div>
-                            <div
-                                class="flex flex-col justify-between w-full p-6 text-white rounded-md shadow-md card bg-gradient-to-r from-blue-500 to-indigo-600">
-                                <h3 class="text-xl font-bold">Hermes</h3>
-                                <p>Tecnologico _ Colombia</p>
-                                <p>Fecha: 17-06 hasta las 3:00 P.M.</p>
-                            </div>
-                            <div
-                                class="flex flex-col justify-between w-full p-6 text-white rounded-md shadow-md card bg-gradient-to-r from-blue-500 to-indigo-600">
-                                <h3 class="text-xl font-bold">Los Panes</h3>
-                                <p>Panderia _ Colombia</p>
-                                <p>Fecha: 21-06 hasta las 9:00 A.M.</p>
-                            </div>
-                        </div>
-                    </main>
-                </section>
-                <br><br><br>
-
-                <section class="container p-6 mx-auto bg-white rounded-md shadow-md">
-                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <table class="w-full text-sm text-left rtl:text-right text-white dark:text-gray-400">
-                            <thead class="text-xs text-gray-700 uppercase bg-current dark:bg-gray-700 dark:text-gray-400">
-                                <tr>
-                                    <th scope="col" class="px-6 py-3 text-white">
-                                        NOMBRE
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-white">
-                                        FECHA
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-white">
-                                        DIRECTOR
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-white">
-                                        ESTADO
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-white">
-                                        DETALLES
-                                    </th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Internacionalizacion
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
-                                        Innova _ Colombia
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
-                                        Fecha: 14-06 hasta las 6:00 P.M.
-                                    </td>
-                                    <td>
-                                        <button type="button" class="text-white bg-gradient-to-r px-6 py-3  from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Green</button>
-
-                                    </td>
-
-
-                                </tr>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Hermes
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
-                                        Tecnologico _ Colombia
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
-                                        Fecha: 17-06 hasta las 3:00 P.M.
-                                    </td>
-                                    <td>
-                                        <button type="button" class="flex items-center justify-center text-white bg-gradient-to-r px-6 py-3  from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Green</button>
-
-                                    </td>
-
-                                </tr>
-                                <tr class="bg-white dark:bg-gray-800">
-                                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Los Panes
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
-                                        Panderia _ Colombia
-                                    </td>
-                                    <td class="px-6 py-4 text-gray-900 dark:text-white">
-                                        Fecha: 21-06 hasta las 9:00 A.M.
-                                    </td>
-                                    <td>
-                                        <button type="button" class="text-white bg-gradient-to-r px-6 py-3 from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Red</button>
-
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <div id="slideInForm" class="slide-in rounded-l-md">
-                    <div class="flex items-center justify-between mb-4 modal-header">
-                        <h2 class="text-2xl font-bold text-gray-700">Agregar evento</h2>
-                        <button id="closeSlideInForm" class="text-xl font-bold text-red-500">X</button>
-                    </div>
-                    <form id="eventForm" class="modal-body">
-                        <input id="eventName" type="text" placeholder="Nombre del evento"
-                            class="w-full p-2 mb-4 border border-gray-300 rounded">
-                        <input id="eventDirector" type="text" placeholder="Director del evento"
-                            class="w-full p-2 mb-4 border border-gray-300 rounded">
-                        <button type="button" id="activityTypeButton"
-                            class="w-full p-2 mb-4 text-white transition bg-blue-600 rounded hover:bg-blue-700">Tipo de
-                            actividad</button>
-                        <div id="participantsList" class="mb-4">
-                            <button type="button" id="addParticipantButton"
-                                class="w-full p-2 mb-2 text-white transition bg-blue-600 rounded hover:bg-blue-700">Agregar
-                                participante +</button>
-                        </div>
-                        <input id="eventDate" type="text" placeholder="Fechas"
-                            class="w-full p-2 mb-4 border border-gray-300 rounded">
-                    </form>
-                    <div class="modal-footer">
-                        <button type="button" id="saveEventButton"
-                            class="w-full px-4 py-2 text-white transition bg-blue-600 rounded shadow hover:bg-blue-700">Guardar
-                            evento</button>
-                    </div>
-                </div>
-            </div>
-        </body>
     </body>
-
 </x-app-layout>
+</html>
